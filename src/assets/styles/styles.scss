@@ -1,0 +1,718 @@
+@import 'variables';
+/* fonts */
+@font-face {
+    font-family: 'Montserrat-Light';
+    src: url('../fonts/Montserrat-Light/Montserrat-Light.eot?#iefix') format('embedded-opentype'),  url('../fonts/Montserrat-Light/Montserrat-Light.otf')  format('opentype'),
+           url('../fonts/Montserrat-Light/Montserrat-Light.woff') format('woff'), url('../fonts/Montserrat-Light/Montserrat-Light.ttf')  format('truetype'), url('../fonts/Montserrat-Light/Montserrat-Light.svg#Montserrat-Light') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../fonts/Montserrat-Regular/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),  url('../fonts/Montserrat-Regular/Montserrat-Regular.otf')  format('opentype'),
+           url('../fonts/Montserrat-Regular/Montserrat-Regular.woff') format('woff'), url('../fonts/Montserrat-Regular/Montserrat-Regular.ttf')  format('truetype'), url('../fonts/Montserrat-Regular/Montserrat-Regular.svg#Montserrat-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Montserrat-SemiBold';
+    src: url('../fonts/Montserrat-SemiBold/Montserrat-SemiBold.eot?#iefix') format('embedded-opentype'),  url('../fonts/Montserrat-SemiBold/Montserrat-SemiBold.otf')  format('opentype'),
+           url('../fonts/Montserrat-SemiBold/Montserrat-SemiBold.woff') format('woff'), url('/fonts/Montserrat-SemiBold/Montserrat-SemiBold.ttf')  format('truetype'), url('../fonts/Montserrat-SemiBold/Montserrat-SemiBold.svg#Montserrat-SemiBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+      margin:0;
+      background: $body-bg;
+      color: $black;
+      @include font-style($fontfamily-light, 14px, normal);
+  }
+  main {
+    flex: 1 0 auto;
+  }
+  app-header, app-footer {
+      -webkit-box-flex: 0;
+      -webkit-flex: none;
+      -ms-flex: none;
+      flex: none;
+  }
+  li{
+      list-style: none;
+  }
+  app-root.main, .container-fluid {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+  }
+  .danger-txt{
+      color:$danger-color;
+  }
+  .btn{
+      cursor: pointer;
+      &:hover{
+          @include opacity(0.8);
+      }
+  }
+  .primary-btn, .secondary-btn, .view-btn {
+      color:$white-color;
+      min-width: 150px;
+      padding: 8px 15px;
+  }
+  .primary-btn{
+      background: $primary-btn;    
+  }
+  .secondary-btn{
+      background: $secondary-btn;    
+  }
+  .view-btn {
+      background: transparent;
+      border:1px solid $primary-btn;
+      color: $primary-btn;
+      @include font-style($fontfamily-light !important, 14px !important, normal);
+  }
+  .notes-icon{
+      background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -208px -14px;
+      @include width-height(23px,23px);
+  }
+  .info-icon{
+      background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -240px -12px;
+      @include width-height(23px,23px);
+  }
+  .left-arrow-icon{
+      background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -593px -15px;
+      @include width-height(28px,28px);
+  }
+  label{
+      color: $label-color;
+  }
+  select {    
+      background: #fff url('#{$assetImgPath}/arrow_icons.png') no-repeat 96% 50% !important;
+      padding-right: 30px;
+      @include x-appearance(none);
+      &::-ms-expand {
+          display: none;
+      }
+  }
+  .error-message{
+      color:$danger-color;
+  }
+  .row.tile-section {
+      background: $dark-blue;
+      position: relative;
+      h4 {
+          color: $white-color;
+          padding: 15px 25px;
+          display: inline-block;
+          border-bottom: 5px solid $medium-dark-blue;
+          font-size: 18px;
+      }
+      &::after{
+          content: "";
+          position: absolute;
+          @include width-height(0px, 0px);
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 12px solid $dark-blue;
+          right: 0;
+          left: 0;
+          margin: auto;
+          top: -12px;
+      }
+  }
+  .tile-subsection {
+      padding: 20px 0;
+      background: $white-color;
+      @include box-shadow(0, 1px, 10px, rgba(0, 0, 0, 0.075));  
+      h5{
+          color:$dark-blue;
+          @include font-style($fontfamily-regular, 18px, normal);
+      }
+  }
+  .ng-invalid.ng-touched{
+        border-color: $danger-color !important;
+    }
+  .main-content {
+      margin: 25px;
+      width: 100%;
+      background: $white-color;
+      @include border-radius(5px);
+      min-height: 640px;
+      @include box-shadow(0, 1px, 10px, rgba(0, 0, 0, 0.075));
+      //box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0px rgba(0, 0, 0, 0.12);
+      .heading-sec {
+          border-bottom: 1px solid $border-color;        
+          padding:0 50px;
+          h5{
+              @include font-style($fontfamily-regular, 18px, normal);
+              &:hover .left-arrow-icon{
+                  background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -593px -75px !important;
+              }
+          }
+          span.date-lbl{
+              font-size: 16px;
+          }      
+      }
+      .form-container {
+          padding: 0 50px;
+      }
+      span.name-lbl {
+          padding: 10px 20px;
+          background: $body-bg;
+          @include border-radius(5px);
+          font-size: 16px;
+      }
+  }
+  
+  /* start input custom meterial */
+  .group{ 
+      position:relative;   
+      margin-bottom: 35px;
+      .inputMaterial {
+          font-size:18px;
+          padding:10px 10px 10px 0px;
+          display:block;
+          width:100%;
+          border:none;
+          border-bottom:1px solid #dadada;
+          height: 48px;
+          @include border-radius(0px); 
+          &:focus{ 
+              outline:none;
+              box-shadow: none;
+          }
+          &:disabled {
+              background: transparent;
+              border-bottom: 2px dashed #dadada;
+          }
+      }    
+      &.error .inputMaterial{
+          border-color: $danger-color !important;
+      }
+      > label {
+          color: $label-color; 
+          font-size:1rem;
+          font-weight:normal;
+          position:absolute;
+          pointer-events:none;
+          left:0;
+          top:10px;
+          transition:0.2s ease all; 
+          -moz-transition:0.2s ease all; 
+          -webkit-transition:0.2s ease all;
+      }
+      /* active state */
+      .inputMaterial:focus ~ label, 
+      .inputMaterial:valid ~ label, 
+      .inputMaterial:disabled ~ label,
+      p-calendar.ui-inputwrapper-focus ~ label, 
+      p-calendar.ui-inputwrapper-filled	~ label,
+      p-inputmask.ui-inputwrapper-focus ~ label,
+      p-inputmask.ui-inputwrapper-filled ~ label	{
+          top:-15px;
+          min-width: 350px;
+          font-size:.8rem;
+      }
+      /* BOTTOM BARS */
+      .bar 	{ 
+          position:relative; 
+          display:block; 
+          width:100%; 
+      }
+      .bar:before, .bar:after {
+          content:'';
+          height:2px; 
+          width:0;
+          bottom:0; 
+          position:absolute;
+          background: $medium-light-blue; 
+          transition:0.2s ease all; 
+          -moz-transition:0.2s ease all; 
+          -webkit-transition:0.2s ease all;
+      }
+      .bar:before {
+          left:50%;
+      }
+      .bar:after {
+          right:50%; 
+      }
+      /* active state */
+      .inputMaterial:focus, p-calendar.ui-inputwrapper-focus, p-inputmask.ui-inputwrapper-focus {
+          ~ .bar:before, ~ .bar:after {
+              width:50%;
+          }
+      }
+      /* active state */
+      .inputMaterial:focus ~ .highlight, 
+      p-calendar.ui-inputwrapper-focus ~ .highlight, p-inputmask.ui-inputwrapper-focus ~ .highlight{
+          -webkit-animation:inputHighlighter 0.3s ease;
+          -moz-animation:inputHighlighter 0.3s ease;
+          animation:inputHighlighter 0.3s ease;
+      }
+      .cal-icon::after {
+        content: "";       
+        background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -656px 0px;
+        position: absolute;
+        right: 7px;
+        width: 26px;
+        height: 40px;
+        top: 0;
+        cursor: pointer;
+    }
+   p-calendar{
+       position: absolute;
+   }
+      p-calendar span.ui-calendar{
+          width: 100%;
+           input.ui-inputtext {
+              border: none;
+              display: inline-block;
+              width: 100%;
+              border-bottom: 1px solid #dadada;
+              display: none;
+          }
+          .ui-calendar-button{
+              border: none;
+              background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -656px 0px;
+              position: absolute;
+              right: 0;
+              &:hover{
+                  background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -656px 0px;
+                  border: none;
+              }
+          }
+          .ui-datepicker{
+              width: 20em;
+              top: -14px !important;
+              td{border: none;}
+              a{
+                  margin: 2px;
+                  &.ui-state-active{
+                      @include border-radius(5px);
+                  }
+                  &.ui-state-highlight {
+                      background: $green;
+                      color: $white-color;
+                      @include border-radius(5px);
+                      @include opacity(0.8);
+                      font-weight: bold;
+                  }
+                  &.ui-state-active{
+                      background: $green;
+                  }   
+              }
+              .ui-widget-header{
+                  background: $white-color;
+                  border:none;
+                  padding: 10px 0;
+                  > a {
+                      &.ui-datepicker-next{
+                          @include width-height(15px, 20px);
+                          right: 15px;
+                          top:8px;
+                          span.fa-angle-right {
+                              background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -475px -15px;
+                              @include width-height(15px, 20px);
+                          }
+                      }
+                      &.ui-datepicker-prev{
+                          @include width-height(15px, 20px);
+                          left: 8px;
+                          top:8px;
+                          span.fa-angle-left {
+                              background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -450px -15px;
+                              @include width-height(15px, 20px);
+                          }
+                      }
+                      &:hover{
+                          background: transparent;
+                      }
+                  }       
+              }
+          }
+      }    
+  }
+  .ui-tooltip {
+      &.ui-tooltip-bottom .ui-tooltip-arrow {
+          border-bottom-color: #d0cfcf;
+      }
+      &.ui-tooltip-right .ui-tooltip-arrow {
+          border-right-color: #d0cfcf;
+      }
+      .ui-tooltip-text{
+          background: $white-color;
+          color: $black;
+          padding: 8px 10px;
+      }
+  }
+  /* Multiselect .ui-dropdown */
+  p-multiselect{
+          .ui-multiselect{
+              @include border-radius(0px);
+              @include font-style($fontfamily-light, 16px, normal);
+              &:not(.ui-state-disabled):hover, &.ui-state-focus {
+                  background: transparent;
+                  box-shadow: none;                
+              }
+              &::after{
+                  content:"";
+                  background: url('#{$assetImgPath}/arrow_icons.png') no-repeat center center;
+                  @include width-height(20px, 20px);
+                  display: block;
+                  right: 5px;
+                  position: absolute;
+                  top: 0;
+                  bottom: 0;
+                  margin: auto;
+              }
+              .ui-multiselect-header{
+                  display: none;
+              }
+              .ui-multiselect-item{
+                  padding: 5px;
+                  &.ui-state-highlight{
+                      background: $select-active;
+                  }                             
+                  label{margin: 0;}                
+                  .ui-chkbox-box{     
+                      @include width-height(24px, 24px);               
+                      .ui-chkbox-icon.fa.fa-check{
+                          background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -1085px -10px;
+                          @include width-height(20px, 20px);
+                      }
+                      &.ui-state-active{
+                          background: $green;
+                          border-color: $green;
+                      }
+                  }
+              }
+              .ui-multiselect-label{
+                  color: $black;
+              }
+              
+          }
+          .ui-multiselect-trigger{
+              border:none;
+          }
+          .ui-multiselect-label-container, .ui-multiselect-label, .ui-shadow {
+              outline: none;
+              box-shadow: none;
+          }
+  
+      } 
+  
+  /* Pagination */
+  .paginator {
+      float: right;
+      background: $white-color;
+      position: relative;
+      @include border-radius(3px);
+      padding: 0;
+      margin-left: 150px;
+      @include font-style($fontfamily-light, 14px, normal);
+      > a{
+          border-width: 0 1px 0 0;
+          @include border-radius(0px);
+          padding: 8px !important;
+          float: left;
+          margin: 0 !important;
+          &.ui-paginator-last{
+              border: 0;            
+          }
+      }
+      span.ui-paginator-pages{    
+          padding: 0;    
+          margin: 0;
+          float: left;
+          .ui-paginator-page{
+              padding: 11px 15px;
+              @include border-radius(0px);
+              border-width: 0 1px 0 0;
+              margin: 0;
+              height: 42px;
+              line-height: 1.5;
+              &.ui-state-active{
+                  background: $green;
+                  border-color:$green;
+                  color: $white-color;
+              }
+          }
+      }
+      .fa{
+          display: block;
+          @include width-height(26px, 26px);
+          &.fa-backward{        
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -444px -12px;
+          }
+          &.fa-step-backward{
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -373px -12px;
+          }
+          &.fa-forward{
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -469px -12px;
+          }
+          &.fa-step-forward{
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -406px -12px;
+          }
+      }
+      p-dropdown{
+          &::before{
+              content: "Show";
+              position: absolute;
+              left: -130px;
+              top: 9px;
+              color:#98989a;
+              @include font-style($fontfamily-light, 16px, normal);
+          }
+          .ui-dropdown {
+              position: absolute;
+              left: -80px;
+              height: 44px;
+              .ui-dropdown-label{
+                  height: 42px;
+                  line-height: 2.5;
+                  padding: 5px 40px 5px 8px;
+              }
+              .ui-dropdown-item{
+                  padding:5px;
+                  &.ui-state-highlight{                    
+                      background: $green;
+                  }
+              }
+              .ui-dropdown-trigger{
+                  border-left: 0;
+                  .fa.fa-fw.fa-caret-down{
+                      margin-left: -5px;
+                      background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -332px -3px;
+                  }
+              }
+          }
+      }
+  }
+  .paginator-count{
+      float: right;
+      padding:12px 0;
+      @include font-style($fontfamily-light, 16px, normal);
+       span{
+          color:#98989a;
+      }
+  }
+  
+  /* ANIMATIONS ================ */
+  @-webkit-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#5264AE; }
+    to 	{ width:0; background:transparent; }
+  }
+  
+  
+  //popup msg
+  p-growl div.ui-growl{
+      width: 350px !important;
+      position: fixed;
+      top: 205px;
+      right: 0;
+      left: 0;
+      width: 20em;
+      bottom: 0;
+      margin: auto;
+      .ui-growl-item-container{
+          padding: 5px;
+          &:before{
+              width: 22px;
+              content: " ";
+              position: absolute;
+              left: 15px;
+              top: 10px;
+              height: 22px;
+          }
+      }
+      .ui-growl-message-error{
+          &:before{
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -954px -15px;
+          }
+      }
+      .ui-growl-message-warn{
+          &:before{
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -1003px -15px;
+          }
+      }
+      .ui-growl-message-info{
+          &:before{
+              background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -1046px -15px;
+          }
+      }
+      .ui-growl-message{
+          padding: 0;
+          span.ui-growl-title{
+              padding: 0;
+          }
+      }
+  }
+  
+  .ui-growl-item-container.ui-state-highlight {
+      &.ui-growl-message-error{
+          color: #ab1a0f;
+          background-color: #ffcbc8;
+          border-color: #ffcbc8;
+      }
+      &.ui-growl-message-warn{
+          color: #8a6714;
+          background-color: #ffe9b5;
+          border-color: #ffe9b5;
+      }
+      &.ui-growl-message-info{
+          color: #1765a3;
+          background-color: #bfe0fa;
+          border-color: #bfe0fa;
+      }
+  }
+  
+  .ui-growl-icon-close{
+      &:after{
+              width: 22px;
+              content: "\00D7";
+              position: absolute;
+              right: 0px;
+              height: 22px;
+              font-size: 18px;
+              cursor: pointer;
+          }
+  }
+      
+  //switch on-off
+  .onoffswitch {
+    position: relative;
+    width: 80px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+  }
+  
+  .onoffswitch-checkbox {
+    display: none;
+  }
+  
+  .onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid none;
+    border-radius: 20px;
+  
+  }
+  
+  .onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    @include font-style($fontfamily-light, 14px, normal);
+    transition: margin 0.3s ease-in 0s;
+    &:before, &:after {
+      display: block;
+      float: left;
+      @include width-height(50%, 30px);
+      padding: 0;
+      line-height: 30px;
+      color:$white-color;    
+      box-sizing: border-box;
+    }
+    &:before {
+      content: "YES";
+      padding-left: 10px;
+      background-color: #11BD12;
+      color: $white-color;
+    }
+    &:after {
+      content: "NO";
+      padding-right: 10px;
+      background-color: #CCCCCC;
+      color: $white-color;
+      text-align: right;
+    }
+  }
+  
+  .onoffswitch-switch {
+    display: block;
+    width: 20px;
+    margin: 5px;
+    background: $white-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 46px;
+    border: 2px solid none;
+    border-radius: 20px;
+    transition: all 0.3s ease-in 0s;
+  }
+  
+  .onoffswitch-checkbox:checked + .onoffswitch-label {
+    .onoffswitch-inner {
+      margin-left: 0;
+    }
+    .onoffswitch-switch {
+      right: 0px;
+    }
+  }
+  
+  //checkbox
+  .ui-chkbox-box.ui-state-active, .ui-radiobutton-box.ui-state-active {
+          border: 1px solid $green!important;
+          background: $green!important;
+  
+      .ui-chkbox-icon{
+          display: inline-block;
+          @include width-height(20px, 20px);
+          background: url(#{$assetImgPath}/customer-sprite-icons.png) no-repeat -1087px -12px;
+      }
+      }
+      .ui-chkbox .ui-chkbox-box {
+          @include width-height(20px, 20px);
+      }
+  
+  //accordian
+  
+  .ui-accordion{
+      .ui-accordion-header{
+          @include font-style($fontfamily-light, 16px, normal);
+          >.fa{
+              background: url(#{$assetImgPath}/customer-sprite-icons.png) no-repeat -1098px -129px;
+              @include width-height(22px,22px);
+              display: inline-block;
+              right: 25px;
+              left: auto;
+          }
+          &.ui-state-active{
+              >.fa{
+                  background: url(#{$assetImgPath}/customer-sprite-icons.png) no-repeat -1098px -108px;
+              }
+          }
+      }
+      .ui-accordion-content{
+           @include font-style($fontfamily-light, 16px, normal);
+      }
+  }
+  
+  .in-active-menu {
+    border-bottom-color: $dark-blue !important;
+  }
+  
+  
+  
+  /* Media css */
+  @media #{$tablet} {
+      .group > label{
+          font-size: 14px;
+      }
+  }
+  @media #{$small-tablet} {
+      body{
+          overflow-x: scroll;
+          width: 768px;
+      }
+  }

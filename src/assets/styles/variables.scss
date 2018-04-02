@@ -1,0 +1,37 @@
+@import '/mixins.scss';
+
+
+
+
+$fontfamily-light: 'Montserrat-Light', sans-serif;
+$fontfamily-regular: 'Montserrat-Regular', sans-serif;
+$fontfamily-semibold: 'Montserrat-SemiBold', sans-serif;
+
+/* Media Variables */
+$x-large-desktop: "only screen and (min-width: 1200px) and (max-width: 1407px)";
+$large-desktop: "only screen and (min-width: 1024px) and (max-width: 1199px)";
+$desktop: "only screen and (min-width: 800px) and (max-width: 1023px)";
+$tablet: "only screen and (min-width: 768px) and (max-width: 991px)";
+$small-tablet: "only screen and (max-width: 767px)";
+
+/* Asset Path */
+$assetImgPath : "/assets/images";
+
+/* Others Variables */
+$body-bg:#f4f8f9;
+$white-color:#ffffff;
+$dark-blue:#036aa4;
+$medium-light-blue:#007dc3;
+$medium-dark-blue:#1595dd;
+$light-blue:#7fd2ff;
+$label-color:#acacac;
+$danger-color:#ff4949;
+$primary-btn:#ffa500;
+$secondary-btn:#cccccc;
+$border-color:rgba(0,0,0,.1);
+$green:#4ebf29;
+$card-border:#e1e1e1;
+$select-active:#f9f9f9;
+$black:#202020;
+$pagination-active:#e9efef;
+$table-header:#048ddb;

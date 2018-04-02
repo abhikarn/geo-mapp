@@ -1,0 +1,486 @@
+@import 'variables';
+@import 'styles';
+
+/* fonts */
+@font-face {
+  font-family: 'Montserrat-Light';
+  src: url('../../assets/fonts/Montserrat-Light/Montserrat-Light.eot?#iefix') format('embedded-opentype'),  url('../../assets/fonts/Montserrat-Light/Montserrat-Light.otf')  format('opentype'),
+	     url('../../assets/fonts/Montserrat-Light/Montserrat-Light.woff') format('woff'), url('../../assets/fonts/Montserrat-Light/Montserrat-Light.ttf')  format('truetype'), url('../../assets/fonts/Montserrat-Light/Montserrat-Light.svg#Montserrat-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-Regular';
+  src: url('../../assets/fonts/Montserrat-Regular/Montserrat-Regular.eot?#iefix') format('embedded-opentype'),  url('../../assets/fonts/Montserrat-Regular/Montserrat-Regular.otf')  format('opentype'),
+	     url('../../assets/fonts/Montserrat-Regular/Montserrat-Regular.woff') format('woff'), url('../../assets/fonts/Montserrat-Regular/Montserrat-Regular.ttf')  format('truetype'), url('../../assets/fonts/Montserrat-Regular/Montserrat-Regular.svg#Montserrat-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src: url('../../assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.eot?#iefix') format('embedded-opentype'),  url('../../assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.otf')  format('opentype'),
+	     url('../../assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.woff') format('woff'), url('/fonts/Montserrat-SemiBold/Montserrat-SemiBold.ttf')  format('truetype'), url('../../assets/fonts/Montserrat-SemiBold/Montserrat-SemiBold.svg#Montserrat-SemiBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+    margin:0;
+    background: $body-bg;
+    color: $black;
+    @include font-style($fontfamily-light, 14px, normal);
+}
+main {
+  flex: 1 0 auto;
+}
+app-header, app-footer {
+    -webkit-box-flex: 0;
+    -webkit-flex: none;
+    -ms-flex: none;
+    flex: none;
+}
+li{
+    list-style: none;
+}
+app-feature.main, .container-fluid {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.danger-txt{
+    color:$danger-color;
+}
+.btn{
+    cursor: pointer;
+}
+.primary-btn, .secondary-btn, .view-btn {
+    color:$white-color;
+    min-width: 150px;
+    padding: 8px 15px;
+}
+.primary-btn{
+    background: $primary-btn;    
+}
+.secondary-btn{
+    background: $secondary-btn;    
+}
+.view-btn {
+    background: transparent;
+    border:1px solid $primary-btn;
+    color: $primary-btn;
+    @include font-style($fontfamily-light, 14px, normal);
+}
+.notes-icon{
+    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -208px -14px;
+    @include width-height(23px,23px);
+}
+.info-icon{
+    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -240px -12px;
+    @include width-height(23px,23px);
+}
+.left-arrow-icon{
+    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -593px -15px;
+    @include width-height(28px,28px);
+}
+label{
+    color: $label-color;
+}
+select {    
+    background: #fff url('#{$assetImgPath}/arrow_icons.png') no-repeat 96% 50% !important;
+    padding-right: 30px;
+    @include x-appearance(none);
+    &::-ms-expand {
+        display: none;
+    }
+}
+.error-message{
+    color:$danger-color;
+}
+.row.tile-section {
+    background: $dark-blue;
+    position: relative;
+    h4 {
+        color: $white-color;
+        padding: 15px 25px;
+        display: inline-block;
+        border-bottom: 5px solid $medium-dark-blue;
+        font-size: 18px;
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        @include width-height(0px, 0px);
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 12px solid $dark-blue;
+        right: 0;
+        left: 0;
+        margin: auto;
+        top: -12px;
+    }
+}
+.tile-subsection {
+    padding: 20px 0;
+    background: $white-color;
+    @include box-shadow(0, 1px, 10px, rgba(0, 0, 0, 0.075));  
+    h5{
+        color:$dark-blue;
+        @include font-style($fontfamily-regular, 18px, normal);
+    }
+}
+.ng-invalid.ng-touched{
+    border-color: $danger-color !important;
+
+}
+
+.main-content {
+    margin: 25px;
+    width: 100%;
+    background: $white-color;
+    @include border-radius(5px);
+    min-height: 640px;
+    @include box-shadow(0, 1px, 10px, rgba(0, 0, 0, 0.075));
+    //box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 10px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0px rgba(0, 0, 0, 0.12);
+    .heading-sec {
+        border-bottom: 1px solid $border-color;        
+        padding:0 50px;
+        h5{
+            @include font-style($fontfamily-regular, 18px, normal);
+            &:hover .left-arrow-icon{
+                background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -593px -75px !important;
+            }
+        }
+        span.date-lbl{
+            font-size: 16px;
+        }      
+    }
+    .form-container {
+        padding: 0 50px;
+    }
+    span.name-lbl {
+        padding: 10px 20px;
+        background: $body-bg;
+        @include border-radius(5px);
+        font-size: 16px;
+    }
+}
+
+/* start input custom meterial */
+.group{ 
+    position:relative;   
+    margin-bottom: 35px;
+    .inputMaterial {
+        font-size:18px;
+        padding:10px 10px 10px 0px;
+        display:block;
+        width:100%;
+        border:none;
+        border-bottom:1px solid #dadada;
+        height: 48px;
+        &:focus{ 
+            outline:none;
+            box-shadow: none;
+        }
+        &:disabled {
+            background: transparent;
+            border-bottom: 1px dashed #dadada;
+        }
+    }    
+    // &.error .inputMaterial{
+    //     border-color: $danger-color !important;
+    // }
+    > label {
+        color: $label-color; 
+        font-size:1rem;
+        font-weight:normal;
+        position:absolute;
+        pointer-events:none;
+        left:0;
+        top:10px;
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+    }
+    /* active state */
+    .inputMaterial:focus ~ label, 
+    .inputMaterial:valid ~ label, 
+    .inputMaterial:disabled ~ label,
+    p-calendar.ui-inputwrapper-focus ~ label, 
+    p-calendar.ui-inputwrapper-filled	~ label	{
+        top:-15px;
+        min-width: 350px;
+        font-size:.8rem;
+    }
+    /* BOTTOM BARS */
+    .bar 	{ 
+        position:relative; 
+        display:block; 
+        width:100%; 
+    }
+    .bar:before, .bar:after {
+        content:'';
+        height:2px; 
+        width:0;
+        bottom:0; 
+        position:absolute;
+        background: $medium-light-blue; 
+        transition:0.2s ease all; 
+        -moz-transition:0.2s ease all; 
+        -webkit-transition:0.2s ease all;
+    }
+    .bar:before {
+        left:50%;
+    }
+    .bar:after {
+        right:50%; 
+    }
+    /* active state */
+    .inputMaterial:focus, p-calendar.ui-inputwrapper-focus {
+        ~ .bar:before, ~ .bar:after {
+            width:50%;
+        }
+    }
+    /* active state */
+    .inputMaterial:focus ~ .highlight, 
+    p-calendar.ui-inputwrapper-focus ~ .highlight{
+        -webkit-animation:inputHighlighter 0.3s ease;
+        -moz-animation:inputHighlighter 0.3s ease;
+        animation:inputHighlighter 0.3s ease;
+    }
+    p-calendar span.ui-calendar{
+        width: 100%;
+         input.ui-inputtext {
+            border: none;
+            display: inline-block;
+            width: 100%;
+            border-bottom: 1px solid #dadada;
+        }
+        .ui-calendar-button{
+            border: none;
+            background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -656px 0px;
+            position: absolute;
+            right: 0;
+            &:hover{
+                background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -656px 0px;
+                border: none;
+            }
+        }
+        .ui-datepicker{
+            width: 20em;
+            td{border: none;}
+            a{
+                margin: 2px;
+                &.ui-state-active{
+                    @include border-radius(5px);
+                }
+                &.ui-state-highlight {
+                    background: $green;
+                    color: $white-color;
+                    @include border-radius(5px);
+                }
+            }
+            .ui-widget-header{
+                background: $white-color;
+                border:none;
+                > a {
+                    &.ui-datepicker-next{
+                        @include width-height(15px, 20px);
+                        right: 15px;
+                        span.fa-angle-right {
+                            background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -475px -15px;
+                            @include width-height(15px, 20px);
+                        }
+                    }
+                    &.ui-datepicker-prev{
+                        @include width-height(15px, 20px);
+                        left: 8px;
+                        span.fa-angle-left {
+                            background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -450px -15px;
+                            @include width-height(15px, 20px);
+                        }
+                    }
+                    &:hover{
+                        background: transparent;
+                    }
+                }       
+            }
+        }
+    }
+    p-multiselect{
+        .ui-multiselect{
+            @include border-radius(0px);
+            @include font-style($fontfamily-light, 16px, normal);
+            &:not(.ui-state-disabled):hover, &.ui-state-focus {
+                background: transparent;
+                box-shadow: none;                
+            }
+            &::after{
+                content:"";
+                background: url('#{$assetImgPath}/arrow_icons.png') no-repeat center center;
+                @include width-height(20px, 20px);
+                display: block;
+                right: 0;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            .ui-multiselect-header{
+                display: none;
+            }
+            .ui-multiselect-item{
+                padding: 5px;
+                &.ui-state-highlight{
+                    background: $select-active;
+                }                
+                label{margin: 0;}                
+                .ui-chkbox-box{     
+                    @include width-height(24px, 24px);               
+                    .ui-chkbox-icon.fa.fa-check{
+                        background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -1085px -10px;
+                        @include width-height(20px, 20px);
+                    }
+                    &.ui-state-active{
+                        background: $green;
+                        border-color: $green;
+                    }
+                }
+            }
+            .ui-multiselect-label{
+                color: $black;
+            }
+            
+        }
+        .ui-multiselect-trigger{
+            border:none;
+        }
+        .ui-multiselect-label-container, .ui-multiselect-label, .ui-shadow {
+            outline: none;
+            box-shadow: none;
+        }
+
+    } 
+}
+.ui-tooltip {
+    .ui-tooltip-arrow {
+        border-bottom-color: #d0cfcf;
+    }
+    .ui-tooltip-text{
+        background: $white-color;
+        color: $black;
+        padding: 8px 10px;
+    }
+}
+
+/* Pagination */
+.paginator {
+    float: right;
+    background: $white-color;
+    position: relative;
+    @include border-radius(3px);
+    padding: 0;
+    margin-left: 150px;
+    > a{
+        border-width: 0 1px 0 0;
+        @include border-radius(0px);
+        padding: 8px !important;
+        float: left;
+        margin: 0 !important;
+        &.ui-paginator-last{
+            border: 0;            
+        }
+    }
+    span.ui-paginator-pages{    
+        padding: 0;    
+        margin: 0;
+        float: left;
+        .ui-paginator-page{
+            padding: 11px 15px;
+            @include border-radius(0px);
+            border-width: 0 1px 0 0;
+            margin: 0;
+            &.ui-state-active{
+                background: $pagination-active;
+                border-color:#d6d6d6;
+                color: $black;
+            }
+        }
+    }
+    .fa{
+        display: block;
+        @include width-height(26px, 26px);
+        &.fa-backward{        
+            background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -444px -12px;
+        }
+        &.fa-step-backward{
+            background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -373px -12px;
+        }
+        &.fa-forward{
+            background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -469px -12px;
+        }
+        &.fa-step-forward{
+            background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -406px -12px;
+        }
+    }
+    p-dropdown{
+        &::before{
+            content: "Show";
+            position: absolute;
+            left: -130px;
+            top: 9px;
+            color:#98989a;
+            @include font-style($fontfamily-light, 16px, normal);
+        }
+        .ui-dropdown {
+            position: absolute;
+            left: -80px;
+            height: 44px;
+            .ui-dropdown-label{
+                height: 42px;
+                line-height: 2.5;
+                padding: 5px 40px 5px 8px;
+            }
+            .ui-dropdown-trigger{
+                border-left: 0;
+                .fa.fa-fw.fa-caret-down{
+                    margin-left: -5px;
+                    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -332px -3px;
+                }
+            }
+        }
+    }
+}
+.paginator-count{
+    float: right;
+    padding:12px;
+    @include font-style($fontfamily-light, 16px, normal);
+     span{
+        color:#98989a;
+    }
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+
+/* Media css */
+@media #{$tablet} {
+    .group > label{
+        font-size: 14px;
+    }
+}
+@media #{$small-tablet} {
+    body{
+        overflow-x: scroll;
+        width: 768px;
+    }
+}

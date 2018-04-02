@@ -1,0 +1,96 @@
+@import 'variables';
+
+p-dialog .ui-dialog, p-confirmdialog {
+    @include font-style($fontfamily-light, 14px, normal);
+    .ui-widget-header{
+        @include font-style($fontfamily-regular, 14px, normal);
+        background: $white-color;
+        border-bottom: 1px solid $border-color !important;
+    }
+    .ui-dialog-titlebar-icon{
+        &.ui-dialog-titlebar-close{
+            border:none;
+             span{
+                background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -712px -15px;
+                @include width-height(22px, 22px);
+            }
+        }
+        &:hover{
+            background: transparent !important;
+            border: none;
+        }
+    }
+    .ui-widget-content{
+        @include font-style($fontfamily-light, 16px, normal);
+        span.ui-confirmdialog-message{
+            @include font-style($fontfamily-regular, 16px, normal);
+        }
+    }
+    .ui-dialog-footer{
+        border:none;
+        text-align: center;
+        padding-bottom: 40px;
+        button{
+            color: $white-color;
+            min-width: 100px;
+            padding: 5px 15px 6px 0px !important;
+            border: none !important;
+            &:first-child{                
+                background: $secondary-btn !important;  
+            }
+            &:last-child{                
+                background: $primary-btn !important;  
+            }
+        }
+    }
+    table{
+        thead{
+            background: $dark-blue;
+            color: $white-color;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            th{border:none !important;}
+        }
+        tbody{
+            background: $body-bg;
+        }
+        &.table-curved {
+            border: solid #ccc 1px;
+            border-radius: 5px;
+            overflow: hidden;
+        }        
+    }    
+}
+span.name-lbl {
+    padding: 10px 20px;
+    background: $body-bg;
+    @include border-radius(5px);
+    font-size: 16px;
+}
+.cus-lbl{
+    color: $label-color;
+}
+.view-seg {
+    position: absolute;
+    top: 150px;
+    right: 0;
+}
+.dropdown-menu{
+    height: 129px;
+    overflow: auto;
+    .dropdown-item{
+        padding: 5px 5px 8px 15px;
+        margin: 0;
+        &:active{
+            background: $select-active;
+        }
+    }
+}
+
+@media #{$tablet} {
+    .dropdown-menu{
+        position: relative;
+        margin-bottom: 30px;
+    }
+}
+

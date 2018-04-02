@@ -1,0 +1,99 @@
+<section class="row">
+  <div class="main-content">
+    <div class="heading-sec py-4 ">
+      <div class="row">
+        <div class="col-sm-6">
+          <h5 class="mb-0 mr-3 d-inline">
+            <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click)="onCancelReset()"></span>{{segmentLabelText}}</h5>
+        </div>
+        <div class="col-sm-6 text-right" hidden="!editMode">
+          <label>Last Updated Date :</label>
+          <span class="date-lbl">11/11/2017</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-12 py-4 form-container">
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="group">
+            <select class='inputMaterial' required [(ngModel)]='geoMapping.country' (ngModelChange)="onOptionsSelected($event, 'country')">
+              <option class='bar' *ngFor='let option of optionsCountryMaster' [value]="option">{{option}}</option>
+            </select>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Country</label>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="group">
+            <select class='inputMaterial' required [(ngModel)]='geoMapping.zone' (ngModelChange)="onOptionsSelected($event, 'zone')">
+              <option class='option' *ngFor='let option of optionsZoneMaster' [value]="option">{{option}}</option>
+            </select>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Zone</label>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="group">
+            <select class='inputMaterial' required [(ngModel)]='geoMapping.branch' (ngModelChange)="onOptionsSelected($event, 'branch')">
+              <option class='option' *ngFor='let option of optionsBranchMaster' [value]="option">{{option}}</option>
+            </select>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Branch</label>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="group">
+            <select class='inputMaterial' required [(ngModel)]='geoMapping.state' (ngModelChange)="onOptionsSelected($event, 'state')">
+              <option class='option' *ngFor='let option of optionsStateMaster' [value]="option">{{option}}</option>
+            </select>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>State</label>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="group">
+            <select class='inputMaterial' required [(ngModel)]='geoMapping.supervisor' (ngModelChange)="onOptionsSelected($event, 'super')">
+              <option class='highlight' *ngFor='let option of optionsSupervisorMaster' [value]="option">{{option}}</option>
+            </select>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label>Superviser</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="group">
+            <input class="inputMaterial" type="text" [(ngModel)]='geoMapping.marketingUser' maxlength="50" ng-trim="true" required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label for="name">Marketing Heirarchy</label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 text-right">
+          <hr class="my-4">
+          <button type="button" class="btn secondary-btn mr-4" (click)="onCancelReset()">{{segmentButtonText}}</button>
+          <button type="submit" class="btn primary-btn" (click) ="saveData()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <div #modal></div> -->
+<p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
+  <p-footer>
+    <button type="button" pButton icon="fa-close" label="yes" (click)="cd.accept()" class="mr-4"></button>
+    <button type="button" pButton icon="fa-check" label="no" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>

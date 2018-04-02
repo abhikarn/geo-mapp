@@ -1,0 +1,58 @@
+@import 'variables';
+header {
+    background: $medium-light-blue;
+    color: $white-color;
+
+    .logo  {
+        > span{
+            background: url('#{$assetImgPath}/genworth.svg') no-repeat center center;
+            @include width-height(180px, 45px);
+        }
+        img{
+            width: 185px;
+        }
+    }
+    h5{
+        padding: 10px 0;
+        margin: 0;
+        a{
+            color:$white-color;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    nav ul li{
+        float: left;
+        border-left: 1px solid #1695db;
+        min-height: 77px;
+        display: flex;
+        align-items: center;
+        &.profile{
+            > span{
+                float: left;
+                > p{color:$light-blue;}
+            }
+            span.profile-img{
+                background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -102px -16px;
+                @include width-height(38px,38px);
+            }            
+        }
+        a.logout{
+            background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -163px -17px;
+            @include width-height(30px,30px);
+        } 
+    }
+}
+
+@media #{$tablet} {
+    nav ul li{
+        &.profile{
+            padding: 8px !important;
+            p{    font-size: 13px;}
+        }
+        &.admin {
+            padding: 0 0 0 10px !important;
+        }
+    }
+}
