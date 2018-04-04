@@ -1,6 +1,6 @@
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { WebService, ProductSegment, AppBaseComponent, Masters, GeoMapping } from 'app/app-core';
+import { WebService, AppBaseComponent, Masters, GeoMapping } from 'app/app-core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeWhile';
 import 'rxjs/add/observable/of';
