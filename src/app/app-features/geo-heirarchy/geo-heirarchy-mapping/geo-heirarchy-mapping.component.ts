@@ -3,36 +3,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, GeoMapping } from '@app/app-core';
 import { ConfirmationService } from 'primeng/primeng';
 @Component({
-  selector: 'app-create-geo-heirarchy',
+  selector: 'app-map-geo-heirarchy',
   templateUrl: './geo-heirarchy-mapping.component.html',
   styleUrls: ['./geo-heirarchy-mapping.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ProductSegmentComponent extends AppBaseComponent implements OnInit {
+export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit {
   segmentLabelText = '';
   segmentButtonText = '';
   editMode = false;
-  optionsCountryMaster = ['Nigeria', 'Ghana'];
-  optionsZoneMaster = ['NZoneA', 'NZoneB', 'NZoneC', 'GZoneA', 'GZoneB', 'GZoneC'];
-  optionsBranchMaster = ['NBranchA', 'NBranchB', 'NBranchC', 'GBranchA', 'GBranchB', 'GBranchC'];
-  optionsStateMaster = ['NStateA', 'NStateB', 'NStateC', 'GStateA', 'GStateB', 'GStateC'];
-  optionsSupervisorMaster = ['NSVA', 'NSVB', 'NSVC', 'GSVA', 'GSVB', 'GSVC'];
-  geoMapping: GeoMapping = {
-    country: '',
-    state: '',
-    zone: '',
-    branch: '',
-    supervisor: '',
-    marketingUser: '',
-  };
+  masters: any;
+  geoMapping: GeoMapping = { country: '', zone: '', branch: '', state: '', supervisor: '', marketingUser: '' };
   constructor(private activatedRoute: ActivatedRoute,
     private confirmationService: ConfirmationService,
     private router: Router) {
     super();
+    this.masters = this.activatedRoute.parent.snapshot.data.masters;
   }
 
   ngOnInit() {
-
     this.editMode = !!this.activatedRoute.snapshot.params.id;
     if (this.editMode) {
       this.segmentLabelText = 'Update Geo Heirarchy';
@@ -54,7 +43,6 @@ export class ProductSegmentComponent extends AppBaseComponent implements OnInit 
   onOptionsSelected(event: string, source) {
     if (source === 'country') {
       console.log(event);
-      console.log(this.optionsZoneMaster);
     }
   }
 
@@ -63,8 +51,6 @@ export class ProductSegmentComponent extends AppBaseComponent implements OnInit 
   }
 
   saveData() {
-    // this.webService.getProducts(this.geoMapping);
     console.log(this.geoMapping);
   }
-
 }

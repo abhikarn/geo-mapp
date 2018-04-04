@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './geo-heirarchy.component';
 import { GeoHeirarchyComponent } from './geo-heirarchy-list/geo-heirarchy-list.component';
-import { ProductSegmentComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
-import { AppProductResolver, AppProductSegmentResolver } from './geo-heirarchy.resolver';
+import { GeoHeirarchyMapComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
+import { AppProductResolver, AppProductSegmentResolver, AppMasterResolver } from './geo-heirarchy.resolver';
 import { GeoHeirarchyRouteConfig } from './geo-heirarchy-route-names';
 const routes: Routes = [
   {
     path: GeoHeirarchyRouteConfig.default.routeName,
     component: ProductComponent,
     resolve: {
-      products: AppProductResolver
+      masters: AppMasterResolver
     },
     children: [
       {
@@ -22,11 +22,11 @@ const routes: Routes = [
       },
       {
         path: GeoHeirarchyRouteConfig.geoheirarchyCreate.routeName,
-        component: ProductSegmentComponent
+        component: GeoHeirarchyMapComponent
       },
       {
         path: `:id/edit`,
-        component: ProductSegmentComponent,
+        component: GeoHeirarchyMapComponent,
         resolve: {
           segment: AppProductSegmentResolver
         },

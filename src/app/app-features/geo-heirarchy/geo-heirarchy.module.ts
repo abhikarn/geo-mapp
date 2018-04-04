@@ -6,14 +6,15 @@ import { AppSharedModule } from '@app/app-shared';
 import {
   DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, MultiSelectModule,
   CalendarModule, TooltipModule, DialogModule, ConfirmDialogModule, ConfirmationService,
-  InputTextModule, PaginatorModule, MessageModule, GrowlModule, InputMaskModule, DropdownModule
+  InputTextModule, PaginatorModule, MessageModule,
+  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule
 } from 'primeng/primeng';
 
 import { GeoHeirarchyRoutingModule } from './geo-heirarchy-routing.module';
 import { ProductComponent } from './geo-heirarchy.component';
 import { GeoHeirarchyComponent } from './geo-heirarchy-list/geo-heirarchy-list.component';
-import { ProductSegmentComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
-import { AppProductResolver, AppProductSegmentResolver, AppProductCoverageResolver } from './geo-heirarchy.resolver';
+import { GeoHeirarchyMapComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
+import { AppProductResolver, AppProductSegmentResolver, AppMasterResolver } from './geo-heirarchy.resolver';
 import { TextMaskModule } from 'angular2-text-mask';
 @NgModule({
   imports: [
@@ -38,13 +39,15 @@ import { TextMaskModule } from 'angular2-text-mask';
     PaginatorModule,
     MessageModule,
     GrowlModule,
-    DropdownModule
+    DropdownModule,
+    CheckboxModule,
+    MultiSelectModule
   ],
   declarations: [
     ProductComponent,
     GeoHeirarchyComponent,
-    ProductSegmentComponent
+    GeoHeirarchyMapComponent
   ],
-  providers: [AppProductResolver, ConfirmationService, AppProductSegmentResolver, AppProductCoverageResolver]
+  providers: [AppProductResolver, ConfirmationService, AppProductSegmentResolver, AppMasterResolver]
 })
 export class GeoHeirarchyModule { }
