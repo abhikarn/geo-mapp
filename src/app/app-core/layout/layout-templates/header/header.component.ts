@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/primeng';
 
 @Component({
@@ -8,9 +9,20 @@ import { MenuItem } from 'primeng/primeng';
 })
 export class HeaderComponent implements OnInit {
   input: MenuItem;
-  constructor() { }
+  activeMenu: boolean = true;
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  navigateMenu(menuItem: string) {
+    if (menuItem === 'gh') {
+      this.activeMenu = true;
+      this.router.navigate(['geo-heirarchy']);
+    } else if (menuItem === 'sm') {
+      this.activeMenu = false;
+      this.router.navigate(['school-master']);
+    }
+  }
 }
+

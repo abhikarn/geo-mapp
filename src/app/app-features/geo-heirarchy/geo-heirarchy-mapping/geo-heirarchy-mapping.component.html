@@ -50,10 +50,10 @@
         <div class="col-sm-4">
           <div class="group">
             <span class="ui-float-label">
-              <select id="select_state" class='inputMaterial' required [(ngModel)]='geoMapping.state' (ngModelChange)="onOptionsSelected($event, 'state')">
+              <select id="dd_state" class='inputMaterial' required [(ngModel)]='geoMapping.state' (ngModelChange)="onOptionsSelected($event, 'state')">
                 <option class='option' *ngFor='let option of masters.StateMaster' [value]="option">{{option}}</option>
               </select>
-              <label for="select_state">State</label>
+              <label for="dd_state">State</label>
             </span>
           </div>
         </div>

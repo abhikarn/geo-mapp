@@ -15,7 +15,9 @@ const routes: Routes = [
 
       { path: 'geo-heirarchy', loadChildren: 'app/app-features/geo-heirarchy/geo-heirarchy.module#GeoHeirarchyModule' },
 
-      { path: 'dashboard', loadChildren: 'app/app-features/dashboard/dashboard.module#DashboardModule' }
+      { path: 'dashboard', loadChildren: 'app/app-features/dashboard/dashboard.module#DashboardModule' },
+
+      { path: 'school-master', loadChildren: 'app/app-features/school-master/school-master.module#SchoolMasterModule' }
     ]
   }
 ];

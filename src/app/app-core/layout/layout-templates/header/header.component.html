@@ -23,11 +23,11 @@
   </div>
 </header>
 <div class="row tile-section">
-  <div class="col-sm-12">
-    <h4 #container class="mb-0 tooltip-bottom">
+  <div class="col-sm-12" #container>
+    <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': !activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('gh')">
       <span class="notes-icon d-block float-left"></span>Geo Hierchy</h4>
 
-    <h4 #container class="mb-0 tooltip-bottom in-active-menu">
+    <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('sm')">
       <span class="notes-icon d-block float-left"></span>School Master</h4>
   </div>
 </div>
