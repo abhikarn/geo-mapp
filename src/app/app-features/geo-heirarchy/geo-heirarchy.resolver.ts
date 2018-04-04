@@ -1,6 +1,6 @@
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { WebService, ProductSegment, AppBaseComponent, Masters } from 'app/app-core';
+import { WebService, ProductSegment, AppBaseComponent, Masters, GeoMapping } from 'app/app-core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/takeWhile';
 import 'rxjs/add/observable/of';
@@ -17,14 +17,14 @@ export class AppProductResolver implements Resolve<any> {
  * Data Resolvers used for configuration
 */
 @Injectable()
-export class AppProductSegmentResolver extends AppBaseComponent implements Resolve<ProductSegment> {
+export class AppGeoMappingDetail extends AppBaseComponent implements Resolve<GeoMapping> {
     constructor() {
         super();
     }
-    resolve(route: ActivatedRouteSnapshot): Observable<ProductSegment> {
-        const segment = this.getState<ProductSegment>('segment');
+    resolve(route: ActivatedRouteSnapshot): Observable<GeoMapping> {
+        const geoMapp = this.getState<GeoMapping>('geoMap');
         console.log(<string>route.params['id']);
-        return Observable.of(segment);
+        return Observable.of(geoMapp);
     }
 }
 

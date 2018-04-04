@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AppBaseComponent } from '@app/app-core';
-import {  GeoMapping } from '@app/app-core';
+import { GeoMapping } from '@app/app-core';
 import { GeoHeirarchyRouteConfig } from '../geo-heirarchy-route-names';
 import { Message } from 'primeng/components/common/api';
 @Component({
@@ -33,6 +33,7 @@ export class GeoHeirarchyComponent extends AppBaseComponent implements OnInit {
   }
 
   editGeoMapping(geo: GeoMapping) {
+    this.setState('geoMap', geo)
     this.router.navigateByUrl(`geo-heirarchy/${geo.geoMappingId}/edit`);
   }
 

@@ -14,7 +14,7 @@ import { GeoHeirarchyRoutingModule } from './geo-heirarchy-routing.module';
 import { ProductComponent } from './geo-heirarchy.component';
 import { GeoHeirarchyComponent } from './geo-heirarchy-list/geo-heirarchy-list.component';
 import { GeoHeirarchyMapComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
-import { AppProductResolver, AppProductSegmentResolver, AppMasterResolver, AppGeoMappResolver } from './geo-heirarchy.resolver';
+import { AppProductResolver, AppGeoMappingDetail, AppMasterResolver, AppGeoMappResolver } from './geo-heirarchy.resolver';
 import { TextMaskModule } from 'angular2-text-mask';
 @NgModule({
   imports: [
@@ -51,7 +51,7 @@ import { TextMaskModule } from 'angular2-text-mask';
   providers: [
     AppProductResolver,
     ConfirmationService,
-    AppProductSegmentResolver,
+    AppGeoMappingDetail,
     AppMasterResolver,
     AppGeoMappResolver
   ]

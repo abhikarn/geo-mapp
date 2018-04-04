@@ -24,6 +24,8 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   ngOnInit() {
     this.editMode = !!this.activatedRoute.snapshot.params.id;
     if (this.editMode) {
+      console.log(this.activatedRoute.snapshot.data.geoMap);
+      this.geoMapping = this.activatedRoute.snapshot.data.geoMap;
       this.segmentLabelText = 'Update Geo Heirarchy';
       this.segmentButtonText = 'Reset';
     } else {

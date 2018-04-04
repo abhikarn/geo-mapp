@@ -242,11 +242,11 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
       }
     ]
-    // let count: number = 99;
-    // geoMapping.forEach((item) => {
-    //   item.geoMappingId = count + 1;
-    //   count++;
-    // })
+    let count: number = 99;
+    geoMapping.forEach((item) => {
+      item.geoMappingId = count + 1;
+      count++;
+    })
     return geoMapping;
   }
 }
