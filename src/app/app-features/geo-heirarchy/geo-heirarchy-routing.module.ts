@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductComponent } from './geo-heirarchy.component';
 import { GeoHeirarchyComponent } from './geo-heirarchy-list/geo-heirarchy-list.component';
 import { GeoHeirarchyMapComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
-import { AppProductResolver, AppProductSegmentResolver, AppMasterResolver } from './geo-heirarchy.resolver';
+import { AppProductResolver, AppProductSegmentResolver, AppMasterResolver, AppGeoMappResolver } from './geo-heirarchy.resolver';
 import { GeoHeirarchyRouteConfig } from './geo-heirarchy-route-names';
 const routes: Routes = [
   {
@@ -17,7 +17,8 @@ const routes: Routes = [
         path: GeoHeirarchyRouteConfig.default.routeName,
         component: GeoHeirarchyComponent,
         resolve: {
-          products: AppProductResolver
+          products: AppProductResolver,
+          geoMapp: AppGeoMappResolver
         }
       },
       {

@@ -16,152 +16,54 @@
                         <a href="javascript:void(0);">View Archive</a>
                     </span>
                     <!-- <a href="#" class="view-archive-btn position-relative">View Archive</a> -->
-                    <button type="button" class="btn view-btn" (click)="addProductSegment()">Add GeoHeirarchy Mapping</button>
+                    <button type="button" class="btn view-btn" (click)="addGeoMapping()">Add GeoHeirarchy Mapping</button>
                 </div>
             </div>
             <div class="row card-block">
-                <div class="col-sm-12 card-wrap" *ngIf="product.productSegments.result.length === 0">
+                <div class="col-sm-12 card-wrap" *ngIf="geoMapList.length === 0">
                     <div class="card text-center">
                         <div class="no-data-text">
-                            <p>There are no product segments available.</p>
-                            <p>Please add new product segment.</p>
+                            <p>There are no Geo Mapping available.</p>
+                            <p>Please add new Geo Heirarchy</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12" *ngIf="product.productSegments.result.length > 8">
-                    <app-pagination [total]="product.productSegments.result.length" (pageUpdate)="updatePage($event)"></app-pagination>
+                <div class="col-sm-12" *ngIf="activeRoute.snapshot.data.geoMapp.length > 8">
+                    <app-pagination [total]="activeRoute.snapshot.data.geoMapp.length" (pageUpdate)="updatePage($event)"></app-pagination>
                 </div>
-                <div class="col-sm-12" *ngIf="product.productSegments.result.length > 0">
+                <div class="col-sm-12" *ngIf="geoMapList.length > 0">
                     <div class="row card-block">
-                        <div class="col-lg-3 col-md-4 col-sm-6 card-wrap" *ngFor="let s of productSegment; let i= index;">
+                        <div class="col-lg-3 col-md-4 col-sm-6 card-wrap" *ngFor="let g of geoMapList; let i= index;">
                             <div class="card">
                                 <div class="card-head">
-                                    <span class="card-label">{{s.segmentName}}</span>
-                                    <span class="edit" (click)="editProductSegment(s)"></span>
+                                    <span class="card-label">{{g.marketingUser}}</span>
+                                    <span class="edit" (click)="editGeoMapping(g)"></span>
                                 </div>
                                 <div class="card-content">
-                                    <p class="label-text">active</p>
-                                    <p class="date">{{s.startDate}} - {{s.endDate}}</p>
+                                    <p class="label-text">
+                                        <span>Country</span>
+                                        <span style="float: right !important; font:bold !important;">{{g.country}}</span>
+                                    </p>
+                                    <p class="label-text">
+                                        <span>Zone</span>
+                                        <span style="float: right !important;">{{g.zone}}</span>
+                                    </p>
+                                    <p class="label-text">
+                                        <span>Branch</span>
+                                        <span style="float: right !important;">{{g.branch}}</span>
+                                    </p>
+                                    <p class="label-text">
+                                        <span>State</span>
+                                        <span style="float: right !important;">{{g.state}}</span>
+                                    </p>
+                                    <p class="label-text">
+                                        <span>Supervisor</span>
+                                        <span style="float: right !important;">{{g.supervisor}}</span>
+                                    </p>
+                                    <!-- <p class="date">{{g.country}}</p> -->
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="coverage-options" *ngIf="false">
-            <div class="row">
-                <div class="col-sm-6 sec-header">
-                    <h5>Coverage Options</h5>
-                    <span *ngIf="data">
-                        (
-                        <span>10</span> )
-                    </span>
-                </div>
-                <div class="col-sm-6 text-right archive">
-                    <span *ngIf="data">
-                        <span class="clock"></span>
-                        <a href="javascript:void(0);">View Archive</a>
-                    </span>
-                    <a href="#" *ngIf="false" class="view-archive-btn position-relative">View Archive</a>
-                    <button type="button" class="btn view-btn">Add Coverage Option</button>
-                </div>
-            </div>
-            <div class="row card-block">
-                <div class="col-sm-12 mb-2" *ngIf="false">
-                    <select class="form-control sorting float-left">
-                        <option value="">Cover Type A to Z</option>
-                    </select>
-                    <p-paginator rows="10" totalRecords="100" [rowsPerPageOptions]="[10,20,30]" [styleClass]="'paginator'"></p-paginator>
-                    <div class="paginator-count">
-                        <p class="mb-0">1
-                            <span>of</span> 8
-                            <span>of</span> 24</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 card-wrap" *ngIf="true">
-                    <div class="card text-center">
-                        <div class="no-data-text">
-                            <p>There are no coverage options available.</p>
-                            <p>Please add new coverage option.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12" *ngIf="false">
-                    <div class="row card-block">
-                        <div class="col-lg-3 col-md-4 col-sm-6 card-wrap">
-                            <div class="card">
-                                <div class="card-head">
-                                    <span class="card-label">Lifetime Bottom 80% Cover - 30% Risk share</span>
-                                    <span class="edit"></span>
-                                </div>
-                                <div class="card-content">
-                                    <div class="mb-3">
-                                        <p class="label-text text-uppercase">SEGMENT</p>
-                                        <p class="date">OO/INV</p>
-                                    </div>
-                                    <div>
-                                        <p class="label-text">active</p>
-                                        <p class="date">15 Nov '17 - 15 Nov 2018</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 card-wrap">
-                            <div class="card">
-                                <div class="card-head">
-                                    <span class="card-label">Lifetime Bottom 80% Cover - 30% Risk share</span>
-                                    <span class="edit"></span>
-                                </div>
-                                <div class="card-content">
-                                    <div class="mb-3">
-                                        <p class="label-text text-uppercase">SEGMENT</p>
-                                        <p class="date">OO/INV</p>
-                                    </div>
-                                    <div>
-                                        <p class="label-text">active</p>
-                                        <p class="date">15 Nov '17 - 15 Nov 2018</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 card-wrap">
-                            <div class="card">
-                                <div class="card-head">
-                                    <span class="card-label">Lifetime Bottom 80% Cover - 30% Risk share</span>
-                                    <span class="edit"></span>
-                                </div>
-                                <div class="card-content">
-                                    <div class="mb-3">
-                                        <p class="label-text text-uppercase">SEGMENT</p>
-                                        <p class="date">OO/INV</p>
-                                    </div>
-                                    <div>
-                                        <p class="label-text">active</p>
-                                        <p class="date">15 Nov '17 - 15 Nov 2018</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-4 col-sm-6 card-wrap">
-                            <div class="card">
-                                <div class="card-head">
-                                    <span class="card-label">Lifetime Bottom 80% Cover - 30% Risk share</span>
-                                    <span class="edit"></span>
-                                </div>
-                                <div class="card-content">
-                                    <div class="mb-3">
-                                        <p class="label-text text-uppercase">SEGMENT</p>
-                                        <p class="date">OO/INV</p>
-                                    </div>
-                                    <div>
-                                        <p class="label-text">active</p>
-                                        <p class="date">15 Nov '17 - 15 Nov 2018</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>

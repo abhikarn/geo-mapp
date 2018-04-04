@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/primeng';
 
@@ -9,7 +9,7 @@ import { MenuItem } from 'primeng/primeng';
 })
 export class HeaderComponent implements OnInit {
   input: MenuItem;
-  activeMenu: boolean = true;
+  activeMenu = true;
   constructor(private router: Router) { }
 
   ngOnInit() {

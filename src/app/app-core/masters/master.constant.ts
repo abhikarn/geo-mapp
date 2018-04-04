@@ -1,3 +1,4 @@
+/* tslint:disable */
 export const Masters = {
     CountryMaster: ['Nigeria', 'Ghana'],
     ZoneMaster: ['NZoneA', 'NZoneB', 'NZoneC', 'GZoneA', 'GZoneB', 'GZoneC'],
@@ -11,5 +12,6 @@ export const Masters = {
         { label: 'Istanbul', value: { id: 4, name: 'Istanbul', code: 'IST' } },
         { label: 'Paris', value: { id: 5, name: 'Paris', code: 'PRS' } }
     ]
-}
+};
+
 

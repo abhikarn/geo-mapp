@@ -35,3 +35,11 @@ export class AppMasterResolver implements Resolve<any> {
         return Observable.of(Masters);
     }
 }
+
+@Injectable()
+export class AppGeoMappResolver implements Resolve<any> {
+    constructor(private webService: WebService) { }
+    resolve(): Observable<any> {
+        return this.webService.getGeoMapping();
+    }
+}

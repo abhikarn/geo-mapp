@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 // import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { ProductSegment } from 'app/app-core/models/product.model';
+import { ProductSegment } from 'app/app-core';
 // import { AppConfig } from '@app/app.config';
 
 @Injectable()
@@ -17,6 +17,11 @@ export class WebService {
   getProducts() {
     const headers = new HttpHeaders().set('Cache-Control', 'no-cache').set('If-Modified-Since', '0');
     return this.httpClient.get(`api/product`, { headers: headers });
+  }
+
+  getGeoMapping() {
+    const headers = new HttpHeaders().set('Cache-Control', 'no-cache').set('If-Modified-Since', '0');
+    return this.httpClient.get(`api/geomapping`, { headers: headers });
   }
 
   getSegment(segmentId: string): Observable<ProductSegment> {
