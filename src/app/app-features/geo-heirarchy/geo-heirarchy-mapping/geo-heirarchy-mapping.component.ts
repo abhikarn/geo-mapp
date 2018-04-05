@@ -42,7 +42,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     });
   }
 
-  onOptionsSelected(event: string, source) {
+  onOptionsSelected(event: string, source: string) {
     if (source === 'country') {
       console.log(event);
     }

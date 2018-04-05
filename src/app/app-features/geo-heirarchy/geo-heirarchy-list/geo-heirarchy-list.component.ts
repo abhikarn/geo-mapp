@@ -10,7 +10,7 @@ import { Message } from 'primeng/components/common/api';
   styleUrls: ['./geo-heirarchy-list.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class GeoHeirarchyComponent extends AppBaseComponent implements OnInit {
+export class GeoHeirarchyListComponent extends AppBaseComponent implements OnInit {
   geoMapList: GeoMapping[];
   data = false;
   sortF: string;
@@ -33,7 +33,7 @@ export class GeoHeirarchyComponent extends AppBaseComponent implements OnInit {
   }
 
   editGeoMapping(geo: GeoMapping) {
-    this.setState('geoMap', geo)
+    this.setState('geoMap', geo);
     this.router.navigateByUrl(`geo-heirarchy/${geo.geoMappingId}/edit`);
   }
 

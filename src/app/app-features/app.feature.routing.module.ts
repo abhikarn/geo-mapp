@@ -17,6 +17,8 @@ const routes: Routes = [
 
       { path: 'dashboard', loadChildren: 'app/app-features/dashboard/dashboard.module#DashboardModule' },
 
+      { path: 'master', loadChildren: 'app/app-features/masters/master.module#MasterModule' },
+
       { path: 'school-master', loadChildren: 'app/app-features/school-master/school-master.module#SchoolMasterModule' }
     ]
   }

@@ -11,8 +11,8 @@ import {
 } from 'primeng/primeng';
 
 import { GeoHeirarchyRoutingModule } from './geo-heirarchy-routing.module';
-import { ProductComponent } from './geo-heirarchy.component';
-import { GeoHeirarchyComponent } from './geo-heirarchy-list/geo-heirarchy-list.component';
+import { GeoHeirarchyComponent } from './geo-heirarchy.component';
+import { GeoHeirarchyListComponent } from './geo-heirarchy-list/geo-heirarchy-list.component';
 import { GeoHeirarchyMapComponent } from './geo-heirarchy-mapping/geo-heirarchy-mapping.component';
 import { AppProductResolver, AppGeoMappingDetail, AppMasterResolver, AppGeoMappResolver } from './geo-heirarchy.resolver';
 import { TextMaskModule } from 'angular2-text-mask';
@@ -44,8 +44,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     MultiSelectModule
   ],
   declarations: [
-    ProductComponent,
     GeoHeirarchyComponent,
+    GeoHeirarchyListComponent,
     GeoHeirarchyMapComponent
   ],
   providers: [

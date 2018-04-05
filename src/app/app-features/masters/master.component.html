@@ -1,0 +1,96 @@
+<section class="row">
+    <div class="main-content">
+        <div class="heading-sec py-4 ">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5 class="mb-0 mr-3 d-inline">
+                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click)="onCancelReset()"></span>Create Masters</h5>
+                </div>
+                <div class="col-sm-6 text-right" hidden="!editMode">
+                    <label>Last Updated Date :</label>
+                    <span class="date-lbl">11/11/2017</span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-12 py-4 form-container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_masterType" class='inputMaterial' required [(ngModel)]='masterType' (ngModelChange)="onOptionsSelected($event, 'country')">
+                                <option class='bar' *ngFor='let option of masterTypeList' [value]="option">{{option}}</option>
+                            </select>
+                            <label for="dd_masterType">Master Type</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_country" type="text" class='inputMaterial' required>
+                            <label for="txt_country">Country</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_zone" type="text" class='inputMaterial' required>
+                            <label for="txt_zone">Zone</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_Branch" type="text" class='inputMaterial' required>
+                                <label for="txt_Branch">Branch</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_State" type="text" class='inputMaterial' required>
+                                <label for="txt_State">State</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_supervisor" type="text" class='inputMaterial' required>
+                                <label for="txt_supervisor">Supervisor</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <hr class="my-4">
+                    <button type="button" class="btn secondary-btn mr-4">Cancel</button>
+                    <button type="submit" class="btn primary-btn" (click)="saveMaster()">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <div #modal></div> -->
+<!-- <p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
+    <p-footer>
+        <button type="button" pButton icon="fa-close" label="yes" (click)="cd.accept()" class="mr-4"></button>
+        <button type="button" pButton icon="fa-check" label="no" (click)="cd.reject()"></button>
+    </p-footer>
+</p-confirmDialog> -->

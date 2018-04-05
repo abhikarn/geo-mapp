@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import '@app/app-core/utility/extensions/array';
 import '@app/app-core/utility/extensions/date';
@@ -15,6 +16,7 @@ import { DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, C
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule,
     BrowserAnimationsModule,
     TooltipModule,
