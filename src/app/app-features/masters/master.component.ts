@@ -16,7 +16,7 @@ export class MasterComponent extends AppBaseComponent implements OnInit {
   }
 
   saveMaster() {
-    
+
   }
 
   onOptionsSelected(event , source) {

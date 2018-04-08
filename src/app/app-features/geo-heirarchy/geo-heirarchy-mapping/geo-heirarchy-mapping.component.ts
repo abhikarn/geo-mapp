@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppBaseComponent, GeoMapping } from '@app/app-core';
+import { AppBaseComponent, GeoMapping, WebService } from '@app/app-core';
 import { ConfirmationService } from 'primeng/primeng';
 @Component({
   selector: 'app-map-geo-heirarchy',
@@ -13,10 +13,10 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   segmentButtonText = '';
   editMode = false;
   masters: any;
-  geoMapping: GeoMapping = { country: '', zone: '', branch: '', state: '', supervisor: '', marketingUser: '' };
+  geoMapping: GeoMapping = { countryId: 1, zoneId: 1, branchId:1, stateId: 1, supervisorId: 1, marketingHierarchyUser: 'sdfsdf' };
   constructor(private activatedRoute: ActivatedRoute,
     private confirmationService: ConfirmationService,
-    private router: Router) {
+    private router: Router, private webService: WebService) {
     super();
     this.masters = this.activatedRoute.parent.snapshot.data.masters;
   }
@@ -54,5 +54,8 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
 
   saveData() {
     console.log(this.geoMapping);
+    this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

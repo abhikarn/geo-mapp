@@ -18,8 +18,8 @@
         <div class="col-sm-4">
           <div class="group">
             <span class="ui-float-label">
-              <select id="dd_country" class='inputMaterial' required [(ngModel)]='geoMapping.country' (ngModelChange)="onOptionsSelected($event, 'country')">
-                <option class='bar' *ngFor='let option of masters.CountryMaster' [value]="option">{{option}}</option>
+              <select id="dd_country" class='inputMaterial' required [(ngModel)]='geoMapping.countryId' (ngModelChange)="onOptionsSelected($event, 'country')">
+                <option class='bar' *ngFor='let option of masters.CountryMaster' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_country">Country</label>
             </span>
@@ -28,8 +28,8 @@
         <div class="col-sm-4">
           <div class="group">
             <span class="ui-float-label">
-              <select id="dd_zone" class='inputMaterial' required [(ngModel)]='geoMapping.zone' (ngModelChange)="onOptionsSelected($event, 'zone')">
-                <option class='option' *ngFor='let option of masters.ZoneMaster' [value]="option">{{option}}</option>
+              <select id="dd_zone" class='inputMaterial' required [(ngModel)]='geoMapping.zoneId' (ngModelChange)="onOptionsSelected($event, 'zone')">
+                <option class='option' *ngFor='let option of masters.ZoneMaster' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_zone">Zone</label>
             </span>
@@ -38,8 +38,8 @@
         <div class="col-sm-4">
           <div class="group">
             <span class="ui-float-label">
-              <select id="dd_branch" class='inputMaterial' required [(ngModel)]='geoMapping.branch' (ngModelChange)="onOptionsSelected($event, 'branch')">
-                <option class='option' *ngFor='let option of masters.BranchMaster' [value]="option">{{option}}</option>
+              <select id="dd_branch" class='inputMaterial' required [(ngModel)]='geoMapping.branchId' (ngModelChange)="onOptionsSelected($event, 'branch')">
+                <option class='option' *ngFor='let option of masters.BranchMaster' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_branch">Branch</label>
             </span>
@@ -50,8 +50,8 @@
         <div class="col-sm-4">
           <div class="group">
             <span class="ui-float-label">
-              <select id="dd_state" class='inputMaterial' required [(ngModel)]='geoMapping.state' (ngModelChange)="onOptionsSelected($event, 'state')">
-                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option">{{option}}</option>
+              <select id="dd_state" class='inputMaterial' required [(ngModel)]='geoMapping.stateId' (ngModelChange)="onOptionsSelected($event, 'state')">
+                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_state">State</label>
             </span>
@@ -60,8 +60,8 @@
         <div class="col-sm-4">
           <div class="group">
             <span class="ui-float-label">
-              <select id="dd_supervisor" class='inputMaterial' required [(ngModel)]='geoMapping.supervisor' (ngModelChange)="onOptionsSelected($event, 'super')">
-                <option class='highlight' *ngFor='let option of masters.SupervisorMaster' [value]="option">{{option}}</option>
+              <select id="dd_supervisor" class='inputMaterial' required [(ngModel)]='geoMapping.supervisorId' (ngModelChange)="onOptionsSelected($event, 'super')">
+                <option class='highlight' *ngFor='let option of masters.SupervisorMaster' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_supervisor">Superviser</label>
             </span>
@@ -72,7 +72,7 @@
         <div class="col-sm-8">
           <div class="group">
             <span class="ui-float-label">
-              <input id="txt_marketingUser" class="inputMaterial" type="text" [(ngModel)]='geoMapping.marketingUser' maxlength="50" ng-trim="true"
+              <input id="txt_marketingUser" class="inputMaterial" type="text" [(ngModel)]='geoMapping.marketingHierarchyUser' maxlength="50" ng-trim="true"
                 required>
               <label for="txt_marketingUser">Marketing Heirarchy</label>
             </span>
@@ -83,7 +83,7 @@
         <div class="col-sm-8">
           <div class="group">
             <span class="ui-float-label">
-              <p-multiSelect id="float-input" maxSelectedLabels="10" [options]="masters.CityMaster" [(ngModel)]="geoMapping.schools" styleClass="inputMaterial"
+              <p-multiSelect id="float-input" maxSelectedLabels="10" [options]="masters.CityMaster" [(ngModel)]="geoMapping.SchoolGeoHierarchyMappingViewModels" styleClass="inputMaterial"
                 defaultLabel="" required></p-multiSelect>
               <label for="float-input">School</label>
             </span>

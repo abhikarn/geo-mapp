@@ -80,166 +80,166 @@ export class InMemoryWebServiceService implements InMemoryDbService {
   private getGeoMappingList(): GeoMapping[] {
     let geoMapping: GeoMapping[] = [
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId: 500, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId: 500, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }, {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }, {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }, {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }, {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }, {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }, {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneA',
-        branch: 'NBranchA', state: 'NStateA',
-        supervisor: 'NSupervisor', marketingUser: 'Sumit Roy', schools: [{ value: 'Abc' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneA',
+        branchId: 'NBranchA', stateId: 'NStateA',
+        supervisorId: 'NSupervisor', marketingHierarchyUser: 'Sumit Roy', SchoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneB',
-        branch: 'NBranchB', state: 'NStateB',
-        supervisor: 'NSupervisorB', marketingUser: 'Abhishek', schools: [{ value: 'Qwerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneB',
+        branchId: 'NBranchB', stateId: 'NStateB',
+        supervisorId: 'NSupervisorB', marketingHierarchyUser: 'Abhishek', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
       ,
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneC',
-        branch: 'NBranchC', state: 'NStateC',
-        supervisor: 'NSupervisorC', marketingUser: 'Srikant', schools: [{ value: 'QwZxcvbnerty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneC',
+        branchId: 'NBranchC', stateId: 'NStateC',
+        supervisorId: 'NSupervisorC', marketingHierarchyUser: 'Srikant', SchoolGeoHierarchyMappingViewModels: [{ value: 'QwZxcvbnerty' }]
       },
       {
-        geoMappingId:1, country: 'Nigeria', zone: 'NZoneD',
-        branch: 'NBranchD', state: 'NStateD',
-        supervisor: 'NSupervisorD', marketingUser: 'Praveen', schools: [{ value: 'Qwesgsdgewewrrty' }]
+        geoMappingId:1, countryId: 'Nigeria', zoneId: 'NZoneD',
+        branchId: 'NBranchD', stateId: 'NStateD',
+        supervisorId: 'NSupervisorD', marketingHierarchyUser: 'Praveen', SchoolGeoHierarchyMappingViewModels: [{ value: 'Qwesgsdgewewrrty' }]
       }
     ]
     let count: number = 99;

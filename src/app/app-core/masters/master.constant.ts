@@ -1,10 +1,10 @@
 /* tslint:disable */
 export const Masters = {
-    CountryMaster: ['Nigeria', 'Ghana'],
-    ZoneMaster: ['NZoneA', 'NZoneB', 'NZoneC', 'GZoneA', 'GZoneB', 'GZoneC'],
-    BranchMaster: ['NBranchA', 'NBranchB', 'NBranchC', 'GBranchA', 'GBranchB', 'GBranchC'],
-    StateMaster: ['NStateA', 'NStateB', 'NStateC', 'GStateA', 'GStateB', 'GStateC'],
-    SupervisorMaster: ['NSVA', 'NSVB', 'NSVC', 'GSVA', 'GSVB', 'GSVC'],
+    CountryMaster: [{ id: 1, name: 'Nigeria' }, { id: 2, name: 'Ghana' }],
+    ZoneMaster: [{ id: 1, name: 'NZoneA' }, { id: 2, name: 'NZoneB' }],
+    BranchMaster: [{ id: 1, name: 'NBranchA' }, { id: 2, name: 'NBranchB' }],
+    StateMaster: [{ id: 1, name: 'NStateA' }, { id: 2, name: 'NStateB' }],
+    SupervisorMaster: [{ id: 1, name: 'NSVA' }, { id: 2, name: 'NSVB' }],
     CityMaster: [
         { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
         { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },
