@@ -13,7 +13,11 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   segmentButtonText = '';
   editMode = false;
   masters: any;
-  geoMapping: GeoMapping = { countryId: 1, zoneId: 1, branchId:1, stateId: 1, supervisorId: 1, marketingHierarchyUser: 'sdfsdf' };
+  geoMapping: GeoMapping = {
+    countryId: 1, countryName: '', zoneId: 1, zoneName: '',
+    branchId: 1, branchName: '', stateId: 1, stateName: '',
+    supervisorId: 1, supervisorName: '', marketingHierarchyUser: 'sdfsdf'
+  };
   constructor(private activatedRoute: ActivatedRoute,
     private confirmationService: ConfirmationService,
     private router: Router, private webService: WebService) {

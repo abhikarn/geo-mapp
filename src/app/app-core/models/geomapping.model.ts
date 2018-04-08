@@ -1,11 +1,16 @@
 import { SelectItem } from 'primeng/api';
 export interface GeoMapping {
     geoMappingId?: number;
-    countryId?: number|string;
-    zoneId?: number|string;
-    branchId?: number|string;
-    stateId?: number|string;
-    supervisorId?: number|string;
+    countryId?: number;
+    countryName?: string;
+    zoneId?: number;
+    zoneName?: string;
+    branchId?: number;
+    branchName?: string;
+    stateId?: number;
+    stateName?: string;
+    supervisorId?: number;
+    supervisorName?: string;
     marketingHierarchyUser?: string;
-    SchoolGeoHierarchyMappingViewModels?: SelectItem[];
+    schoolGeoHierarchyMappingViewModels?: SelectItem[];
 }

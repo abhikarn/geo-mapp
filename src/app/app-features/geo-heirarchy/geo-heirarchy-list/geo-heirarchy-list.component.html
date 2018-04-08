@@ -36,29 +36,29 @@
                         <div class="col-lg-3 col-md-4 col-sm-6 card-wrap" *ngFor="let g of geoMapList; let i= index;">
                             <div class="card">
                                 <div class="card-head">
-                                    <span class="card-label">{{g.marketingUser}}</span>
+                                    <span class="card-label">{{g.marketingHierarchyUser}}</span>
                                     <span class="edit" (click)="editGeoMapping(g)"></span>
                                 </div>
                                 <div class="card-content">
                                     <p class="label-text">
                                         <span>Country</span>
-                                        <span style="float: right !important; font:bold !important;">{{g.country}}</span>
+                                        <span style="float: right !important; font:bold !important;">{{g.countryName}}</span>
                                     </p>
                                     <p class="label-text">
                                         <span>Zone</span>
-                                        <span style="float: right !important;">{{g.zone}}</span>
+                                        <span style="float: right !important;">{{g.zoneName}}</span>
                                     </p>
                                     <p class="label-text">
                                         <span>Branch</span>
-                                        <span style="float: right !important;">{{g.branch}}</span>
+                                        <span style="float: right !important;">{{g.branchName}}</span>
                                     </p>
                                     <p class="label-text">
                                         <span>State</span>
-                                        <span style="float: right !important;">{{g.state}}</span>
+                                        <span style="float: right !important;">{{g.stateName}}</span>
                                     </p>
                                     <p class="label-text">
                                         <span>Supervisor</span>
-                                        <span style="float: right !important;">{{g.supervisor}}</span>
+                                        <span style="float: right !important;">{{g.supervisorName}}</span>
                                     </p>
                                     <!-- <p class="date">{{g.country}}</p> -->
                                 </div>
