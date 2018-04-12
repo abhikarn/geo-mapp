@@ -1,0 +1,168 @@
+<section class="row">
+    <div class="main-content">
+        <div class="heading-sec py-4 ">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5 class="mb-0 mr-3 d-inline">
+                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;"></span>Create School Master</h5>
+                </div>
+                <div class="col-sm-6 text-right" hidden="!editMode">
+                    <label>Last Updated Date :</label>
+                    <span class="date-lbl">11/11/2017</span>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-12 py-4 form-container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                    required>
+                                <label for="txt_schoolName">School Name</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                    required>
+                                <label for="txt_schoolName">School House Number</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                    required>
+                                <label for="txt_schoolName">School House Street</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                    required>
+                                <label for="txt_schoolName">School House Area</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                    required>
+                                <label for="txt_schoolName">LGA</label>
+                            </span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_city" class='inputMaterial' required>
+                                <option class='option' *ngFor='let option of masters.CityNewMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_city">City</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_state" class='inputMaterial' required>
+                                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_state">State</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_country" class='inputMaterial' required>
+                                <option class='option' *ngFor='let option of masters.CountryMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_country">Country</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="row">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='geoMapping.stateId' (ngModelChange)="onOptionsSelected($event, 'state')">
+                                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_state">State</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_supervisor" class='inputMaterial' required [(ngModel)]='geoMapping.supervisorId' (ngModelChange)="onOptionsSelected($event, 'super')">
+                                <option class='highlight' *ngFor='let option of masters.SupervisorMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_supervisor">Superviser</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_marketingUser" class="inputMaterial" type="text" [(ngModel)]='geoMapping.marketingHierarchyUser' maxlength="50"
+                                ng-trim="true" required>
+                            <label for="txt_marketingUser">Marketing Heirarchy</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <p-multiSelect id="float-input" maxSelectedLabels="10" [options]="masters.CityMaster" [(ngModel)]="geoMapping.schoolGeoHierarchyMappingViewModels"
+                                styleClass="inputMaterial" defaultLabel="" required></p-multiSelect>
+                            <label for="float-input">School</label>
+                        </span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <hr class="my-4">
+                    <button type="button" class="btn secondary-btn mr-4">Cancel</button>
+                    <button type="submit" class="btn primary-btn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <div #modal></div> -->
+<!-- <p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
+    <p-footer>
+        <button type="button" pButton icon="fa-close" label="yes" (click)="cd.accept()" class="mr-4"></button>
+        <button type="button" pButton icon="fa-check" label="no" (click)="cd.reject()"></button>
+    </p-footer>
+</p-confirmDialog> -->

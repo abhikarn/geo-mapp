@@ -5,6 +5,7 @@ export const Masters = {
     BranchMaster: [{ id: 1, name: 'NBranchA' }, { id: 2, name: 'NBranchB' }],
     StateMaster: [{ id: 1, name: 'NStateA' }, { id: 2, name: 'NStateB' }],
     SupervisorMaster: [{ id: 1, name: 'NSVA' }, { id: 2, name: 'NSVB' }],
+    CityNewMaster: [{ id: 1, name: 'NCityA' }, { id: 2, name: 'NCityB' }],
     CityMaster: [
         { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
         { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },
