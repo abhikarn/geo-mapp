@@ -5,10 +5,6 @@
             <div class="row">
                 <div class="col-sm-6 sec-header">
                     <h5>Geo Heirarchy Map List</h5>
-                    <span *ngIf="data">
-                        (
-                        <span>10</span> )
-                    </span>
                 </div>
                 <div class="col-sm-6 text-right archive">
                     <span *ngIf="data">
@@ -20,19 +16,25 @@
                 </div>
             </div>
             <div class="row card-block">
-                <div class="col-sm-12 card-wrap" *ngIf="geoMapList.length === 0">
-                    <div class="card text-center">
+                <div class="col-sm-12 mb-2 card-wrap">
+                    <div class="card text-center" *ngIf="geoMapps.length === 0">
                         <div class="no-data-text">
                             <p>There are no Geo Mapping available.</p>
                             <p>Please add new Geo Heirarchy</p>
                         </div>
                     </div>
+
                 </div>
-                <div class="col-sm-12" *ngIf="activeRoute.snapshot.data.geoMapp.length > 8">
-                    <app-pagination [total]="activeRoute.snapshot.data.geoMapp.length" (pageUpdate)="updatePage($event)"></app-pagination>
+
+                <div class="col-sm-12">
+                    <select style="width:330px !important;" [(ngModel)]='sortingModel' (ngModelChange)="doSort($event)" class="form-control sorting float-left mb-2">
+                        <option class='bar' *ngFor='let option of sortFields' [value]="option.value">{{option.name}}</option>
+                    </select>
+                    <app-pagination *ngIf="geoMapps.length > 8" [total]="geoMapps.length" (pageUpdate)="updatePage($event)"></app-pagination>
                 </div>
-                <div class="col-sm-12" *ngIf="geoMapList.length > 0">
+                <div class="col-sm-12" *ngIf="geoMapps.length > 0">
                     <div class="row card-block">
+
                         <div class="col-lg-3 col-md-4 col-sm-6 card-wrap" *ngFor="let g of geoMapList; let i= index;">
                             <div class="card">
                                 <div class="card-head">

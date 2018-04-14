@@ -2,7 +2,7 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { WebService, Masters, AppBaseComponent, GeoMapping } from 'app/app-core';
-import 'rxjs/add/observable/of'
+import 'rxjs/add/observable/of';
 @Injectable()
 export class AppFeatureResolver implements Resolve<any> {
     constructor(private webService: WebService) { }

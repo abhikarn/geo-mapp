@@ -14,6 +14,7 @@ import { AppFeatureComponent } from './app.feature.component';
 import { GeoHeirarchyListComponent } from './geo-heirarchy/geo-heirarchy-list/geo-heirarchy-list.component';
 import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/geo-heirarchy-mapping.component';
 import { AppCoreModule, GlobalHttpErrorInterceptorProvider } from '@app/app-core';
+import { AppSharedModule } from '@app/app-shared';
 import {
   AppFeatureResolver, AppFeatureMasterResolver,
   AppGeoMappResolver, AppGeoMappingDetail
@@ -47,6 +48,7 @@ import { UserMasterComponent } from './user-master/user-master.component';
     CheckboxModule,
     MultiSelectModule,
     AppCoreModule,
+    AppSharedModule,
     AppFetaureRoutingModule
   ],
   declarations: [

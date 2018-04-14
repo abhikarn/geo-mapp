@@ -1,4 +1,4 @@
-export interface usermaster {
+export interface Usermaster {
     userMasterId: number;
     userName?: string;
     emailId?: string;

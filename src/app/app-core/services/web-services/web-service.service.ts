@@ -22,7 +22,7 @@ export class WebService {
 
   getGeoMapping() {
     const headers = new HttpHeaders().set('Cache-Control', 'no-cache').set('If-Modified-Since', '0');
-    return this.httpClient.get(`api/geomapping`, { headers: headers });
+    return this.httpClient.get(`http://localhost:50717/webapi/GeoHierarchies`, { headers: headers });
   }
 
   getSegment(segmentId: string): Observable<ProductSegment> {

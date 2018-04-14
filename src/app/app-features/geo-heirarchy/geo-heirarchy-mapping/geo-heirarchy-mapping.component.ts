@@ -16,7 +16,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   geoMapping: GeoMapping = {
     countryId: 1, countryName: '', zoneId: 1, zoneName: '',
     branchId: 1, branchName: '', stateId: 1, stateName: '',
-    supervisorId: 1, supervisorName: '', marketingHierarchyUser: 'sdfsdf'
+    supervisorId: 1, supervisorName: '', marketingHierarchyUser: ''
   };
   constructor(private activatedRoute: ActivatedRoute,
     private confirmationService: ConfirmationService,
