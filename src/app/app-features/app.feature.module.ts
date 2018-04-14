@@ -16,10 +16,11 @@ import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/
 import { AppCoreModule, GlobalHttpErrorInterceptorProvider } from '@app/app-core';
 import {
   AppFeatureResolver, AppFeatureMasterResolver,
-  AppGeoMappResolver, AppGeoMappingDetail
+  AppGeoMappResolver, AppGeoMappingDetail, AppSchoolListResolver
 } from './app.feature.resolver';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
+import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { UserMasterComponent } from './user-master/user-master.component';
     DropdownModule,
     CheckboxModule,
     MultiSelectModule,
+    TableModule,
     AppCoreModule,
     AppFetaureRoutingModule
   ],
@@ -64,7 +66,8 @@ import { UserMasterComponent } from './user-master/user-master.component';
     AppFeatureResolver,
     AppFeatureMasterResolver,
     AppGeoMappResolver,
-    AppGeoMappingDetail
+    AppGeoMappingDetail,
+    AppSchoolListResolver
   ]
 })
 export class AppFeatureModule { }

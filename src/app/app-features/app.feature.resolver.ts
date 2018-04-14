@@ -1,7 +1,7 @@
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { WebService, Masters, AppBaseComponent, GeoMapping } from 'app/app-core';
+import { WebService, Masters, AppBaseComponent, GeoMapping, School } from 'app/app-core';
 import 'rxjs/add/observable/of'
 @Injectable()
 export class AppFeatureResolver implements Resolve<any> {
@@ -37,5 +37,13 @@ export class AppGeoMappingDetail extends AppBaseComponent implements Resolve<Geo
         const geoMapp = this.getState<GeoMapping>('geoMap');
         console.log(<string>route.params['id']);
         return Observable.of(geoMapp);
+    }
+}
+
+@Injectable()
+export class AppSchoolListResolver implements Resolve<School[]> {
+    constructor(private webService: WebService) { }
+    resolve(): Observable<School[]> {
+        return this.webService.getSchools();
     }
 }

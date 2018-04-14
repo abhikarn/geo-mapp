@@ -32,7 +32,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.houseNumber' maxlength="50" ng-trim="true"
                                     required>
                                 <label for="txt_schoolName">School House Number</label>
                             </span>
@@ -43,8 +43,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
-                                    required>
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.street' maxlength="50" ng-trim="true" required>
                                 <label for="txt_schoolName">School House Street</label>
                             </span>
                         </span>
@@ -54,8 +53,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
-                                    required>
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.area' maxlength="50" ng-trim="true" required>
                                 <label for="txt_schoolName">School House Area</label>
                             </span>
                         </span>
@@ -65,8 +63,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
-                                    required>
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.lGA' maxlength="50" ng-trim="true" required>
                                 <label for="txt_schoolName">LGA</label>
                             </span>
                         </span>
@@ -77,7 +74,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_city" class='inputMaterial' required>
+                            <select id="dd_city" class='inputMaterial' required [(ngModel)]='school.cityId'>
                                 <option class='option' *ngFor='let option of masters.CityNewMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_city">City</label>
@@ -87,7 +84,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_state" class='inputMaterial' required>
+                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='school.stateId'>
                                 <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_state">State</label>
@@ -97,7 +94,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_country" class='inputMaterial' required>
+                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='school.countryId'>
                                 <option class='option' *ngFor='let option of masters.CountryMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_country">Country</label>
@@ -105,58 +102,165 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="row">
-                <div class="col-sm-4">
+
+            <div class="row">
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='geoMapping.stateId' (ngModelChange)="onOptionsSelected($event, 'state')">
-                                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_state">State</label>
+                            <input id="txt_landmark" class="inputMaterial" type="text" [(ngModel)]='school.landMark' maxlength="50" ng-trim="true" required>
+                            <label for="txt_landmark">Landmark</label>
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_supervisor" class='inputMaterial' required [(ngModel)]='geoMapping.supervisorId' (ngModelChange)="onOptionsSelected($event, 'super')">
-                                <option class='highlight' *ngFor='let option of masters.SupervisorMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_supervisor">Superviser</label>
+                            <input id="txt_geolocation" class="inputMaterial" type="text" [(ngModel)]='school.geoCoordinate' maxlength="50" ng-trim="true"
+                                required>
+                            <label for="txt_geolocation">GeoLocation</label>
                         </span>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-sm-8">
+
+                <div class="col-sm-3">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_marketingUser" class="inputMaterial" type="text" [(ngModel)]='geoMapping.marketingHierarchyUser' maxlength="50"
-                                ng-trim="true" required>
-                            <label for="txt_marketingUser">Marketing Heirarchy</label>
+                            <input id="txt_Pn" class="inputMaterial" type="text" [(ngModel)]='school.principalName' maxlength="50" ng-trim="true" required>
+                            <label for="txt_Pn">Priciple Name</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_ppn" class="inputMaterial" type="text" [(ngModel)]='school.phoneNumber' maxlength="50" ng-trim="true" required>
+                            <label for="txt_ppn">Principle Phone Number</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_st" class="inputMaterial" type="text" [(ngModel)]='school.schoolType' maxlength="50" ng-trim="true" required>
+                            <label for="txt_st">School Type</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_spn" class="inputMaterial" type="text" [(ngModel)]='school.schoolPhoneNumber' maxlength="50" ng-trim="true"
+                                required>
+                            <label for="txt_spn">School Phone Number</label>
                         </span>
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <div class="col-sm-8">
+
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <p-multiSelect id="float-input" maxSelectedLabels="10" [options]="masters.CityMaster" [(ngModel)]="geoMapping.schoolGeoHierarchyMappingViewModels"
-                                styleClass="inputMaterial" defaultLabel="" required></p-multiSelect>
-                            <label for="float-input">School</label>
+                            <input id="txt_Ppn" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' maxlength="50" ng-trim="true">
+                            <label for="txt_Ppn">Total Population</label>
                         </span>
                     </div>
                 </div>
-            </div> -->
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_tel" class="inputMaterial" type="text" [(ngModel)]='school.totalEducationlevel' maxlength="50" ng-trim="true">
+                            <label for="txt_tel">Total Education Level</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' ng-trim="true">
+                            <label for="txt_ntpp">Nursary To Primary Population</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span>
+                            <input id="txt_Pcn" class="inputMaterial" type="checkbox" [(ngModel)]='school.principalConcent'>
+                            <label for="txt_Pcn">Principal Content</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="group">
+                        <span>
+                            <input id="txt_sal" class="inputMaterial" type="checkbox" [(ngModel)]='school.singageAvailable'>
+                            <label for="txt_sal">Singage Available</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_sts" class="inputMaterial" type="text" [(ngModel)]='school.signageStatus' maxlength="50" ng-trim="true">
+                            <label for="txt_sts">Signage Status</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_ibd" class="inputMaterial" type="text" [(ngModel)]='school.ifBad' maxlength="50" ng-trim="true">
+                            <label for="txt_ibd">If Bad</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_crc" class="inputMaterial" type="text" [(ngModel)]='school.classRoomCorex' maxlength="50" ng-trim="true">
+                            <label for="txt_crc">Class Room Corex</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
             <div class="row">
                 <div class="col-sm-12 text-right">
                     <hr class="my-4">
                     <button type="button" class="btn secondary-btn mr-4">Cancel</button>
-                    <button type="submit" class="btn primary-btn">Save</button>
+                    <button type="submit" class="btn primary-btn" (click)="saveSchoolMaster()">Save</button>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="Content">
+        <p-table [value]="schoolLst">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>School Name</th>
+                    <th>Area</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-school>
+                <tr>
+                    <td>{{school.schoolName}}</td>
+                    <td>{{school.area}}</td>
+                    <td>{{school.cityName}}</td>
+                    <td>{{school.countryName}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>
 </section>
 <!-- <div #modal></div> -->
