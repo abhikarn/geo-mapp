@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppFeatureComponent } from './app.feature.component';
-import { AppFeatureResolver, AppFeatureMasterResolver } from './app.feature.resolver';
+import { GeoHeirarchyListComponent } from './geo-heirarchy/geo-heirarchy-list/geo-heirarchy-list.component';
+import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/geo-heirarchy-mapping.component';
+import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
+import { UserMasterComponent } from './user-master/user-master.component';
+import { AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver, AppGeoMappingDetail } from './app.feature.resolver';
 
 const routes: Routes = [
   {
@@ -14,13 +18,20 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/geo-heirarchy', pathMatch: 'full' },
 
-      { path: 'geo-heirarchy', loadChildren: 'app/app-features/geo-heirarchy/geo-heirarchy.module#GeoHeirarchyModule' }
+      {
+        path: 'geo-heirarchy', component: GeoHeirarchyListComponent, resolve: {
+          geoMapp: AppGeoMappResolver
+        }
+      },
 
-      // { path: 'dashboard', loadChildren: 'app/app-features/dashboard/dashboard.module#DashboardModule' },
-
-      // { path: 'master', loadChildren: 'app/app-features/masters/master.module#MasterModule' },
-
-      // { path: 'school-master', loadChildren: 'app/app-features/school-master/school-master.module#SchoolMasterModule' }
+      { path: 'geo-heirarchy/create', component: GeoHeirarchyMapComponent },
+      {
+        path: 'geo-heirarchy/:id/edit', component: GeoHeirarchyMapComponent, resolve: {
+          geoMap: AppGeoMappingDetail
+        },
+      },
+      { path: 'school-master/create', component: SchoolMasterCreateComponent },
+      { path: 'user-master/create', component: UserMasterComponent },
     ]
   }
 ];
