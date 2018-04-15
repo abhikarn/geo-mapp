@@ -27,5 +27,9 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
             this.schoolLst = res;
         });
     }
+
+    doEdit(school: School) {
+        this.school = school;
+    }
 }
 

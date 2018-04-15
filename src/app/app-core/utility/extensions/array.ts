@@ -5,3 +5,10 @@ Array.prototype.sum = function (field?: string) {
 Array.prototype.clone = function () {
     return _.cloneDeep(this);
 };
+// Array.prototype.customSort = function (fieldName) {
+//     return this.sort(SortByName, fieldName);
+// };
+
+// function SortByName(x, y, sortColumnName) {
+//     return ((x[sortColumnName] == y[sortColumnName]) ? 0 : ((x[sortColumnName] > y[sortColumnName]) ? 1 : -1));
+// }

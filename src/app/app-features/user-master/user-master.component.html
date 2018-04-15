@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h5 class="mb-0 mr-3 d-inline">
-                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click)="onCancelReset()"></span>{{segmentLabelText}}</h5>
+                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click)="onCancelReset()"></span>Reset</h5>
                 </div>
                 <div class="col-sm-6 text-right" hidden="!editMode">
                     <label>Last Updated Date :</label>
@@ -15,80 +15,138 @@
         <br>
         <div class="col-sm-12 py-4 form-container">
             <div class="row">
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="group">
-                            <span class="ui-float-label">
-                                <input id="txt_userName" class="inputMaterial" type="text" [(ngModel)]='userModel.userName' maxlength="50" ng-trim="true"
-                                    required>
-                                <label for="txt_userName">UserName</label>
-                            </span>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_userName" class="inputMaterial" type="text" [(ngModel)]='userModel.userName' maxlength="50" ng-trim="true"
+                                required>
+                            <label for="txt_userName">UserName</label>
+                        </span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="group">
-                            <span class="ui-float-label">
-                                <input id="txt_emailId" class="inputMaterial" type="email" [(ngModel)]='userModel.emailId' maxlength="100" ng-trim="true"
-                                    required>
-                                <label for="txt_emailId">Email Id</label>
-                            </span>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_emailId" class="inputMaterial" type="email" [(ngModel)]='userModel.emailId' maxlength="100" ng-trim="true"
+                                required>
+                            <label for="txt_emailId">Email Id</label>
+                        </span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="group">
-                            <span class="ui-float-label">
-                                <input id="txt_firstName" class="inputMaterial" type="text" [(ngModel)]='userModel.firstName' maxlength="50" ng-trim="true"
-                                    required>
-                                <label for="txt_firstName">First Name</label>
-                            </span>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_firstName" class="inputMaterial" type="text" [(ngModel)]='userModel.firstName' maxlength="50" ng-trim="true"
+                                required>
+                            <label for="txt_firstName">First Name</label>
+                        </span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="group">
-                            <span class="ui-float-label">
-                                <input id="txt_lastName" class="inputMaterial" type="text" [(ngModel)]='userModel.lastName' maxlength="50" ng-trim="true"
-                                    required>
-                                <label for="txt_lastName">Last Name</label>
-                            </span>
-                        </div>
+                <div class="col-sm-3">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_lastName" class="inputMaterial" type="text" [(ngModel)]='userModel.lastName' maxlength="50" ng-trim="true"
+                                required>
+                            <label for="txt_lastName">Last Name</label>
+                        </span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <div class="group">
-                            <span class="ui-float-label">
-                                <input id="txt_emailId" class="inputMaterial" type="email" [(ngModel)]='userModel.emailId' maxlength="100" ng-trim="true"
-                                    required>
-                                <label for="txt_emailId">Email Id</label>
-                            </span>
-                        </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_city" class='inputMaterial' required [(ngModel)]='userModel.cityId'>
+                                <option class='option' *ngFor='let option of masters.CityNewMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_city">City</label>
+                        </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_role" class='inputMaterial' required [(ngModel)]='geoMapping.roleId'>
-                                <option class='option' *ngFor='let option of masters.RoleMaster' [value]="option.roleId">{{option.roleName}}</option>
+                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='userModel.stateId'>
+                                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
-                            <label for="dd_zone">Zone</label>
+                            <label for="dd_state">State</label>
                         </span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-sm-12 text-right">
-                        <hr class="my-4">
-                        <button type="button" class="btn secondary-btn mr-4" (click)="onCancelReset()">Cancel</button>
-                        <button type="submit" class="btn primary-btn" (click)="saveData()">Save</button>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='userModel.countryId'>
+                                <option class='option' *ngFor='let option of masters.CountryMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_country">Country</label>
+                        </span>
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_role" class='inputMaterial' required [(ngModel)]='userModel.roleId'>
+                                <option class='option' *ngFor='let option of masters.RoleMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_role">Role</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span>
+                            <input id="ckb_status" class="inputMaterial" type="checkbox" [(ngModel)]='userModel.status'>
+                            <label for="ckb_status">Active</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span>
+                        </span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <hr class="my-4">
+                    <button type="button" class="btn secondary-btn mr-4" (click)="onCancelReset()">Cancel</button>
+                    <button type="submit" class="btn primary-btn" (click)="saveData()">Save</button>
+                </div>
+            </div>
         </div>
+
+    </div>
+    <div class="Content">
+        <p-table [value]="userLst">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>User name</th>
+                    <th>first Name</th>
+                    <th>last Name</th>
+                    <th>Active</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td>{{user.userName}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.status}}</td>
+                    <td>
+                        <button type="button" (click)="doEdit(user)">Edit</button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
     </div>
 </section>
 <!-- <div #modal></div> -->

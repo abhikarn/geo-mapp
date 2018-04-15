@@ -14,9 +14,11 @@ import { AppFeatureComponent } from './app.feature.component';
 import { GeoHeirarchyListComponent } from './geo-heirarchy/geo-heirarchy-list/geo-heirarchy-list.component';
 import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/geo-heirarchy-mapping.component';
 import { AppCoreModule, GlobalHttpErrorInterceptorProvider } from '@app/app-core';
+import { AppSharedModule } from '@app/app-shared';
 import {
   AppFeatureResolver, AppFeatureMasterResolver,
-  AppGeoMappResolver, AppGeoMappingDetail, AppSchoolListResolver
+  AppGeoMappResolver, AppGeoMappingDetail,
+  AppSchoolListResolver, AppUserListResolver
 } from './app.feature.resolver';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
@@ -49,6 +51,7 @@ import { TableModule } from 'primeng/table';
     MultiSelectModule,
     TableModule,
     AppCoreModule,
+    AppSharedModule,
     AppFetaureRoutingModule
   ],
   declarations: [
@@ -67,7 +70,8 @@ import { TableModule } from 'primeng/table';
     AppFeatureMasterResolver,
     AppGeoMappResolver,
     AppGeoMappingDetail,
-    AppSchoolListResolver
+    AppSchoolListResolver,
+    AppUserListResolver,
   ]
 })
 export class AppFeatureModule { }

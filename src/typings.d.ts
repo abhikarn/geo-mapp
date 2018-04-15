@@ -10,6 +10,9 @@ interface Array<T> {
 interface Array<T> {
   clone<T>(): T;
 }
+// interface Array<T> {
+//   customSort<T>(fieldName: string): Array<T>;
+// }
 interface Date {
   clone(): Date;
 }

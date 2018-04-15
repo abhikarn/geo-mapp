@@ -21,10 +21,10 @@ export class HeaderComponent implements OnInit {
       this.router.navigate(['geo-heirarchy']);
     } else if (menuItem === 'sm') {
       this.activeMenu = false;
-      this.router.navigate(['school-master/create']);
+      this.router.navigate(['school-master']);
     } else if (menuItem === 'um') {
       this.activeMenu = false;
-      this.router.navigate(['user-master/create']);
+      this.router.navigate(['user-master']);
     }
   }
 }

@@ -5,7 +5,10 @@ import { GeoHeirarchyListComponent } from './geo-heirarchy/geo-heirarchy-list/ge
 import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/geo-heirarchy-mapping.component';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
-import { AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver, AppGeoMappingDetail, AppSchoolListResolver } from './app.feature.resolver';
+import {
+  AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
+  AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver
+} from './app.feature.resolver';
 
 const routes: Routes = [
   {
@@ -30,10 +33,16 @@ const routes: Routes = [
           geoMap: AppGeoMappingDetail
         },
       },
-      { path: 'school-master/create', component: SchoolMasterCreateComponent, resolve: {
-        schoolLst: AppSchoolListResolver
-      }, },
-      { path: 'user-master/create', component: UserMasterComponent },
+      {
+        path: 'school-master', component: SchoolMasterCreateComponent, resolve: {
+          schoolLst: AppSchoolListResolver
+        },
+      },
+      {
+        path: 'user-master', component: UserMasterComponent, resolve: {
+          userLst: AppUserListResolver
+        },
+      },
     ]
   }
 ];
