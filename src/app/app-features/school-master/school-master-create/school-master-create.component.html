@@ -165,15 +165,17 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_Ppn" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' maxlength="50" ng-trim="true">
-                            <label for="txt_Ppn">Total Population</label>
+                            <input id="txt_tpl" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' maxlength="50" ng-trim="true"
+                                required>
+                            <label for="txt_tpl">Total Population</label>
                         </span>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_tel" class="inputMaterial" type="text" [(ngModel)]='school.totalEducationlevel' maxlength="50" ng-trim="true">
+                            <input id="txt_tel" class="inputMaterial" type="text" [(ngModel)]='school.totalEducationlevel' maxlength="50" ng-trim="true"
+                                required>
                             <label for="txt_tel">Total Education Level</label>
                         </span>
                     </div>
@@ -182,7 +184,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' ng-trim="true">
+                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' ng-trim="true" required>
                             <label for="txt_ntpp">Nursary To Primary Population</label>
                         </span>
                     </div>
@@ -202,7 +204,7 @@
                 <div class="col-sm-2">
                     <div class="group">
                         <span>
-                            <input id="txt_sal" class="inputMaterial" type="checkbox" [(ngModel)]='school.singageAvailable'>
+                            <input id="txt_sal" class="inputMaterial" type="checkbox" [(ngModel)]='school.singageAvailable' required>
                             <label for="txt_sal">Singage Available</label>
                         </span>
                     </div>
@@ -210,7 +212,7 @@
                 <div class="col-sm-2">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_sts" class="inputMaterial" type="text" [(ngModel)]='school.signageStatus' maxlength="50" ng-trim="true">
+                            <input id="txt_sts" class="inputMaterial" type="text" [(ngModel)]='school.signageStatus' maxlength="50" ng-trim="true" required>
                             <label for="txt_sts">Signage Status</label>
                         </span>
                     </div>
@@ -218,7 +220,7 @@
                 <div class="col-sm-2">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_ibd" class="inputMaterial" type="text" [(ngModel)]='school.ifBad' maxlength="50" ng-trim="true">
+                            <input id="txt_ibd" class="inputMaterial" type="text" [(ngModel)]='school.ifBad' maxlength="50" ng-trim="true" required>
                             <label for="txt_ibd">If Bad</label>
                         </span>
                     </div>
@@ -226,7 +228,7 @@
                 <div class="col-sm-3">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_crc" class="inputMaterial" type="text" [(ngModel)]='school.classRoomCorex' maxlength="50" ng-trim="true">
+                            <input id="txt_crc" class="inputMaterial" type="text" [(ngModel)]='school.classRoomCorex' maxlength="50" ng-trim="true" required>
                             <label for="txt_crc">Class Room Corex</label>
                         </span>
                     </div>
@@ -241,30 +243,38 @@
                 </div>
             </div>
         </div>
+        <hr>
+        <div class="Content" style="padding-left: 15px;">
+            <p-table [value]="schoolLst" [responsive]="true">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>School Name</th>
+                        <th>Area</th>
+                        <th>City</th>
+                        <th>Country</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-school>
+                    <tr>
+                        <td>{{school.schoolName}}</td>
+                        <td>{{school.area}}</td>
+                        <td>{{school.cityName}}</td>
+                        <td>{{school.countryName}}</td>
+                        <td>
+
+                            <i class="fa fa-edit" style="font-size:24px;cursor: pointer;" (click)="doEdit(school)"></i>
+                            <!-- <button class="fa fa-pencil" type="button" (click)="doEdit(school)">Edit
+                                <i class="fa fa-edit"></i>
+                            </button> -->
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <br>
+        <br>
     </div>
-    <div class="Content">
-        <p-table [value]="schoolLst">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>School Name</th>
-                    <th>Area</th>
-                    <th>City</th>
-                    <th>Country</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-school>
-                <tr>
-                    <td>{{school.schoolName}}</td>
-                    <td>{{school.area}}</td>
-                    <td>{{school.cityName}}</td>
-                    <td>{{school.countryName}}</td>
-                    <td>
-                        <button type="button" (click)="doEdit(school)">Edit</button>
-                    </td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </div>
+
 </section>
 <!-- <div #modal></div> -->
 <!-- <p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
