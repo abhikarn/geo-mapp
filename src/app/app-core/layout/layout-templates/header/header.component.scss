@@ -5,8 +5,8 @@ header {
 
     .logo  {
         > span{
-            background: url('#{$assetImgPath}/genworth.svg') no-repeat center center;
-            @include width-height(180px, 45px);
+            background: url('#{$assetImgPath}/logo-Indomie.svg') no-repeat center center;
+            @include width-height(200px, 80px);
         }
         img{
             width: 185px;
