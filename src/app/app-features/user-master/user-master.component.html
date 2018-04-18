@@ -14,8 +14,9 @@
         </div>
         <br>
         <div class="col-sm-12 py-4 form-container">
+
             <div class="row">
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_userName" class="inputMaterial" type="text" [(ngModel)]='userModel.userName' maxlength="50" ng-trim="true"
@@ -24,7 +25,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_emailId" class="inputMaterial" type="email" [(ngModel)]='userModel.emailId' maxlength="100" ng-trim="true"
@@ -33,7 +34,20 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <input id="txt_password" class="inputMaterial" type="password" [(ngModel)]='userModel.userPassword' maxlength="100" ng-trim="true"
+                                required>
+                            <label for="txt_password">Password</label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_firstName" class="inputMaterial" type="text" [(ngModel)]='userModel.firstName' maxlength="50" ng-trim="true"
@@ -42,7 +56,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_lastName" class="inputMaterial" type="text" [(ngModel)]='userModel.lastName' maxlength="50" ng-trim="true"
@@ -52,6 +66,8 @@
                     </div>
                 </div>
             </div>
+
+
 
             <div class="row">
 
@@ -140,7 +156,8 @@
                         <td>{{user.lastName}}</td>
                         <td>{{user.status}}</td>
                         <td>
-                            <button type="button" (click)="doEdit(user)">Edit</button>
+                            <!-- <button type="button" (click)="doEdit(user)">Edit</button> -->
+                            <i class="fa fa-edit" style="font-size:24px;cursor: pointer;" (click)="doEdit(user)"></i>
                         </td>
                     </tr>
                 </ng-template>

@@ -20,4 +20,5 @@ export interface UserMaster {
     branchName?: string;
     cityId?: number;
     cityName?: string;
+    authToken?: string;
 }
