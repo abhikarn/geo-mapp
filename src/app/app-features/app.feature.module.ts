@@ -20,6 +20,7 @@ import {
   AppGeoMappResolver, AppGeoMappingDetail,
   AppSchoolListResolver, AppUserListResolver
 } from './app.feature.resolver';
+import { CanActivateRouteGuard } from './app.feature.route.guard';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
 import { TableModule } from 'primeng/table';
@@ -74,6 +75,7 @@ import { LoginComponent } from './login/login.component';
     AppGeoMappingDetail,
     AppSchoolListResolver,
     AppUserListResolver,
+    CanActivateRouteGuard
   ]
 })
 export class AppFeatureModule { }

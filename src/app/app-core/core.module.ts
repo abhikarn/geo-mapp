@@ -8,6 +8,7 @@ import { HeaderComponent } from './layout/layout-templates/header/header.compone
 import { FooterComponent } from './layout/layout-templates/footer/footer.component';
 import { InMemoryWebServiceService } from './services/web-services/in-memory-web-service.service';
 import { WebService } from './services/web-services/web-service.service';
+import { AuthService } from './services/auth-service/auth.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -18,6 +19,6 @@ import { WebService } from './services/web-services/web-service.service';
   declarations: [LayoutComponent, HeaderComponent, FooterComponent],
   exports: [LayoutComponent, HeaderComponent, FooterComponent],
   entryComponents: [HeaderComponent],
-  providers: [WebService]
+  providers: [WebService, AuthService]
 })
 export class AppCoreModule { }

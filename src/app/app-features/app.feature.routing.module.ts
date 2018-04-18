@@ -10,6 +10,7 @@ import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
   AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver
 } from './app.feature.resolver';
+import { CanActivateRouteGuard } from './app.feature.route.guard';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       layout: AppFeatureResolver,
       masters: AppFeatureMasterResolver
     },
+    canActivate: [CanActivateRouteGuard],
     children: [
       // { path: '', redirectTo: '/geo-heirarchy', pathMatch: 'prefix' },
 

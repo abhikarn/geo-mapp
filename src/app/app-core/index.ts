@@ -1,5 +1,6 @@
 export * from './services/interceptors/global-http-error.interceptor';
 export * from './services/web-services/web-service.service';
+export * from './services/auth-service/auth.service';
 export * from './base/app-core-base-component';
 export * from './layout/layout.component';
 export * from './layout/layout-templates/header/header.component';

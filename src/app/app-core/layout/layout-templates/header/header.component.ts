@@ -10,7 +10,7 @@ import { MenuItem } from 'primeng/primeng';
 export class HeaderComponent implements OnInit {
   input: MenuItem;
   activeMenu = true;
-  @Input() isAuth: boolean = false;
+  @Input() isAuth = false;
   constructor(private router: Router) { }
 
   ngOnInit() {
