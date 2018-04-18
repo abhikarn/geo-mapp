@@ -10,7 +10,7 @@ export class LayoutComponent implements OnInit {
   private componentRef: ComponentRef<any>;
   @ViewChild('dynamiclayout', { read: ViewContainerRef })
   private container: ViewContainerRef;
-  @Input() dynamicHeader: { component: any, input: any };
+  @Input() dynamicHeader: { component: any, input: any, isAuth: boolean };
 
   constructor(private resolver: ComponentFactoryResolver) {
   }
@@ -24,6 +24,7 @@ export class LayoutComponent implements OnInit {
     const componentFactory = this.resolver.resolveComponentFactory(dynamicHeader.component);
     this.componentRef = this.container.createComponent(componentFactory);
     this.componentRef.instance.input = dynamicHeader.input;
+    this.componentRef.instance.isAuth = dynamicHeader.isAuth;
   }
 
 }

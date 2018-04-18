@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/primeng';
 
@@ -10,6 +10,7 @@ import { MenuItem } from 'primeng/primeng';
 export class HeaderComponent implements OnInit {
   input: MenuItem;
   activeMenu = true;
+  @Input() isAuth: boolean = false;
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -18,13 +19,13 @@ export class HeaderComponent implements OnInit {
   navigateMenu(menuItem: string) {
     if (menuItem === 'gh') {
       this.activeMenu = true;
-      this.router.navigate(['geo-heirarchy']);
+      this.router.navigate(['engage']);
     } else if (menuItem === 'sm') {
       this.activeMenu = false;
-      this.router.navigate(['school-master']);
+      this.router.navigate(['engage/school-master']);
     } else if (menuItem === 'um') {
       this.activeMenu = false;
-      this.router.navigate(['user-master']);
+      this.router.navigate(['engage/user-master']);
     }
   }
 }

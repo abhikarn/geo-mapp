@@ -59,7 +59,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_city" class='inputMaterial' required [(ngModel)]='userModel.cityId'>
-                                <option class='option' *ngFor='let option of masters.CityNewMaster' [value]="option.id">{{option.name}}</option>
+                                <option class='option' *ngFor='let option of masters.cityNewMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_city">City</label>
                         </span>
@@ -69,7 +69,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_state" class='inputMaterial' required [(ngModel)]='userModel.stateId'>
-                                <option class='option' *ngFor='let option of masters.StateMaster' [value]="option.id">{{option.name}}</option>
+                                <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_state">State</label>
                         </span>
@@ -79,7 +79,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_country" class='inputMaterial' required [(ngModel)]='userModel.countryId'>
-                                <option class='option' *ngFor='let option of masters.CountryMaster' [value]="option.id">{{option.name}}</option>
+                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_country">Country</label>
                         </span>
@@ -92,7 +92,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_role" class='inputMaterial' required [(ngModel)]='userModel.roleId'>
-                                <option class='option' *ngFor='let option of masters.RoleMaster' [value]="option.id">{{option.name}}</option>
+                                <option class='option' *ngFor='let option of masters.roleMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_role">Role</label>
                         </span>

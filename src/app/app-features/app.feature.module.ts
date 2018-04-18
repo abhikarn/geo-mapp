@@ -23,6 +23,7 @@ import {
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
 import { TableModule } from 'primeng/table';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { TableModule } from 'primeng/table';
     GeoHeirarchyListComponent,
     GeoHeirarchyMapComponent,
     SchoolMasterCreateComponent,
-    UserMasterComponent
+    UserMasterComponent,
+    LoginComponent
   ],
   exports: [AppFeatureComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

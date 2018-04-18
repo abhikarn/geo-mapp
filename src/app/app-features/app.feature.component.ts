@@ -17,6 +17,7 @@ export class AppFeatureComponent implements OnInit {
   ngOnInit() {
     this.componentData = this.activeRoute.snapshot.data['layout'];
     this.componentData.component = HeaderComponent;
+    this.componentData.isAuth = true;
   }
 
   updateLayout() {

@@ -41,12 +41,12 @@ export class GeoHeirarchyListComponent extends AppBaseComponent implements OnIni
   }
 
   addGeoMapping() {
-    this.router.navigateByUrl(`geo-heirarchy/${GeoHeirarchyRouteConfig.geoheirarchyCreate.routeName}`);
+    this.router.navigateByUrl(`engage/geo-heirarchy/${GeoHeirarchyRouteConfig.geoheirarchyCreate.routeName}`);
   }
 
   editGeoMapping(geo: GeoMapping) {
     this.setState('geoMap', geo);
-    this.router.navigateByUrl(`geo-heirarchy/${geo.geoMappingId}/edit`);
+    this.router.navigateByUrl(`engage/geo-heirarchy/${geo.geoMappingId}/edit`);
   }
 
   updatePage(event) {

@@ -41,7 +41,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     this.confirmationService.confirm({
       message: 'The details are not saved . Are you sure you want to exit?',
       accept: () => {
-        this.router.navigate(['/geo-heirarchy']);
+        this.router.navigate(['engage']);
       }
     });
   }

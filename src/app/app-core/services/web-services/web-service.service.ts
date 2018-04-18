@@ -15,6 +15,10 @@ export class WebService {
     return this.httpClient.get(`api/layout`);
   }
 
+  getMasters() {
+    const headers = new HttpHeaders().set('Cache-Control', 'no-cache').set('If-Modified-Since', '0');
+    return this.httpClient.get(`http://localhost:50717/webapi/Masters`, { headers: headers });
+  }
   getProducts() {
     const headers = new HttpHeaders().set('Cache-Control', 'no-cache').set('If-Modified-Since', '0');
     return this.httpClient.get(`api/product`, { headers: headers });

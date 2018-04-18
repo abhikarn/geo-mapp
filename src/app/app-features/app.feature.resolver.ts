@@ -2,7 +2,7 @@ import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import {
-    WebService, Masters, AppBaseComponent,
+    WebService, AppBaseComponent,
     GeoMapping, School, UserMaster
 } from 'app/app-core';
 import 'rxjs/add/observable/of';
@@ -16,9 +16,10 @@ export class AppFeatureResolver implements Resolve<any> {
 
 @Injectable()
 export class AppFeatureMasterResolver implements Resolve<any> {
-    constructor() { }
+    constructor(private webService: WebService) { }
     resolve(): Observable<any> {
-        return Observable.of(Masters);
+        return this.webService.getMasters();
+        // return Observable.of(Masters);
     }
 }
 

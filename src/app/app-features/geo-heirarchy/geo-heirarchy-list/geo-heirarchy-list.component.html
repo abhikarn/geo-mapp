@@ -26,7 +26,7 @@
 
                 </div>
 
-                <div class="col-sm-12" *ngIf="geoMapps.length > 0">
+                <div class="col-sm-12" *ngIf="geoMapps.length > 8">
                     <select style="width:300px !important;" [(ngModel)]='sortingModel' (ngModelChange)="doSort($event)" class="form-control sorting float-left mb-2">
                         <option class='bar' *ngFor='let option of sortFields' [value]="option.value">{{option.name}}</option>
                     </select>

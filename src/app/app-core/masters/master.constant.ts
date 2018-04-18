@@ -7,7 +7,7 @@ export const Masters = {
     SupervisorMaster: [{ id: 1, name: 'NSVA' }, { id: 2, name: 'NSVB' }],
     CityNewMaster: [{ id: 1, name: 'NCityA' }, { id: 2, name: 'NCityB' }],
     RoleMaster: [{ id: 1, name: 'Admin' }, { id: 2, name: 'User' }],
-    CityMaster: [
+    SchoolMaster: [
         { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
         { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },
         { label: 'London', value: { id: 3, name: 'London', code: 'LDN' } },

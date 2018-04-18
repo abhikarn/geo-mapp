@@ -5,6 +5,7 @@ import { GeoHeirarchyListComponent } from './geo-heirarchy/geo-heirarchy-list/ge
 import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/geo-heirarchy-mapping.component';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
+import { LoginComponent } from './login/login.component';
 import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
   AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver
@@ -12,17 +13,25 @@ import {
 
 const routes: Routes = [
   {
-    path: '',
+    path: '', redirectTo: '/login', pathMatch: 'full'
+  },
+  {
+    path: 'login', component: LoginComponent, resolve: {
+      layout: AppFeatureResolver
+    }
+  },
+  {
+    path: 'engage',
     component: AppFeatureComponent,
     resolve: {
       layout: AppFeatureResolver,
       masters: AppFeatureMasterResolver
     },
     children: [
-      { path: '', redirectTo: '/geo-heirarchy', pathMatch: 'full' },
+      // { path: '', redirectTo: '/geo-heirarchy', pathMatch: 'prefix' },
 
       {
-        path: 'geo-heirarchy', component: GeoHeirarchyListComponent, resolve: {
+        path: '', component: GeoHeirarchyListComponent, resolve: {
           geoMapp: AppGeoMappResolver
         }
       },

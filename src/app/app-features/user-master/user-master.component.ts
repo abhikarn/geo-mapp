@@ -48,7 +48,10 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     saveData() {
         console.log(this.userModel);
         this.webService.saveUserMaster(this.userModel).subscribe(res => {
-            this.userLst = res;
+            this.userModel = res;
+
+            // let userMaster: UserMaster = this.userLst.find((user) => user.userMasterId === this.userModel.userMasterId);
+            // userMaster = this.userModel;
             console.log(res);
         });
     }
