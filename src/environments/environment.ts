@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://10.129.146.190:7070',
+  apiUrl: 'http://fabkitstudio.com/webapi/',
   port: '7070'
 };

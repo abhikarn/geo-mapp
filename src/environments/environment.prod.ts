@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://10.129.146.190:7070',
+  apiUrl: 'http://localhost:9880/webapi/',
   port: '7070'
 };

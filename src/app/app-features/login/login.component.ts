@@ -49,7 +49,7 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                 },
                 error => {
                     this.authService.isAuth = false;
-                    //this.alertService.error(error);
+                    // this.alertService.error(error);
                     console.log(error);
                     this.loading = false;
                 });

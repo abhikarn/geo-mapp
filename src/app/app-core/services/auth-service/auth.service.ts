@@ -1,6 +1,7 @@
 /* tslint:disable */
 import { Injectable } from '@angular/core';
 import { UserMaster } from 'app/app-core';
+import { environment } from '@env/environment';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
@@ -21,6 +22,6 @@ export class AuthService {
             'Content-Type': 'application/json'
         });
         const options: RequestOptions = new RequestOptions({ headers: headers });
-        return this.http.post(`http://localhost:50717/webapi/Login`, userMaster, options);
+        return this.http.post(`${environment.apiUrl}Login`, userMaster, options);
     }
 }
