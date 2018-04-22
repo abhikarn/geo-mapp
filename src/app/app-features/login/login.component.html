@@ -35,15 +35,15 @@
 
             <form class="login-container">
                 <p>
-                    <input type="email" [(ngModel)]="model.userName" [ngModelOptions]="{standalone: true}" placeholder=" Username ">
+                    <input type="text" [(ngModel)]="model.userName" [ngModelOptions]="{standalone: true}" placeholder=" Username ">
                 </p>
                 <p>
-                    <input type="password " [(ngModel)]="model.userPassword "  [ngModelOptions]="{standalone: true}" placeholder="Password">
+                    <input type="password" [(ngModel)]="model.userPassword " [ngModelOptions]="{standalone: true}" placeholder="Password">
                 </p>
                 <p>
                     <input type="button" value="Log in" (click)="login()">
                 </p>
             </form>
-        </div>>
+        </div>
     </div>
 </div>
