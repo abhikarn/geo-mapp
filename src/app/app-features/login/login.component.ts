@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HeaderComponent, LayoutComponent, AuthService, AppBaseComponent, UserMaster } from '@app/app-core';
+import { HeaderComponent, LayoutComponent, AuthService, AppBaseComponent, UserMaster, CommonService } from '@app/app-core';
 
 // import { AppBaseComponent, UserMaster, WebService } from '@app/app-core';
 
@@ -12,13 +12,15 @@ import { HeaderComponent, LayoutComponent, AuthService, AppBaseComponent, UserMa
 export class LoginComponent extends AppBaseComponent implements OnInit {
     model: UserMaster = { userMasterId: 0, userName: '', userPassword: '' };
     loading = false;
+    showLoader1 =  false;
     returnUrl: string;
     @ViewChild('layout') layout: LayoutComponent;
     componentData = null;
     constructor(
         private activeRoute: ActivatedRoute,
         private authService: AuthService,
-        private router: Router
+        private router: Router,
+        private commonService: CommonService
         // private authenticationService: AuthenticationService,
         // private webService: WebService
     ) {
@@ -37,6 +39,7 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
 
     login() {
         this.loading = true;
+        this.showLoader1 = true;
         this.authService.login(this.model)
             .subscribe(
                 data => {
@@ -45,10 +48,12 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                     this.model = JSON.parse(data.text());
                     this.authService.isAuth = true;
                     this.setState('authtoken', this.model.authToken);
+                    this.commonService.showLoader = true;
                     this.router.navigate(['engage']);
                 },
                 error => {
                     this.authService.isAuth = false;
+                    this.showLoader1 = false;
                     // this.alertService.error(error);
                     console.log(error);
                     this.loading = false;

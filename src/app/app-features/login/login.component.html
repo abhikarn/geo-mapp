@@ -1,5 +1,15 @@
 <app-layout #layout [dynamicHeader]='componentData'> </app-layout>
-<div class="col-md-6 col-md-offset-3">
+<br>
+<br>
+<div *ngIf="showLoader1">
+    <div class="loader-sect">
+        <div class="loader-holder">
+            <img src="assets/images/loading.gif" class="pad-btm10">
+            <p>loading..</p>
+        </div>
+    </div>
+</div>
+<div class="col-md-6 col-md-offset-3" align="center">
     <h2>Login</h2>
     <form name="form" #f="ngForm" novalidate>
         <div class="form-group">

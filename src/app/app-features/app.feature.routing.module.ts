@@ -30,8 +30,6 @@ const routes: Routes = [
     },
     canActivate: [CanActivateRouteGuard],
     children: [
-      // { path: '', redirectTo: '/geo-heirarchy', pathMatch: 'prefix' },
-
       {
         path: '', component: GeoHeirarchyListComponent, resolve: {
           geoMapp: AppGeoMappResolver

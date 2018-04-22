@@ -3,7 +3,7 @@
     <span class="d-block"></span>
   </div>
   <div class="col-sm-4 col-4 text-center py-3">
-    <h5>Geo Management</h5>
+    <h5>Engage</h5>
   </div>
   <div class="col-sm-4 col-4" *ngIf="isAuth">
     <nav>
@@ -22,8 +22,38 @@
     </nav>
   </div>
 </header>
+
 <div class="row tile-section" *ngIf="isAuth">
-  <div class="col-sm-12" #container>
+  <ul class="nav nav-tabs col-sm-12 menutest">
+    <li class="dropdown active abc">
+      <a class="dropdown-toggle outerlinkcolor" data-toggle="dropdown" href="#">Transactions
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu ulb">
+        <li>
+          <a href="#" routerLink="/engage" class="innerlinkcolor">Geo Hierchy</a>
+        </li>
+      </ul>
+    </li>
+    <li class="dropdown abc">
+      <a class="dropdown-toggle outerlinkcolor" data-toggle="dropdown" href="#">Masters
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu ulb">
+        <li>
+          <a href="#" routerLink="school-master" class="innerlinkcolor">School Master</a>
+        </li>
+        <li>
+          <a href="#" routerLink="user-master" class="innerlinkcolor">User Master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="abc">
+      <a href="javascript:void(0);" class="outerlinkcolor">Reports</a>
+    </li>
+  </ul>
+  <!-- <div class="col-sm-12" #container>
+
     <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': !activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('gh')">
       <span class="notes-icon d-block float-left"></span>Geo Hierchy</h4>
 
@@ -33,7 +63,7 @@
 
     <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('um')">
       <span class="notes-icon d-block float-left"></span>User Master</h4>
-  </div>
+  </div> -->
 </div>
 <!-- <div class="row tile-subsection">
   <div class="col-sm-12">

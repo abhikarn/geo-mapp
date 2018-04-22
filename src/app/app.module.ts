@@ -31,7 +31,8 @@ import { DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, C
     provide: APP_INITIALIZER, useFactory: loadConfig,
     deps: [AppConfig], multi: true
   },
-    { provide: LocationStrategy, useClass: HashLocationStrategy }],
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

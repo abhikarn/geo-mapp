@@ -1,28 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { AppBaseComponent } from '@app/app-core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent extends AppBaseComponent {
   title = 'app';
-
-  twins(a, b) {
-    console.log(b);
-    const results = [];
-    for (let i = 1; i < a.length - 1; i++) {
-      let prev = 0;
-      // let next = 0;
-      if (i % 2 === 0) {
-
-        if (prev !== i) {
-          const temp = a[prev];
-          a[prev] = a[i];
-          a[i] = temp;
-        }
-        prev = i;
-      }
-    }
-    return results;
+  constructor() {
+    super();
   }
 }
+

@@ -56,3 +56,29 @@ header {
         }
     }
 }
+
+.menutest {
+    background: $dark-blue;
+    position: relative;
+    border-bottom: 5px solid $medium-dark-blue;
+    .abc {
+        color: $white-color;
+        padding: 15px 25px;
+        display: inline-block;
+        font-size: 18px;
+        text-decoration-line: none;
+        .outerlinkcolor {
+            color: $white-color;
+            text-decoration-line: none;
+        }
+        .innerlinkcolor {
+        font: bold;
+        color: $white-color;
+        text-decoration-line: none;
+        }
+    }
+
+    .ulb {
+        background: $dark-blue;
+    }
+}
