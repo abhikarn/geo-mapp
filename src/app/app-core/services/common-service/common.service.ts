@@ -5,6 +5,6 @@ export class CommonService {
     showLoader = false;
     constructor() {
     }
-    //get showLoader(): boolean { return this.setLoader; }
-    //set showLoader(name) { this.setLoader = name; }
+    // get showLoader(): boolean { return this.setLoader; }
+    // set showLoader(name) { this.setLoader = name; }
 }

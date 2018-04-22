@@ -6,13 +6,14 @@ import { HeaderComponent, LayoutComponent, AuthService, AppBaseComponent, UserMa
 
 @Component({
     moduleId: module.id,
-    templateUrl: 'login.component.html'
+    templateUrl: 'login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent extends AppBaseComponent implements OnInit {
     model: UserMaster = { userMasterId: 0, userName: '', userPassword: '' };
     loading = false;
-    showLoader1 =  false;
+    showLoader1 = false;
     returnUrl: string;
     @ViewChild('layout') layout: LayoutComponent;
     componentData = null;
