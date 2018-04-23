@@ -18,7 +18,6 @@ export class HeaderComponent extends AppBaseComponent implements OnInit {
   userModel: UserMaster = this.getState<UserMaster>('usermodel');
   constructor(private router: Router, private authService: AuthService) {
     super();
-    console.log(this.userModel, 'sumit');
   }
 
   ngOnInit() {
