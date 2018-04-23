@@ -10,8 +10,8 @@
       <ul class="float-right mb-0 px-0">
         <li class="profile px-3 py-3">
           <span class="text-right mr-3">
-            <h6 class="mb-0">Srikant Panigrahy</h6>
-            <p class="mb-0">Manager</p>
+            <h6 class="mb-0">{{userModel.firstName}} {{userModel.lastName}}</h6>
+            <p class="mb-0">{{userModel.roleName}}</p>
           </span>
           <span class="profile-img d-block"></span>
         </li>
@@ -43,14 +43,29 @@
         <li>
           <a href="#" routerLink="school-master" class="innerlinkcolor">School Master</a>
         </li>
-        <li>
+        <!-- <li>
           <a href="#" routerLink="user-master" class="innerlinkcolor">User Master</a>
-        </li>
+        </li> -->
       </ul>
     </li>
     <li class="abc">
       <a href="javascript:void(0);" class="outerlinkcolor">Reports</a>
     </li>
+
+    <li class="dropdown abc">
+      <a class="dropdown-toggle outerlinkcolor" data-toggle="dropdown" href="#">Settings
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu ulb">
+        <li>
+          <a href="javascript:void(0);" (click)="addGeoMapping()" class="innerlinkcolor">Geo Hierarchy Create</a>
+        </li>
+        <li>
+          <a href="#" routerLink="user-master" class="innerlinkcolor">User Master</a>
+        </li>
+      </ul>
+    </li>
+
   </ul>
   <!-- <div class="col-sm-12" #container>
 

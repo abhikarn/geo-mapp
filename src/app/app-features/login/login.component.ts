@@ -49,6 +49,7 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                     this.model = JSON.parse(data.text());
                     this.authService.isAuth = true;
                     this.setState('authtoken', this.model.authToken);
+                    this.setState('usermodel', this.model);
                     this.commonService.showLoader = true;
                     this.router.navigate(['engage']);
                 },
