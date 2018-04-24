@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/primeng';
-import { AuthService } from 'app/app-core/services/auth-service/auth.service';
 import { AppBaseComponent } from 'app/app-core/base/app-core-base-component';
 import { GeoHeirarchyRouteConfig } from 'app/app-features/geo-heirarchy/geo-heirarchy-route-names';
 import { UserMaster } from '@app/app-core';
@@ -14,13 +13,18 @@ import { UserMaster } from '@app/app-core';
 export class HeaderComponent extends AppBaseComponent implements OnInit {
   input: MenuItem;
   activeMenu = true;
+<<<<<<< HEAD
   @Input() isAuth;
+=======
+  @Input() public isAuth = false;
+>>>>>>> 852bd57641d03503bf6b82cb8ef203ddb286c1d0
   userModel: UserMaster = this.getState<UserMaster>('usermodel');
-  constructor(private router: Router, private authService: AuthService) {
+  constructor(private router: Router) {
     super();
   }
 
   ngOnInit() {
+    this.userModel = this.getState<UserMaster>('usermodel');
   }
 
   navigateMenu(menuItem: string) {
@@ -41,8 +45,7 @@ export class HeaderComponent extends AppBaseComponent implements OnInit {
   }
 
   logout() {
-    this.authService.isAuth = false;
-    this.clearState('authtoken');
+    this.clearAllStorage();
     this.router.navigate(['login']);
   }
 }

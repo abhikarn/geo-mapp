@@ -19,7 +19,6 @@ export class AppFeatureMasterResolver implements Resolve<any> {
     constructor(private webService: WebService) { }
     resolve(): Observable<any> {
         return this.webService.getMasters();
-        // return Observable.of(Masters);
     }
 }
 

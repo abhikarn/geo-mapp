@@ -3,15 +3,21 @@ import { Injectable } from '@angular/core';
 import { UserMaster } from 'app/app-core';
 import { environment } from '@env/environment';
 import { Http, RequestOptions, Headers } from '@angular/http';
+import { AppBaseComponent } from 'app/app-core/base/app-core-base-component';
+
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class AuthService {
-    private _auth: boolean = false;
+export class AuthService extends AppBaseComponent {
+    private _auth: boolean;
+    constructor(private http: Http) {
+        super();
+    }
 
-    constructor(private http: Http) { }
-
-    public get isAuth(): boolean { return this._auth }
+    public get isAuth(): boolean {
+        this._auth = this.isAuthenticated;
+        return this._auth;
+    }
 
     public set isAuth(auth: boolean) {
         this._auth = auth;
@@ -25,3 +31,4 @@ export class AuthService {
         return this.http.post(`${environment.apiUrl}Login`, userMaster, options);
     }
 }
+

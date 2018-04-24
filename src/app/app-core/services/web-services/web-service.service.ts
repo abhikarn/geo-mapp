@@ -20,19 +20,18 @@ export class WebService extends AppBaseComponent {
 
   private getHeaders() {
     const token = this.getState<string>('authtoken');
-    return new HttpHeaders().set('auth-token', token);
+    return new HttpHeaders().set('authtoken', token);
   }
 
   getMasters() {
-
-    return this.httpClient.get(`${environment.apiUrl}Masters`, { headers: this.getHeaders() });
+    return this.httpClient.get(`${environment.apiUrl}Masters`);
   }
   getProducts() {
     return this.httpClient.get(`api/product`, { headers: this.getHeaders() });
   }
 
   getGeoMapping() {
-    return this.httpClient.get(`${environment.apiUrl}GeoHierarchies`, { headers: this.getHeaders() });
+    return this.httpClient.get(`${environment.apiUrl}GeoHierarchies`);
   }
 
   getSegment(segmentId: string): Observable<ProductSegment> {
