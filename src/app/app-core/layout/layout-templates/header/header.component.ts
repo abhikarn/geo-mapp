@@ -14,7 +14,7 @@ import { UserMaster } from '@app/app-core';
 export class HeaderComponent extends AppBaseComponent implements OnInit {
   input: MenuItem;
   activeMenu = true;
-  @Input() isAuth = false;
+  @Input() isAuth;
   userModel: UserMaster = this.getState<UserMaster>('usermodel');
   constructor(private router: Router, private authService: AuthService) {
     super();

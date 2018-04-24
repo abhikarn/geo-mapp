@@ -52,7 +52,7 @@ const routes: Routes = [
       {
         path: 'user-master', component: UserMasterComponent, resolve: {
           userLst: AppUserListResolver
-        },
+        }, canActivate: [CanLoginRouteGuard],
       },
     ]
   }

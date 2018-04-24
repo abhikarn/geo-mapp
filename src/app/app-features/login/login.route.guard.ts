@@ -11,7 +11,7 @@ export class CanLoginRouteGuard implements CanActivate {
 
     canActivate(): boolean {
         if (this.authService.isAuth) {
-            return false;
+            // return false;
         }
         return true;
     }
