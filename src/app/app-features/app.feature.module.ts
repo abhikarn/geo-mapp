@@ -13,7 +13,7 @@ import { AppFetaureRoutingModule } from './app.feature.routing.module';
 import { AppFeatureComponent } from './app.feature.component';
 import { GeoHeirarchyListComponent } from './geo-heirarchy/geo-heirarchy-list/geo-heirarchy-list.component';
 import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/geo-heirarchy-mapping.component';
-import { AppCoreModule, GlobalHttpErrorInterceptorProvider } from '@app/app-core';
+import { AppCoreModule } from '@app/app-core';
 import { AppSharedModule } from '@app/app-shared';
 import {
   AppFeatureResolver, AppFeatureMasterResolver,
@@ -68,7 +68,7 @@ import { CanLoginRouteGuard } from './login/login.route.guard';
   exports: [AppFeatureComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
-    GlobalHttpErrorInterceptorProvider,
+    // GlobalHttpErrorInterceptorProvider,
     ConfirmationService,
     AppFeatureResolver,
     AppFeatureMasterResolver,

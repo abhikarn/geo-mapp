@@ -60,12 +60,12 @@ header {
 .menutest {
     background: $dark-blue;
     position: relative;
-    border-bottom: 5px solid $medium-dark-blue;
+    // border-bottom: 5px solid $medium-dark-blue;
     .abc {
         color: $white-color;
-        padding: 15px 25px;
+        padding: 10px 20px;
         display: inline-block;
-        font-size: 18px;
+        font-size: 15px;
         text-decoration-line: none;
         .outerlinkcolor {
             color: $white-color;
@@ -74,11 +74,25 @@ header {
         .innerlinkcolor {
         font: bold;
         color: $white-color;
-        text-decoration-line: none;
-        }
+        text-decoration-line: none
+        };
     }
 
     .ulb {
-        background: $dark-blue;
+        top: 43px !important;
     }
 }
+.nav-item:hover {
+    background: $medium-dark-blue;
+}
+.dropdown:hover > .dropdown-menu {
+    display: block;
+    height: auto;
+    overflow: auto;
+    background: $dark-blue;
+}
+.dropdown > .dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+

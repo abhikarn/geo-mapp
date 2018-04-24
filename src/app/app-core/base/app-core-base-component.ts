@@ -14,11 +14,9 @@ export interface OtherFormConfig {
 
 export abstract class AppBaseComponent {
     protected form: FormGroup;
-    private loader = false;
     constructor() {
     }
-    get showLoader(): boolean { return this.loader = localStorage.getItem('loader') === 'false'; }
-    // set showLoader(name) { this.loader = localStorage.setItem('loader', name. === 'true'); }
+    protected get isAuthenticated(): boolean { return !!this.getState('authtoken'); }
 
     protected setState<T>(name: string, value: T, storage?: StateType): void {
         if (!storage) {
