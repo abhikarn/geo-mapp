@@ -19,6 +19,8 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     };
     masters: any;
     userLst: UserMaster[];
+    users: UserMaster[];
+    currentPage = 0;
     constructor(private activatedRoute: ActivatedRoute, private webService: WebService,
         private confirmationService: ConfirmationService,
         private router: Router
@@ -30,6 +32,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     ngOnInit() {
         console.log(this.activatedRoute.snapshot.data.userLst);
         this.userLst = this.activatedRoute.snapshot.data.userLst || [];
+        this.users = this.activatedRoute.snapshot.data.userLst;
     }
 
     confirm() {
@@ -58,6 +61,11 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
 
     doEdit(user: UserMaster) {
         this.userModel = user;
+    }
+
+    updatePage(event) {
+        this.currentPage = +event.page;
+        this.userLst = this.users.slice(event.first, +event.first + +event.rows);
     }
 
 }

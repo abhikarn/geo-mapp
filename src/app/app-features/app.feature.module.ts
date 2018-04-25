@@ -1,6 +1,7 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { AlertsModule } from 'angular-alert-module';
 
 import {
   DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, MultiSelectModule,
@@ -55,7 +56,8 @@ import { CanLoginRouteGuard } from './login/login.route.guard';
     TableModule,
     AppCoreModule,
     AppSharedModule,
-    AppFetaureRoutingModule
+    AppFetaureRoutingModule,
+    AlertsModule.forRoot()
   ],
   declarations: [
     AppFeatureComponent,

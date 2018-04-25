@@ -10,6 +10,8 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     school: School = { schoolName: '' };
     masters: any;
     schoolLst: School[];
+    schools: School[];
+    currentPage = 0;
     constructor(private activatedRoute: ActivatedRoute, private webService: WebService) {
         super();
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
@@ -18,6 +20,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     ngOnInit() {
         console.log(this.activatedRoute.snapshot.data.schoolLst);
         this.schoolLst = this.activatedRoute.snapshot.data.schoolLst || [];
+        this.schools = this.activatedRoute.snapshot.data.schoolLst;
     }
 
     saveSchoolMaster() {
@@ -30,6 +33,11 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
 
     doEdit(school: School) {
         this.school = school;
+    }
+
+    updatePage(event) {
+        this.currentPage = +event.page;
+        this.schoolLst = this.schools.slice(event.first, +event.first + +event.rows);
     }
 }
 

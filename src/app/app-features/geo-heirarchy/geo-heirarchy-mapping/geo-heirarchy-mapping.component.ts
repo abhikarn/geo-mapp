@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, GeoMapping, WebService } from '@app/app-core';
 import { ConfirmationService } from 'primeng/primeng';
+
 @Component({
   selector: 'app-map-geo-heirarchy',
   templateUrl: './geo-heirarchy-mapping.component.html',
@@ -20,7 +21,8 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   };
   constructor(private activatedRoute: ActivatedRoute,
     private confirmationService: ConfirmationService,
-    private router: Router, private webService: WebService) {
+    private router: Router, private webService: WebService
+  ) {
     super();
     this.masters = this.activatedRoute.parent.snapshot.data.masters;
   }
@@ -60,6 +62,16 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     console.log(this.geoMapping);
     this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
       console.log(res);
+      this.saveConfirm();
+    });
+  }
+
+  saveConfirm() {
+    this.confirmationService.confirm({
+      message: 'The details saved successfully',
+      accept: () => {
+        this.router.navigate(['engage']);
+      }
     });
   }
 }

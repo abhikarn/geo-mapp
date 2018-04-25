@@ -7,6 +7,7 @@ import { ProductTilesComponent } from './product-tiles-component/product-tiles.c
 import { PaginationComponent } from './pagination-component/pagination.component';
 import { PaginatorModule, DialogModule, ConfirmDialogModule } from 'primeng/primeng';
 import { ConfirmDialogComponent } from './modal-components/confirm-box-modal-component/confirm-dialog-box.component';
+import { SaveDialogComponent } from './modal-components/save-box-modal-component/save-dialog-box.component';
 import { DynamicComponentService } from './services/dynamic-component.service';
 @NgModule({
   imports: [
@@ -16,9 +17,15 @@ import { DynamicComponentService } from './services/dynamic-component.service';
     DialogModule,
     ConfirmDialogModule
   ],
-  declarations: [ForbiddenValidatorDirective, ProductTilesComponent, PaginationComponent, ForbiddenTextDirective, ConfirmDialogComponent],
-  exports: [ForbiddenValidatorDirective, ProductTilesComponent, PaginationComponent, ForbiddenTextDirective, ConfirmDialogComponent],
-  entryComponents: [ConfirmDialogComponent],
+  declarations: [ForbiddenValidatorDirective,
+    ProductTilesComponent,
+    PaginationComponent, ForbiddenTextDirective,
+    ConfirmDialogComponent, SaveDialogComponent],
+  exports: [ForbiddenValidatorDirective, ProductTilesComponent,
+    PaginationComponent, ForbiddenTextDirective,
+    ConfirmDialogComponent, SaveDialogComponent],
+  entryComponents: [ConfirmDialogComponent,
+    SaveDialogComponent],
   providers: [DynamicComponentService]
 })
 export class AppSharedModule { }

@@ -36,7 +36,6 @@ export class GeoHeirarchyListComponent extends AppBaseComponent implements OnIni
   ngOnInit() {
     this.geoMapps = this.activeRoute.snapshot.data.geoMapp;
     this.doSort(this.sortingModel);
-    console.log(this.geoMapList);
     console.log(this.activeRoute.snapshot.data.geoMapp);
   }
 

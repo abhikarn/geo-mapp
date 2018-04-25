@@ -12,6 +12,7 @@ export class WebService extends AppBaseComponent {
   // Resolve HTTP using the constructor
   constructor(private httpClient: HttpClient, private http: Http) {
     super();
+
   }
 
   getLayout() {
@@ -24,7 +25,12 @@ export class WebService extends AppBaseComponent {
   }
 
   getMasters() {
-    return this.httpClient.get(`${environment.apiUrl}Masters`);
+    const userModel = this.getState<UserMaster>('usermodel');
+    let httpParams = new HttpParams()
+      .set('countryId', userModel.countryId.toString())
+      .set('stateId', userModel.stateId.toString())
+      .set('cityId', userModel.cityId.toString());
+    return this.httpClient.get(`${environment.apiUrl}Masters`, { params: httpParams });
   }
   getProducts() {
     return this.httpClient.get(`api/product`, { headers: this.getHeaders() });
@@ -58,7 +64,13 @@ export class WebService extends AppBaseComponent {
   }
 
   getSchools(): Observable<School[]> {
-    return this.httpClient.get(`${environment.apiUrl}SchoolMasters`, { headers: this.getHeaders() }) as Observable<School[]>;
+    const userModel = this.getState<UserMaster>('usermodel');
+    let httpParams = new HttpParams()
+      .set('countryId', userModel.countryId.toString())
+      .set('stateId', userModel.stateId.toString())
+      .set('cityId', userModel.cityId.toString());
+    console.log(httpParams.toString());
+    return this.httpClient.get(`${environment.apiUrl}SchoolMasters`, { headers: this.getHeaders(), params: httpParams }) as Observable<School[]>;
   }
 
   saveUserMaster(userMaster: UserMaster): Observable<any> {
