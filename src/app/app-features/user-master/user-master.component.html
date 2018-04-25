@@ -168,6 +168,9 @@
                 </ng-template>
             </p-table>
         </div>
+        <div class="col-sm-12" *ngIf="users.length > 8">
+            <app-pagination [total]="users.length" (pageUpdate)="updatePage($event)"></app-pagination>
+        </div>
     </div>
 
 </section>
