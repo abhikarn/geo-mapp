@@ -13,11 +13,7 @@ import { UserMaster } from '@app/app-core';
 export class HeaderComponent extends AppBaseComponent implements OnInit {
   input: MenuItem;
   activeMenu = true;
-<<<<<<< HEAD
-  @Input() isAuth;
-=======
   @Input() public isAuth = false;
->>>>>>> 852bd57641d03503bf6b82cb8ef203ddb286c1d0
   userModel: UserMaster = this.getState<UserMaster>('usermodel');
   constructor(private router: Router) {
     super();
