@@ -6,7 +6,7 @@ import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
 import { LoginComponent } from './login/login.component';
-import { CanLoginRouteGuard } from './login/login.route.guard';
+// import { CanLoginRouteGuard } from './login/login.route.guard';
 import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
   AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver
@@ -21,7 +21,7 @@ const routes: Routes = [
     path: 'login', component: LoginComponent, resolve: {
       layout: AppFeatureResolver
     },
-    canActivate: [CanLoginRouteGuard],
+    // canActivate: [CanLoginRouteGuard],
   },
   {
     path: 'engage',
@@ -52,7 +52,8 @@ const routes: Routes = [
       {
         path: 'user-master', component: UserMasterComponent, resolve: {
           userLst: AppUserListResolver
-        }, canActivate: [CanLoginRouteGuard],
+        }, 
+        // canActivate: [CanLoginRouteGuard],
       },
     ]
   }

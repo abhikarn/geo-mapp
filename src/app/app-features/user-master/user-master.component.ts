@@ -9,7 +9,7 @@ import { ConfirmationService } from 'primeng/primeng';
 })
 export class UserMasterComponent extends AppBaseComponent implements OnInit {
     userModel: UserMaster = {
-        userMasterId: 0,
+        id: 0,
         userName: '', emailId: '', userPassword: '', isActive: true,
         lastLoginDate: new Date(), firstName: '', lastName: '', roleId: 0,
         roleName: '', status: '', countryId: 0, countryName: '',
@@ -17,6 +17,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         branchId: 0, branchName: '',
         cityId: 0, cityName: ''
     };
+    states: any[];
     masters: any;
     userLst: UserMaster[];
     users: UserMaster[];
@@ -33,6 +34,11 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         console.log(this.activatedRoute.snapshot.data.userLst);
         this.userLst = this.activatedRoute.snapshot.data.userLst || [];
         this.users = this.activatedRoute.snapshot.data.userLst;
+        this.webService.getStatesAll()
+            .subscribe(res => {
+                this.masters.stateMaster = res;
+                console.log(res);
+            });
     }
 
     confirm() {
@@ -66,6 +72,10 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     updatePage(event) {
         this.currentPage = +event.page;
         this.userLst = this.users.slice(event.first, +event.first + +event.rows);
+    }
+
+    onOptionsSelected(event) {
+        console.log(event);
     }
 
 }

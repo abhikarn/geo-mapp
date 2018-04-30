@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppBaseComponent, GeoMapping, WebService } from '@app/app-core';
+import { AppBaseComponent, GeoMapping, WebService, UserMaster } from '@app/app-core';
 import { ConfirmationService } from 'primeng/primeng';
 
 @Component({
@@ -14,10 +14,12 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   segmentButtonText = '';
   editMode = false;
   masters: any;
+  userModels: UserMaster[];
   geoMapping: GeoMapping = {
     countryId: 1, countryName: '', zoneId: 1, zoneName: '',
     branchId: 1, branchName: '', stateId: 1, stateName: '',
-    supervisorId: 1, supervisorName: '', marketingHierarchyUser: ''
+    supervisorId: 1, supervisorName: '',
+    marketingHierarchyUserId: 1
   };
   constructor(private activatedRoute: ActivatedRoute,
     private confirmationService: ConfirmationService,
@@ -25,6 +27,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   ) {
     super();
     this.masters = this.activatedRoute.parent.snapshot.data.masters;
+    this.masters.stateMaster = null;
   }
 
   ngOnInit() {
@@ -51,6 +54,47 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   onOptionsSelected(event: string, source: string) {
     if (source === 'country') {
       console.log(event);
+      this.webService.getZones(parseInt(event)).subscribe((res) => {
+        console.log(res);
+        this.masters.zoneMaster = res;
+        this.masters.branchMaster = null;
+        this.masters.stateMaster = null;
+        this.masters.supervisorMaster = null;
+        this.userModels = null;
+      });
+    }
+    if (source === 'zone') {
+      console.log(event);
+      this.webService.getBranches(parseInt(event)).subscribe((res) => {
+        console.log(res);
+        this.masters.branchMaster = res;
+        this.masters.stateMaster = null;
+        this.masters.supervisorMaster = null;
+        this.userModels = null;
+      });
+    }
+    if (source === 'branch') {
+      console.log(event);
+      this.webService.getStates(parseInt(event)).subscribe((res) => {
+        console.log(res);
+        this.masters.stateMaster = res;
+      });
+    }
+    if (source === 'state') {
+      console.log(event);
+      this.webService.getRoleBasedUser(this.geoMapping.countryId, parseInt(event), 'Supervisor')
+        .subscribe((res) => {
+          console.log(res);
+          this.masters.supervisorMaster = res;
+        });
+    }
+
+    if (source === 'super') {
+      this.webService.getRoleBasedUser(this.geoMapping.countryId, this.geoMapping.stateId, 'Marketing User')
+        .subscribe((res) => {
+          console.log(res);
+          this.userModels = res;
+        });
     }
   }
 
@@ -63,15 +107,24 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
       console.log(res);
       this.saveConfirm();
+      this.router.navigate(['engage']);
     });
   }
 
   saveConfirm() {
-    this.confirmationService.confirm({
-      message: 'The details saved successfully',
-      accept: () => {
-        this.router.navigate(['engage']);
-      }
-    });
+    // this.confirmationService.confirm({
+    //   message: 'The details saved successfully',
+    //   accept: () => {
+    this.router.navigate(['engage']);
+    //   }
+    // });
+  }
+
+  getMarketingUser() {
+    this.webService.getRoleBasedUser(this.geoMapping.countryId, this.geoMapping.stateId, 'Marketing User')
+      .subscribe((res) => {
+        console.log(res);
+        this.userModels = res;
+      });
   }
 }

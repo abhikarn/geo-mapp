@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, School, WebService } from '@app/app-core';
 
 @Component({
@@ -12,7 +12,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     schoolLst: School[];
     schools: School[];
     currentPage = 0;
-    constructor(private activatedRoute: ActivatedRoute, private webService: WebService) {
+    constructor(private router: Router, private activatedRoute: ActivatedRoute, private webService: WebService) {
         super();
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
     }
@@ -28,6 +28,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
         this.webService.saveSchoolMaster(this.school).subscribe((res) => {
             console.log(res);
             this.schoolLst = res;
+            this.router.navigate(['engage']);
         });
     }
 

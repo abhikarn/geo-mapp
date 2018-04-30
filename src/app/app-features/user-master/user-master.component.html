@@ -67,11 +67,28 @@
                 </div>
             </div>
 
-
-
             <div class="row">
-
+                <div class="col-sm-4" hidden='true'>
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='userModel.countryId'>
+                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_country">Country</label>
+                        </span>
+                    </div>
+                </div>
                 <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='userModel.stateId' (ngModelChange)="onOptionsSelected($event)">
+                                <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_state">State</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4" hidden="true">
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_city" class='inputMaterial' required [(ngModel)]='userModel.cityId'>
@@ -84,29 +101,6 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='userModel.stateId'>
-                                <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_state">State</label>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="group">
-                        <span class="ui-float-label">
-                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='userModel.countryId'>
-                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_country">Country</label>
-                        </span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="group">
-                        <span class="ui-float-label">
                             <select id="dd_role" class='inputMaterial' required [(ngModel)]='userModel.roleId'>
                                 <option class='option' *ngFor='let option of masters.roleMaster' [value]="option.id">{{option.name}}</option>
                             </select>
@@ -114,7 +108,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="group">
                         <span>
                             <input id="ckb_status" class="inputMaterial" type="checkbox" [(ngModel)]='userModel.status'>
@@ -122,20 +116,8 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
-                    <div class="group">
-                        <span>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="group">
-                        <span>
-                        </span>
-                    </div>
-                </div>
-
             </div>
+
             <div class="row">
                 <div class="col-sm-12 text-right">
                     <hr class="my-4">

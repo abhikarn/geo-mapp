@@ -6,6 +6,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { AppBaseComponent } from 'app/app-core/base/app-core-base-component';
 
 import { Observable } from 'rxjs/Observable';
+import { Authorization } from '@app/app-core/models/auth.model';
 
 @Injectable()
 export class AuthService extends AppBaseComponent {
@@ -29,6 +30,19 @@ export class AuthService extends AppBaseComponent {
         });
         const options: RequestOptions = new RequestOptions({ headers: headers });
         return this.http.post(`${environment.apiUrl}Login`, userMaster, options);
+    }
+
+    getToken(authModel: Authorization): Observable<any> {
+        const headers: Headers = new Headers({
+            'Content-Type': 'application/x-www-form-urlencoded'
+        });
+        // const userData = {
+        //     username: userModel.userName,
+        //     password: userModel.userPassword,
+        //     grant_type: 'password'
+        // };
+        const options: RequestOptions = new RequestOptions({ headers: headers, body: `grant_type=password&username=${authModel.username}&password=${authModel.password}` });
+        return this.http.post('http://localhost:50717/Token', authModel, options);
     }
 }
 

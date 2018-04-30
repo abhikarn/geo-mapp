@@ -71,13 +71,24 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">
+                <div class="col-sm-4" hidden="hidden">
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_city" class='inputMaterial' required [(ngModel)]='school.cityId'>
                                 <option class='option' *ngFor='let option of masters.cityNewMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_city">City</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" hidden="hidden">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='school.countryId'>
+                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_country">Country</label>
                         </span>
                     </div>
                 </div>
@@ -88,16 +99,6 @@
                                 <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_state">State</label>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="group">
-                        <span class="ui-float-label">
-                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='school.countryId'>
-                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_country">Country</label>
                         </span>
                     </div>
                 </div>
@@ -191,7 +192,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" hidden="hidden">
 
                 <div class="col-sm-3">
                     <div class="group">

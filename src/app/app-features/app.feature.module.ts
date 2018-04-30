@@ -26,7 +26,7 @@ import { SchoolMasterCreateComponent } from './school-master/school-master-creat
 import { UserMasterComponent } from './user-master/user-master.component';
 import { TableModule } from 'primeng/table';
 import { LoginComponent } from './login/login.component';
-import { CanLoginRouteGuard } from './login/login.route.guard';
+// import { CanLoginRouteGuard } from './login/login.route.guard';
 
 
 @NgModule({
@@ -79,7 +79,7 @@ import { CanLoginRouteGuard } from './login/login.route.guard';
     AppSchoolListResolver,
     AppUserListResolver,
     CanActivateRouteGuard,
-    CanLoginRouteGuard
+    // CanLoginRouteGuard
   ]
 })
 export class AppFeatureModule { }

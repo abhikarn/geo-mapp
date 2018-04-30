@@ -1,5 +1,5 @@
 export interface UserMaster {
-    userMasterId: number;
+    id: number;
     userName?: string;
     emailId?: string;
     userPassword?: string;
@@ -7,6 +7,7 @@ export interface UserMaster {
     lastLoginDate?: Date;
     firstName?: string;
     lastName?: string;
+    Name?: string;
     roleId?: number;
     roleName?: string;
     status?: string;

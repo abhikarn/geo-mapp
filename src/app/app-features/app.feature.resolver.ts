@@ -47,7 +47,7 @@ export class AppGeoMappingDetail extends AppBaseComponent implements Resolve<Geo
 export class AppSchoolListResolver implements Resolve<School[]> {
     constructor(private webService: WebService) { }
     resolve(): Observable<School[]> {
-        return this.webService.getSchools();
+        return this.webService.getSchoolAll();
     }
 }
 
