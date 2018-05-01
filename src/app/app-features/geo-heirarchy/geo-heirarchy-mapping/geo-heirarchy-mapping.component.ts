@@ -54,7 +54,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   onOptionsSelected(event: string, source: string) {
     if (source === 'country') {
       console.log(event);
-      this.webService.getZones(parseInt(event)).subscribe((res) => {
+      this.webService.getZones(parseInt(event, 10)).subscribe((res) => {
         console.log(res);
         this.masters.zoneMaster = res;
         this.masters.branchMaster = null;
@@ -65,7 +65,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     }
     if (source === 'zone') {
       console.log(event);
-      this.webService.getBranches(parseInt(event)).subscribe((res) => {
+      this.webService.getBranches(parseInt(event, 10)).subscribe((res) => {
         console.log(res);
         this.masters.branchMaster = res;
         this.masters.stateMaster = null;
@@ -75,14 +75,14 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     }
     if (source === 'branch') {
       console.log(event);
-      this.webService.getStates(parseInt(event)).subscribe((res) => {
+      this.webService.getStates(parseInt(event, 10)).subscribe((res) => {
         console.log(res);
         this.masters.stateMaster = res;
       });
     }
     if (source === 'state') {
       console.log(event);
-      this.webService.getRoleBasedUser(this.geoMapping.countryId, parseInt(event), 'Supervisor')
+      this.webService.getRoleBasedUser(this.geoMapping.countryId, parseInt(event, 10), 'Supervisor')
         .subscribe((res) => {
           console.log(res);
           this.masters.supervisorMaster = res;

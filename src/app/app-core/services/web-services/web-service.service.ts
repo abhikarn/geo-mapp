@@ -97,7 +97,7 @@ export class WebService extends AppBaseComponent {
 
   getZones(countryId: number): Observable<any[]> {
     const httpParams = new HttpParams()
-      .set('countryId', countryId.toString())
+      .set('countryId', countryId.toString());
     console.log(httpParams.toString());
     return this.httpClient.get(`${environment.apiUrl}ZoneMasters`,
       { headers: this.getHeaders(), params: httpParams }) as Observable<any[]>;
@@ -105,7 +105,7 @@ export class WebService extends AppBaseComponent {
 
   getBranches(zoneId: number): Observable<any[]> {
     const httpParams = new HttpParams()
-      .set('zoneId', zoneId.toString())
+      .set('zoneId', zoneId.toString());
     console.log(httpParams.toString());
     return this.httpClient.get(`${environment.apiUrl}BranchMasters`,
       { headers: this.getHeaders(), params: httpParams }) as Observable<any[]>;
@@ -113,7 +113,7 @@ export class WebService extends AppBaseComponent {
 
   getStates(branchId: number): Observable<any[]> {
     const httpParams = new HttpParams()
-      .set('branchId', branchId.toString())
+      .set('branchId', branchId.toString());
     console.log(httpParams.toString());
     return this.httpClient.get(`${environment.apiUrl}StateMasters`,
       { headers: this.getHeaders(), params: httpParams }) as Observable<any[]>;
@@ -128,7 +128,7 @@ export class WebService extends AppBaseComponent {
     const httpParams = new HttpParams()
       .set('countryId', countryId.toString())
       .set('stateId', stateId.toString())
-      .set('role', role)
+      .set('role', role);
     console.log(httpParams.toString());
     return this.httpClient.get(`${environment.apiUrl}Users`,
       { headers: this.getHeaders(), params: httpParams }) as Observable<UserMaster[]>;

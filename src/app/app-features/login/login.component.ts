@@ -39,6 +39,7 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
     login() {
         this.loading = true;
         this.showLoader = true;
+        console.log(this.model);
         this.authService.login(this.model)
             .subscribe(
                 data => {
