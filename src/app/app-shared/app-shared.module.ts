@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ForbiddenValidatorDirective } from './directives/form-validations/form-forbidden.directive';
 import { ForbiddenTextDirective } from './directives/block-copy-paste';
+import { OnlyNumberDirective } from './directives/only-number.directive';
 import { ProductTilesComponent } from './product-tiles-component/product-tiles.component';
 import { PaginationComponent } from './pagination-component/pagination.component';
 import { PaginatorModule, DialogModule, ConfirmDialogModule } from 'primeng/primeng';
@@ -19,11 +20,21 @@ import { DynamicComponentService } from './services/dynamic-component.service';
   ],
   declarations: [ForbiddenValidatorDirective,
     ProductTilesComponent,
-    PaginationComponent, ForbiddenTextDirective,
-    ConfirmDialogComponent, SaveDialogComponent],
-  exports: [ForbiddenValidatorDirective, ProductTilesComponent,
-    PaginationComponent, ForbiddenTextDirective,
-    ConfirmDialogComponent, SaveDialogComponent],
+    PaginationComponent,
+    ForbiddenTextDirective,
+    ConfirmDialogComponent,
+    SaveDialogComponent,
+    OnlyNumberDirective
+  ],
+  exports: [
+    ForbiddenValidatorDirective,
+    ProductTilesComponent,
+    PaginationComponent,
+    ForbiddenTextDirective,
+    ConfirmDialogComponent,
+    SaveDialogComponent,
+    OnlyNumberDirective
+  ],
   entryComponents: [ConfirmDialogComponent,
     SaveDialogComponent],
   providers: [DynamicComponentService]

@@ -137,7 +137,7 @@
                 <div class="col-sm-3">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_ppn" class="inputMaterial" type="text" [(ngModel)]='school.phoneNumber' maxlength="50" ng-trim="true" required>
+                            <input id="txt_ppn" class="inputMaterial" type="text" [(ngModel)]='school.phoneNumber' OnlyNumber="true" maxlength="11" ng-trim="true" required>
                             <label for="txt_ppn">Principle Phone Number</label>
                         </span>
                     </div>
@@ -153,7 +153,7 @@
                 <div class="col-sm-3">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_spn" class="inputMaterial" type="text" [(ngModel)]='school.schoolPhoneNumber' maxlength="50" ng-trim="true"
+                            <input id="txt_spn" class="inputMaterial" type="text" [(ngModel)]='school.schoolPhoneNumber' OnlyNumber="true" maxlength="11" ng-trim="true"
                                 required>
                             <label for="txt_spn">School Phone Number</label>
                         </span>
@@ -166,7 +166,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_tpl" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' maxlength="50" ng-trim="true"
+                            <input id="txt_tpl" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' OnlyNumber="true" maxlength="50" ng-trim="true"
                                 required>
                             <label for="txt_tpl">Total Population</label>
                         </span>
@@ -185,7 +185,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' ng-trim="true" required>
+                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' OnlyNumber="true" ng-trim="true" required>
                             <label for="txt_ntpp">Nursary To Primary Population</label>
                         </span>
                     </div>
