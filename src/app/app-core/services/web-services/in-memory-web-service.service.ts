@@ -84,7 +84,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -93,7 +93,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       },
       {
@@ -101,7 +101,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 3,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -110,14 +110,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -126,14 +126,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -142,14 +142,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -158,14 +158,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -174,14 +174,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -190,14 +190,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -206,14 +206,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -222,14 +222,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -238,14 +238,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -254,14 +254,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -270,14 +270,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
         geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
-        marketingHierarchyUser: 'Sumit Roy',
+        marketingHierarchyUserId: 1,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Abc' }]
       }
       ,
@@ -286,7 +286,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
-        marketingHierarchyUser: 'Abhishek',
+        marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }
     ]
