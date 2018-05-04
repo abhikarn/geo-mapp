@@ -55,15 +55,14 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                             this.setState('tokentype', this.authResponse.token_type);
                             console.log(this.authResponse.access_token, 'authtoken');
                             console.log(this.authResponse.token_type, 'tokentype');
+                            this.setState('usermodel', this.model);
+                            this.router.navigate(['engage']);
                         },
 
                             error => {
                                 console.log(error);
                             })
                         ;
-
-                    this.setState('usermodel', this.model);
-                    this.router.navigate(['engage']);
                 },
                 error => {
                     this.clearAllStorage();

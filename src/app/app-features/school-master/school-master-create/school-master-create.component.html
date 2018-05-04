@@ -15,6 +15,16 @@
         <br>
         <div class="col-sm-12 py-4 form-container">
             <div class="row">
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_schoolType" class='inputMaterial' required [(ngModel)]='school.schoolType'>
+                                <option class='option' *ngFor='let option of masterConst.SchoolType' [value]="option.name">{{option.name}}</option>
+                            </select>
+                            <label for="dd_schoolType">Type</label>
+                        </span>
+                    </div>
+                </div>
                 <div class="col-sm-8">
                     <div class="group">
                         <span class="ui-float-label">
@@ -126,7 +136,7 @@
 
             <div class="row">
 
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_Pn" class="inputMaterial" type="text" [(ngModel)]='school.principalName' maxlength="50" ng-trim="true" required>
@@ -134,27 +144,21 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_ppn" class="inputMaterial" type="text" [(ngModel)]='school.phoneNumber' OnlyNumber="true" maxlength="11" ng-trim="true" required>
+                            <input id="txt_ppn" class="inputMaterial" type="text" [(ngModel)]='school.phoneNumber' OnlyNumber="true" maxlength="11" ng-trim="true"
+                                required>
                             <label for="txt_ppn">Principle Phone Number</label>
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-3">
+
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_st" class="inputMaterial" type="text" [(ngModel)]='school.schoolType' maxlength="50" ng-trim="true" required>
-                            <label for="txt_st">School Type</label>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="group">
-                        <span class="ui-float-label">
-                            <input id="txt_spn" class="inputMaterial" type="text" [(ngModel)]='school.schoolPhoneNumber' OnlyNumber="true" maxlength="11" ng-trim="true"
-                                required>
+                            <input id="txt_spn" class="inputMaterial" type="text" [(ngModel)]='school.schoolPhoneNumber' OnlyNumber="true" maxlength="11"
+                                ng-trim="true" required>
                             <label for="txt_spn">School Phone Number</label>
                         </span>
                     </div>
@@ -166,8 +170,8 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_tpl" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' OnlyNumber="true" maxlength="50" ng-trim="true"
-                                required>
+                            <input id="txt_tpl" class="inputMaterial" type="text" [(ngModel)]='school.totalPopulation' OnlyNumber="true" maxlength="50"
+                                ng-trim="true" required>
                             <label for="txt_tpl">Total Population</label>
                         </span>
                     </div>
@@ -175,9 +179,10 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_tel" class="inputMaterial" type="text" [(ngModel)]='school.totalEducationlevel' maxlength="50" ng-trim="true"
-                                required>
-                            <label for="txt_tel">Total Education Level</label>
+                            <select id="dd_teducation_level" class='inputMaterial' required [(ngModel)]='school.totalEducationlevel'>
+                                <option class='option' *ngFor='let option of masterConst.TEducationLevel' [value]="option.name">{{option.name}}</option>
+                            </select>
+                            <label for="dd_teducation_level">Total Education Level</label>
                         </span>
                     </div>
                 </div>
@@ -185,7 +190,8 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' OnlyNumber="true" ng-trim="true" required>
+                            <input id="txt_ntpp" class="inputMaterial" type="text" [(ngModel)]='school.nursaryToPrimary3Population' OnlyNumber="true"
+                                ng-trim="true" required>
                             <label for="txt_ntpp">Nursary To Primary Population</label>
                         </span>
                     </div>

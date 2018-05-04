@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppBaseComponent, School, WebService } from '@app/app-core';
+import { AppBaseComponent, School, WebService, Masters } from '@app/app-core';
 
 @Component({
     selector: 'app-school-master-create',
@@ -11,6 +11,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     masters: any;
     schoolLst: School[];
     schools: School[];
+    masterConst: any = Masters;
     currentPage = 0;
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private webService: WebService) {
         super();
