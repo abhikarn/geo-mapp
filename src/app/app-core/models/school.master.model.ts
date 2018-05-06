@@ -26,4 +26,6 @@ export interface School {
     ifBad?: string;
     classRoomCorex?: string;
     source?: 'web' | 'mobile';
+    approved?: boolean;
+    status?: 'Active' | 'Inactive';
 }
