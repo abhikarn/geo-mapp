@@ -38,9 +38,7 @@ export class WebService extends AppBaseComponent {
   getMasters() {
     const userModel = this.getState<UserMaster>('usermodel');
     const httpParams = new HttpParams()
-      .set('countryId', userModel.countryId.toString())
-      .set('stateId', userModel.stateId.toString())
-      .set('cityId', userModel.cityId.toString());
+      .set('stateId', userModel.stateId.toString());
     return this.httpClient.get(`${environment.apiUrl}Masters`,
       {
         headers: this.getHeaders(),
@@ -70,20 +68,9 @@ export class WebService extends AppBaseComponent {
     return this.http.post(`${environment.apiUrl}SchoolMasters`, school, options);
   }
 
-  getSchoolAll(): Observable<any[]> {
-    return this.httpClient.get(`${environment.apiUrl}SchoolMasters`,
-      { headers: this.getHeaders() }) as Observable<any[]>;
-  }
-
   getSchools(): Observable<School[]> {
-    const userModel = this.getState<UserMaster>('usermodel');
-    const httpParams = new HttpParams()
-      .set('countryId', userModel.countryId.toString())
-      .set('stateId', userModel.stateId.toString())
-      .set('cityId', userModel.cityId.toString());
-    console.log(httpParams.toString());
     return this.httpClient.get(`${environment.apiUrl}SchoolMasters`,
-      { headers: this.getHeaders(), params: httpParams }) as Observable<School[]>;
+      { headers: this.getHeaders() }) as Observable<School[]>;
   }
 
   saveUserMaster(userMaster: UserMaster): Observable<any> {

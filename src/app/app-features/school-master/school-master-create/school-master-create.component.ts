@@ -21,7 +21,9 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     ngOnInit() {
         console.log(this.activatedRoute.snapshot.data.schoolLst);
         this.schoolLst = this.activatedRoute.snapshot.data.schoolLst || [];
-        this.schools = this.activatedRoute.snapshot.data.schoolLst;
+        this.schools = this.activatedRoute.snapshot.data.schoolLst || [];
+        this.school = this.activatedRoute.snapshot.data.school;
+        console.log(this.school);
     }
 
     saveSchoolMaster() {

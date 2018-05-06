@@ -47,7 +47,19 @@ export class AppGeoMappingDetail extends AppBaseComponent implements Resolve<Geo
 export class AppSchoolListResolver implements Resolve<School[]> {
     constructor(private webService: WebService) { }
     resolve(): Observable<School[]> {
-        return this.webService.getSchoolAll();
+        return this.webService.getSchools();
+    }
+}
+
+@Injectable()
+export class AppSchoolResolver extends AppBaseComponent implements Resolve<School> {
+    constructor() {
+        super();
+    }
+    resolve(route: ActivatedRouteSnapshot): Observable<School> {
+        const school = this.getState<School>('schoolMaster');
+        console.log(<string>route.params['id'], 'School');
+        return Observable.of(school);
     }
 }
 
