@@ -6,5 +6,6 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:50717/webapi/',
-  port: '7070'
+  port: '7070',
+  originUrl: 'http://localhost:50717/'
 };
