@@ -25,4 +25,7 @@ export interface School {
     signageStatus?: string;
     ifBad?: string;
     classRoomCorex?: string;
+    source?: 'web' | 'mobile';
+    approved?: boolean;
+    status?: 'Active' | 'Inactive';
 }

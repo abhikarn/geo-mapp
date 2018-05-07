@@ -42,7 +42,7 @@ export class AuthService extends AppBaseComponent {
         //     grant_type: 'password'
         // };
         const options: RequestOptions = new RequestOptions({ headers: headers, body: `grant_type=password&username=${authModel.username}&password=${authModel.password}` });
-        return this.http.post('http://localhost:50717/Token', authModel, options);
+        return this.http.post(`${environment.originUrl}Token`, authModel, options);
     }
 }
 

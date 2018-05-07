@@ -7,7 +7,8 @@ import {
   DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, MultiSelectModule,
   CalendarModule, TooltipModule, DialogModule, ConfirmDialogModule, ConfirmationService,
   InputTextModule, PaginatorModule, MessageModule,
-  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule
+  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule,
+  ToggleButtonModule
 } from 'primeng/primeng';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppFetaureRoutingModule } from './app.feature.routing.module';
@@ -59,6 +60,7 @@ import { LoginComponent } from './login/login.component';
     AppCoreModule,
     AppSharedModule,
     AppFetaureRoutingModule,
+    ToggleButtonModule,
     AlertsModule.forRoot()
   ],
   declarations: [

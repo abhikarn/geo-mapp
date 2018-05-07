@@ -7,7 +7,7 @@ import { AppBaseComponent, School, WebService, Masters } from '@app/app-core';
     templateUrl: './school-master-create.component.html'
 })
 export class SchoolMasterCreateComponent extends AppBaseComponent implements OnInit {
-    school: School = { schoolName: '' };
+    school: School = { schoolName: '', source: 'web', status: 'Active', approved: true };
     masters: any;
     schoolLst: School[];
     schools: School[];

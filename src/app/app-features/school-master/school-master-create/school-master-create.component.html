@@ -29,8 +29,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.name' maxlength="50" ng-trim="true"
-                                    required>
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.name' maxlength="50" ng-trim="true" required>
                                 <label for="txt_schoolName">School Name</label>
                             </span>
                         </span>
@@ -38,7 +37,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-2">
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
@@ -49,7 +48,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
@@ -59,7 +58,30 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-2">
+            </div>
+            <div class="row">
+                <div class="col-sm-4" *ngIf="false">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_city" class='inputMaterial' required [(ngModel)]='school.cityId'>
+                                <option class='option' *ngFor='let option of masters.cityNewMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_city">City</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="col-sm-4" *ngIf="false">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='school.countryId'>
+                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_country">Country</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
@@ -72,39 +94,6 @@
                 <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
-                            <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.lga' maxlength="50" ng-trim="true" required>
-                                <label for="txt_schoolName">LGA</label>
-                            </span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4" hidden="hidden">
-                    <div class="group">
-                        <span class="ui-float-label">
-                            <select id="dd_city" class='inputMaterial' required [(ngModel)]='school.cityId'>
-                                <option class='option' *ngFor='let option of masters.cityNewMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_city">City</label>
-                        </span>
-                    </div>
-                </div>
-
-                <div class="col-sm-4" hidden="hidden">
-                    <div class="group">
-                        <span class="ui-float-label">
-                            <select id="dd_country" class='inputMaterial' required [(ngModel)]='school.countryId'>
-                                <option class='option' *ngFor='let option of masters.countryMaster' [value]="option.id">{{option.name}}</option>
-                            </select>
-                            <label for="dd_country">Country</label>
-                        </span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="group">
-                        <span class="ui-float-label">
                             <select id="dd_state" class='inputMaterial' required [(ngModel)]='school.stateId'>
                                 <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
@@ -112,10 +101,11 @@
                         </span>
                     </div>
                 </div>
+
             </div>
 
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_landmark" class="inputMaterial" type="text" [(ngModel)]='school.landMark' maxlength="50" ng-trim="true" required>
@@ -123,12 +113,22 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_geolocation" class="inputMaterial" type="text" [(ngModel)]='school.geoCoordinate' maxlength="50" ng-trim="true"
                                 required>
                             <label for="txt_geolocation">GeoLocation</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <span class="ui-float-label">
+                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.lga' maxlength="50" ng-trim="true" required>
+                                <label for="txt_schoolName">LGA</label>
+                            </span>
                         </span>
                     </div>
                 </div>
@@ -198,7 +198,17 @@
                 </div>
             </div>
 
-            <div class="row" hidden="hidden">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="txt_status_approved">Status :</label>
+                    <div class="group">
+                        <span>
+                            <p-inputSwitch onLabel="Approved" offLabel="Pending" [(ngModel)]="school.approved"></p-inputSwitch>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" hidden="hidden" *ngIf="false">
 
                 <div class="col-sm-3">
                     <div class="group">
