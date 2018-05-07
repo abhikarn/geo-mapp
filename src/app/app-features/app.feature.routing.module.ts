@@ -9,9 +9,11 @@ import { LoginComponent } from './login/login.component';
 // import { CanLoginRouteGuard } from './login/login.route.guard';
 import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
-  AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver, AppSchoolGeoMappingDetail
+  AppSchoolListResolver, AppUserListResolver,
+  AppSchoolResolver ,AppSchoolGeoMappingDetail
 } from './app.feature.resolver';
 import { CanActivateRouteGuard } from './app.feature.route.guard';
+import { SchoolMasterListComponent } from '@app/app-features/school-master/school-master-list/school-master-list.component';
 
 const routes: Routes = [
   {
@@ -45,10 +47,22 @@ const routes: Routes = [
         },
       },
       {
-        path: 'school-master', component: SchoolMasterCreateComponent, resolve: {
+        path: 'school-master', component: SchoolMasterListComponent, resolve: {
           schoolLst: AppSchoolListResolver
+        }
+      },
+
+      { path: 'school-master/create', component: SchoolMasterCreateComponent },
+      {
+        path: 'school-master/:id/edit', component: SchoolMasterCreateComponent, resolve: {
+          school: AppSchoolResolver
         },
       },
+      // {
+      //   path: 'school-master', component: SchoolMasterCreateComponent, resolve: {
+      //     schoolLst: AppSchoolListResolver
+      //   },
+      // },
       {
         path: 'user-master', component: UserMasterComponent, resolve: {
           userLst: AppUserListResolver

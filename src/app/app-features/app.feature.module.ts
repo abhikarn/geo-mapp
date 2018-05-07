@@ -7,7 +7,7 @@ import {
   DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, MultiSelectModule,
   CalendarModule, TooltipModule, DialogModule, ConfirmDialogModule, ConfirmationService,
   InputTextModule, PaginatorModule, MessageModule,
-  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule ,
+  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule,
   ToggleButtonModule
 } from 'primeng/primeng';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,10 +20,12 @@ import { AppSharedModule } from '@app/app-shared';
 import {
   AppFeatureResolver, AppFeatureMasterResolver,
   AppGeoMappResolver, AppGeoMappingDetail,
-  AppSchoolListResolver, AppUserListResolver, AppSchoolGeoMappingDetail
+  AppSchoolListResolver, AppUserListResolver,
+  AppSchoolResolver, AppSchoolGeoMappingDetail
 } from './app.feature.resolver';
 import { CanActivateRouteGuard } from './app.feature.route.guard';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
+import { SchoolMasterListComponent } from './school-master/school-master-list/school-master-list.component';
 import { UserMasterComponent } from './user-master/user-master.component';
 import { TableModule } from 'primeng/table';
 import { LoginComponent } from './login/login.component';
@@ -66,6 +68,7 @@ import { LoginComponent } from './login/login.component';
     GeoHeirarchyListComponent,
     GeoHeirarchyMapComponent,
     SchoolMasterCreateComponent,
+    SchoolMasterListComponent,
     UserMasterComponent,
     LoginComponent
   ],
@@ -81,6 +84,7 @@ import { LoginComponent } from './login/login.component';
     AppSchoolListResolver,
     AppUserListResolver,
     CanActivateRouteGuard,
+    AppSchoolResolver,
     AppSchoolGeoMappingDetail
     // CanLoginRouteGuard
   ]

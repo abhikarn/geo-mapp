@@ -1,0 +1,132 @@
+@import 'variables';
+section.product-landing{
+    .main-content{
+        background: transparent;
+        box-shadow: none;
+
+        .product-segments,.coverage-options{
+            margin-bottom: 30px;
+            .sec-header{
+                font-size: 20px;
+                h5{
+                    display: inline-block;
+                }
+            }
+            .archive{
+                .clock{
+                    display: inline-block;
+                    @include width-height(26px, 26px);
+                    vertical-align: middle;
+                    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -279px -15px !important;
+                }
+                a{
+                    padding: 0 25px 0 5px;
+                }
+            }
+
+            .card-block{
+                padding: 10px 0;
+
+                .card-wrap{
+                    margin-bottom: 15px;
+                    .empty-card{
+                        background: $white-color;
+                        @include box-shadow(0, 1px, 10px, rgba(0, 0, 0, 0.075));
+                        padding: 15px;
+                        min-height: 200px;
+                        display: table;
+                        width: 100%;
+                        .no-data-text{
+                            display: table-cell;
+                            vertical-align: middle;
+                            p{
+                                margin: 0;
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                    .card{
+                        @extend .empty-card;
+                        .card-head{
+                            margin-bottom: 20px;
+                            .card-label{
+                                width: 80%;
+                                display: inline-block;
+                                @include font-style($fontfamily-regular, 18px, normal);
+                            }
+                            .eye{
+                                @include width-height(26px, 17px);
+                                float: right;
+                                background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -768px -15px;
+                                cursor: pointer;
+                                &:hover{
+                                    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -768px -75px;
+                                }
+                            }
+                            .edit{
+                                @include width-height(26px, 17px);
+                                float: right;
+                                background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -519px  -15px;
+                                cursor: pointer;
+                                &:hover{
+                                    background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -519px -75px;
+                                }
+                            }
+                        }
+                        .card-content{
+                            border: 1px solid $card-border;
+                            padding: 10px;
+                            border-radius: 4px;
+                            p{
+                                margin: 0;
+
+                                &.label-text{
+                                    text-transform: uppercase;
+                                    color: $label-color;
+                                }
+                            }
+                            &.in-active{
+                                background: $body-bg;
+                            }
+                        }
+                        &:hover{
+                            background: #eff8fd;
+                            border-color: #c3e0f0;
+                        }
+                    }
+                }
+            }            
+        }
+        .sortby{            
+            select.sorting {
+                width: 275px;
+                padding-left: 75px;
+            }
+            &::before{
+                content:"Sort by";
+                display: block;
+                position: absolute;
+                color: $label-color;
+                font-size: 16px;
+                top: 6px;
+                left: 10px;
+            }
+        }        
+        a.view-archive-btn::before{
+            position:absolute;
+            content:"";
+            background: url('#{$assetImgPath}/sprite-icons.png') no-repeat -280px -15px;
+            @include width-height(26px, 26px);
+            left: -28px;
+            top: -4px;
+        }
+    }
+    
+}
+
+@media #{$tablet} {
+    section.product-landing .main-content select.sorting {
+        float: right !important;
+        margin-bottom: 10px;
+    }
+}

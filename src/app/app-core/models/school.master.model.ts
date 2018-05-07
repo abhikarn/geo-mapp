@@ -1,10 +1,10 @@
 export interface School {
-    schoolId?: number;
+    id?: number;
     schoolName?: string;
     houseNumber?: string;
     street?: string;
     area?: string;
-    lGA?: string;
+    lga?: string;
     cityId?: number;
     cityName?: string;
     stateId?: number;
@@ -14,12 +14,12 @@ export interface School {
     landMark?: string;
     geoCoordinate?: string;
     principalName?: string;
-    phoneNumber?: number;
-    schoolPhoneNumber?: number;
+    phoneNumber?: string;
+    schoolPhoneNumber?: string;
     schoolType?: string;
-    totalPopulation?: number;
+    totalPopulation?: string;
     totalEducationlevel?: string;
-    nursaryToPrimary3Population?: number;
+    nursaryToPrimary3Population?: string;
     principalConcent?: boolean;
     singageAvailable?: boolean;
     signageStatus?: string;
