@@ -1,5 +1,7 @@
 /* tslint:disable */
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { UserMaster } from 'app/app-core';
 import { environment } from '@env/environment';
 import { Http, RequestOptions, Headers } from '@angular/http';
@@ -11,7 +13,7 @@ import { Authorization } from '@app/app-core/models/auth.model';
 @Injectable()
 export class AuthService extends AppBaseComponent {
     private _auth: boolean;
-    constructor(private http: Http) {
+    constructor(private http: Http, private httpClient: HttpClient) {
         super();
     }
 
@@ -33,16 +35,16 @@ export class AuthService extends AppBaseComponent {
     }
 
     getToken(authModel: Authorization): Observable<any> {
-        const headers: Headers = new Headers({
-            'Content-Type': 'application/x-www-form-urlencoded'
-        });
+        console.log(authModel);
         // const userData = {
         //     username: userModel.userName,
         //     password: userModel.userPassword,
         //     grant_type: 'password'
         // };
-        const options: RequestOptions = new RequestOptions({ headers: headers, body: `grant_type=password&username=${authModel.username}&password=${authModel.password}` });
-        return this.http.post(`${environment.originUrl}Token`, authModel, options);
+        return this.httpClient.get(`${environment.apiUrl}Token`);
+
+        // const options: RequestOptions = new RequestOptions({ headers: headers, body: `grant_type=password&username=${authModel.username}&password=${authModel.password}` });
+        // return this.http.post(`${environment.originUrl}Token`, authModel, options);
     }
 }
 
