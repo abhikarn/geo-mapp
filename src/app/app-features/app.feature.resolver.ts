@@ -44,6 +44,19 @@ export class AppGeoMappingDetail extends AppBaseComponent implements Resolve<Geo
 }
 
 @Injectable()
+export class AppSchoolGeoMappingDetail implements Resolve<any> {
+    constructor(private webService: WebService) {
+    }
+    resolve(route: ActivatedRouteSnapshot): Observable<any> {
+        const id = <string>route.params['id'];
+        console.log('<string>route.paramd');
+        console.log(<string>route.params['id']);
+        return this.webService.getSchoolGeoMapping(id);
+    }
+}
+
+
+@Injectable()
 export class AppSchoolListResolver implements Resolve<School[]> {
     constructor(private webService: WebService) { }
     resolve(): Observable<School[]> {

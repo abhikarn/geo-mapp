@@ -9,7 +9,7 @@ import { LoginComponent } from './login/login.component';
 // import { CanLoginRouteGuard } from './login/login.route.guard';
 import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
-  AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver
+  AppGeoMappingDetail, AppSchoolListResolver, AppUserListResolver, AppSchoolGeoMappingDetail
 } from './app.feature.resolver';
 import { CanActivateRouteGuard } from './app.feature.route.guard';
 
@@ -41,7 +41,7 @@ const routes: Routes = [
       { path: 'geo-heirarchy/create', component: GeoHeirarchyMapComponent },
       {
         path: 'geo-heirarchy/:id/edit', component: GeoHeirarchyMapComponent, resolve: {
-          geoMap: AppGeoMappingDetail
+          geoMap: AppSchoolGeoMappingDetail
         },
       },
       {

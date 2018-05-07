@@ -55,6 +55,12 @@ export class WebService extends AppBaseComponent {
     return this.httpClient.get(`${environment.apiUrl}GeoHierarchies`, { headers: this.getHeaders() });
   }
 
+  getSchoolGeoMapping(id) {
+    alert(id);
+    const params = new HttpParams().set('id', id);
+    return this.httpClient.get(`${environment.apiUrl}GeoHierarchies`, { headers: this.getHeaders() , params: params });
+  }
+
   getSegment(segmentId: string): Observable<ProductSegment> {
     const params = new HttpParams().set('segmentId', segmentId);
     return this.httpClient.get(`api/segment`, { params: params }) as Observable<ProductSegment>;

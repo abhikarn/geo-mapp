@@ -1,6 +1,6 @@
 import { SelectItem } from 'primeng/api';
 export interface GeoMapping {
-    geoMappingId?: number;
+    id?: number;
     countryId?: number;
     countryName?: string;
     zoneId?: number;

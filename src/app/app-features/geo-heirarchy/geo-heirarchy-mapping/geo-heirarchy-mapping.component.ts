@@ -27,6 +27,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   ) {
     super();
     this.masters = this.activatedRoute.parent.snapshot.data.masters;
+    console.log(this.masters);
     this.masters.stateMaster = null;
   }
 
@@ -34,6 +35,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     this.editMode = !!this.activatedRoute.snapshot.params.id;
     if (this.editMode) {
       console.log(this.activatedRoute.snapshot.data.geoMap);
+      console.log(this.activatedRoute.snapshot.data.schoolMap);
       this.geoMapping = this.activatedRoute.snapshot.data.geoMap;
       this.segmentLabelText = 'Update Geo Heirarchy';
       this.segmentButtonText = 'Reset';

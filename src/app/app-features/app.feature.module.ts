@@ -7,7 +7,7 @@ import {
   DataTableModule, SharedModule, SelectButtonModule, InputSwitchModule, MultiSelectModule,
   CalendarModule, TooltipModule, DialogModule, ConfirmDialogModule, ConfirmationService,
   InputTextModule, PaginatorModule, MessageModule,
-  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule , 
+  GrowlModule, InputMaskModule, DropdownModule, CheckboxModule ,
   ToggleButtonModule
 } from 'primeng/primeng';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +20,7 @@ import { AppSharedModule } from '@app/app-shared';
 import {
   AppFeatureResolver, AppFeatureMasterResolver,
   AppGeoMappResolver, AppGeoMappingDetail,
-  AppSchoolListResolver, AppUserListResolver
+  AppSchoolListResolver, AppUserListResolver, AppSchoolGeoMappingDetail
 } from './app.feature.resolver';
 import { CanActivateRouteGuard } from './app.feature.route.guard';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
@@ -81,6 +81,7 @@ import { LoginComponent } from './login/login.component';
     AppSchoolListResolver,
     AppUserListResolver,
     CanActivateRouteGuard,
+    AppSchoolGeoMappingDetail
     // CanLoginRouteGuard
   ]
 })

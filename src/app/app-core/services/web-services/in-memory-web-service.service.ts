@@ -80,7 +80,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
   private getGeoMappingList(): GeoMapping[] {
     let geoMapping: GeoMapping[] = [
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -89,7 +89,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
@@ -97,7 +97,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       },
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -106,14 +106,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -122,14 +122,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -138,14 +138,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -154,14 +154,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -170,14 +170,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -186,14 +186,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -202,14 +202,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -218,14 +218,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -234,14 +234,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -250,14 +250,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -266,14 +266,14 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
         marketingHierarchyUserId: 2,
         schoolGeoHierarchyMappingViewModels: [{ value: 'Qwerty' }]
       }, {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneA', branchId: 1, branchName: 'NBranchA',
         stateId: 1, stateName: 'NStateA',
         supervisorId: 1, supervisorName: 'NSupervisorA',
@@ -282,7 +282,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
       }
       ,
       {
-        geoMappingId: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
+        id: 1, countryId: 1, countryName: 'Nigeria', zoneId: 1,
         zoneName: 'NZoneB', branchId: 1, branchName: 'NBranchB',
         stateId: 1, stateName: 'NStateB',
         supervisorId: 1, supervisorName: 'NSupervisorB',
@@ -292,7 +292,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
     ]
     let count: number = 99;
     geoMapping.forEach((item) => {
-      item.geoMappingId = count + 1;
+      item.id = count + 1;
       count++;
     })
     return geoMapping;
