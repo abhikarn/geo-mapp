@@ -50,7 +50,8 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                     this.authModel.grant_type = 'password';
                     this.authService.getToken(this.authModel)
                         .subscribe(aData => {
-                            this.authResponse = JSON.parse(aData.text());
+                            console.log(aData);
+                            this.authResponse = aData;
                             this.setState('authtoken', this.authResponse.access_token);
                             this.setState('tokentype', this.authResponse.token_type);
                             console.log(this.authResponse.access_token, 'authtoken');
