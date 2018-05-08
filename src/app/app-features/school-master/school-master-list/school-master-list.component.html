@@ -17,21 +17,31 @@
             </div>
 
             <div class="Content" style="padding-left: 15px;">
-                <p-table [value]="schoolMasterList" [responsive]="true">
+                <p-table [value]="schoolMasterList" [responsive]="true" [paginator]="true" [rows]="10">
+                    <ng-template pTemplate="colgroup" let-columns>
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col style="background-color:#FFD54F !important">
+                        </colgroup>
+                    </ng-template>
                     <ng-template pTemplate="header">
                         <tr>
                             <th>School Name</th>
                             <th>State</th>
                             <th>Area</th>
-                            <th>LGA</th>
+                            <th>Source</th>
+                            <th>Status</th>
                         </tr>
                     </ng-template>
                     <ng-template pTemplate="body" let-school>
                         <tr>
-                            <td>{{school.name}}</td>
+                            <td>{{school.schoolName}}</td>
                             <td>{{school.stateName}}</td>
                             <td>{{school.area}}</td>
-                            <td>{{school.lGA}}</td>
+                            <td>{{school.source}}</td>
+                            <td>{{school.approved ? 'Approved' : 'Pending' }}</td>
                             <td>
 
                                 <i class="fa fa-edit" style="font-size:24px;cursor: pointer;" (click)="editSchool(school)"></i>
@@ -41,13 +51,21 @@
                             </td>
                         </tr>
                     </ng-template>
+
+                    <ng-template pTemplate="emptymessage" let-columns>
+                        <tr>
+                            <td [attr.colspan]="columns.length">
+                                No records found
+                            </td>
+                        </tr>
+                    </ng-template>
                 </p-table>
             </div>
-            <div class="col-sm-12" *ngIf="schoolMasters.length > 8">
+            <!-- <div class="col-sm-12" *ngIf="schoolMasters.length > 8">
                 <app-pagination [total]="schoolMasters.length" (pageUpdate)="updatePage($event)"></app-pagination>
-            </div>
-            <br>
-            <br>
+            </div> -->
+            <!-- <br>
+            <br> -->
         </div>
     </div>
 </section>
