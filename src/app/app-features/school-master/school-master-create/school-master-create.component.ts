@@ -13,16 +13,19 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     schools: School[];
     masterConst: any = Masters;
     currentPage = 0;
+    editMode = false;
     constructor(private router: Router, private activatedRoute: ActivatedRoute, private webService: WebService) {
         super();
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
     }
 
     ngOnInit() {
-        console.log(this.activatedRoute.snapshot.data.schoolLst);
-        this.schoolLst = this.activatedRoute.snapshot.data.schoolLst || [];
-        this.schools = this.activatedRoute.snapshot.data.schoolLst || [];
-        this.school = this.activatedRoute.snapshot.data.school;
+        this.editMode = !!this.activatedRoute.snapshot.params.id;
+        if (this.editMode) {
+            this.schoolLst = this.activatedRoute.snapshot.data.schoolLst || [];
+            this.schools = this.activatedRoute.snapshot.data.schoolLst || [];
+            this.school = this.activatedRoute.snapshot.data.school;
+        }
         console.log(this.school);
     }
 
@@ -31,7 +34,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
         this.webService.saveSchoolMaster(this.school).subscribe((res) => {
             console.log(res);
             this.schoolLst = res;
-            this.router.navigate(['engage']);
+            this.router.navigate(['engage/school-master']);
         });
     }
 

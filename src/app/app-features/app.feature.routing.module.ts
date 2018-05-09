@@ -10,7 +10,7 @@ import { LoginComponent } from './login/login.component';
 import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
   AppSchoolListResolver, AppUserListResolver,
-  AppSchoolResolver ,AppSchoolGeoMappingDetail
+  AppSchoolResolver, AppSchoolGeoMappingDetail
 } from './app.feature.resolver';
 import { CanActivateRouteGuard } from './app.feature.route.guard';
 import { SchoolMasterListComponent } from '@app/app-features/school-master/school-master-list/school-master-list.component';
