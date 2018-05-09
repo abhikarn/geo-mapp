@@ -9,8 +9,6 @@ import { AppBaseComponent, School, WebService, Masters } from '@app/app-core';
 export class SchoolMasterCreateComponent extends AppBaseComponent implements OnInit {
     school: School = { schoolName: '', source: 'web', status: 'Active', approved: true };
     masters: any;
-    schoolLst: School[];
-    schools: School[];
     masterConst: any = Masters;
     currentPage = 0;
     editMode = false;
@@ -22,6 +20,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     ngOnInit() {
         this.editMode = !!this.activatedRoute.snapshot.params.id;
         if (this.editMode) {
+<<<<<<< HEAD
             this.schoolLst = this.activatedRoute.snapshot.data.schoolLst || [];
             this.schools = this.activatedRoute.snapshot.data.schoolLst || [];
             this.school = this.activatedRoute.snapshot.data.school;
@@ -34,17 +33,17 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
         this.webService.saveSchoolMaster(this.school).subscribe((res) => {
             console.log(res);
             this.schoolLst = res;
+=======
+            this.school = this.activatedRoute.snapshot.data.school;
+        }
+    }
+
+    saveSchoolMaster() {
+        this.webService.saveSchoolMaster(this.school).subscribe(() => {
+>>>>>>> 63258e377dcb3c622ca6ced85d8ed02f1776ffe1
             this.router.navigate(['engage/school-master']);
         });
     }
-
-    doEdit(school: School) {
-        this.school = school;
-    }
-
-    updatePage(event) {
-        this.currentPage = +event.page;
-        this.schoolLst = this.schools.slice(event.first, +event.first + +event.rows);
-    }
 }
+
 
