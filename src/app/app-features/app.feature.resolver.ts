@@ -83,3 +83,19 @@ export class AppUserListResolver implements Resolve<UserMaster[]> {
         return this.webService.getUsers();
     }
 }
+
+@Injectable()
+export class AppSupervisorListResolver implements Resolve<UserMaster[]> {
+    constructor(private webService: WebService) { }
+    resolve(): Observable<UserMaster[]> {
+        return this.webService.getRoleBasedUser('Supervisor');
+    }
+}
+
+@Injectable()
+export class AppHierarchyUserListResolver implements Resolve<UserMaster[]> {
+    constructor(private webService: WebService) { }
+    resolve(): Observable<UserMaster[]> {
+        return this.webService.getRoleBasedUser('Marketing User');
+    }
+}

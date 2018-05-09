@@ -12,5 +12,6 @@ export interface GeoMapping {
     supervisorId?: number;
     supervisorName?: string;
     marketingHierarchyUserId?: number;
+    marketingHierarchyUserName?: string;
     schoolGeoHierarchyMappingViewModels?: SelectItem[];
 }

@@ -62,7 +62,7 @@
           <div class="group">
             <span class="ui-float-label">
               <select id="dd_supervisor" class='inputMaterial' required [(ngModel)]='geoMapping.supervisorId' required (ngModelChange)="onOptionsSelected($event, 'super')">
-                <option class='highlight' *ngFor='let option of masters.supervisorMaster' [value]="option.id">{{option.name}}</option>
+                <option class='highlight' *ngFor='let option of supervisorModels' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_supervisor">Superviser</label>
             </span>
@@ -74,7 +74,7 @@
           <div class="group">
             <span class="ui-float-label">
               <select id="dd_marketingUser" class='inputMaterial' required [(ngModel)]='geoMapping.marketingHierarchyUserId' required>
-                <option class='option' *ngFor='let option of  userModels' [value]="option.id">{{option.name}}</option>
+                <option class='option' *ngFor='let option of  hierarchyUserModels' [value]="option.id">{{option.name}}</option>
               </select>
               <label for="dd_marketingUser">Marketing Heirarchy</label>
             </span>

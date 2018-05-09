@@ -21,7 +21,8 @@ import {
   AppFeatureResolver, AppFeatureMasterResolver,
   AppGeoMappResolver, AppGeoMappingDetail,
   AppSchoolListResolver, AppUserListResolver,
-  AppSchoolResolver, AppSchoolGeoMappingDetail
+  AppSchoolResolver, AppSchoolGeoMappingDetail,
+  AppSupervisorListResolver, AppHierarchyUserListResolver
 } from './app.feature.resolver';
 import { CanActivateRouteGuard } from './app.feature.route.guard';
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
@@ -85,7 +86,9 @@ import { LoginComponent } from './login/login.component';
     AppUserListResolver,
     CanActivateRouteGuard,
     AppSchoolResolver,
-    AppSchoolGeoMappingDetail
+    AppSchoolGeoMappingDetail,
+    AppSupervisorListResolver,
+    AppHierarchyUserListResolver
     // CanLoginRouteGuard
   ]
 })

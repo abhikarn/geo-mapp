@@ -55,7 +55,7 @@ export class WebService extends AppBaseComponent {
 
   getSchoolGeoMapping(id) {
     const params = new HttpParams().set('id', id);
-    return this.httpClient.get(`${environment.apiUrl}GeoHierarchies`, { headers: this.getHeaders() , params: params });
+    return this.httpClient.get(`${environment.apiUrl}GeoHierarchies`, { headers: this.getHeaders(), params: params });
   }
 
   getSegment(segmentId: string): Observable<ProductSegment> {
@@ -116,7 +116,7 @@ export class WebService extends AppBaseComponent {
       { headers: this.getHeaders() }) as Observable<any[]>;
   }
 
-  getRoleBasedUser(countryId: number, stateId: number, role: string): Observable<UserMaster[]> {
+  getRoleBasedUser(role: string, countryId: number = 0, stateId: number = 0): Observable<UserMaster[]> {
     const httpParams = new HttpParams()
       .set('countryId', countryId.toString())
       .set('stateId', stateId.toString())
