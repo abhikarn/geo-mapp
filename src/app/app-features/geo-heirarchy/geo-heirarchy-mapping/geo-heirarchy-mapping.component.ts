@@ -35,8 +35,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   ngOnInit() {
     this.editMode = !!this.activatedRoute.snapshot.params.id;
     if (this.editMode) {
-      console.log(this.activatedRoute.snapshot.data.SupervisorLst, 'Sumit');
-      console.log(this.activatedRoute.snapshot.data.HierarchyLst, 'Amit');
+      console.log(this.activatedRoute.snapshot.data.geoMap, 'Amit');
       this.geoMapping = this.activatedRoute.snapshot.data.geoMap;
       this.supervisorModels = this.activatedRoute.snapshot.data.SupervisorLst;
       this.hierarchyUserModels = this.activatedRoute.snapshot.data.HierarchyLst;
