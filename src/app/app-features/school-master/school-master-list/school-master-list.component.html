@@ -13,10 +13,11 @@
                     </span>
                     <!-- <a href="#" class="view-archive-btn position-relative">View Archive</a> -->
                     <button type="button" class="btn view-btn" (click)="addSchool()">Add School</button>
+                    <br><br>
                 </div>
             </div>
 
-            <div class="Content" style="padding-left: 15px;">
+            <div class="Content">
                 <p-table [value]="schoolMasterList" [responsive]="true" [paginator]="true" [rows]="10">
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
@@ -52,9 +53,9 @@
                         </tr>
                     </ng-template>
 
-                    <ng-template pTemplate="emptymessage" let-columns>
+                    <ng-template pTemplate="emptymessage">
                         <tr>
-                            <td [attr.colspan]="columns.length">
+                            <td colspan="5" align="center">
                                 No records found
                             </td>
                         </tr>
