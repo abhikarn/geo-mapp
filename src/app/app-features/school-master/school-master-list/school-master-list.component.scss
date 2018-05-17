@@ -1,7 +1,9 @@
 @import 'variables';
-.ui-table-thead {
-    background-color: blue !important;
+.ui-table.myTable th {
+    background-color: $dark-blue !important;
+    color: white !important;
 }
+
 section.product-landing{
     .main-content{
         background: transparent;

@@ -4,7 +4,7 @@
         <div class="product-segments">
             <div class="row">
                 <div class="col-sm-6 sec-header">
-                    <h5>School List</h5>
+                    <h5>School Master</h5>
                 </div>
                 <div class="col-sm-6 text-right archive">
                     <span *ngIf="data">
@@ -18,7 +18,7 @@
             </div>
 
             <div class="Content">
-                <p-table [value]="schoolMasterList" [responsive]="true" [paginator]="true" [rows]="10">
+                <p-table [value]="schoolMasterList" [responsive]="true" styleClass="myTable" [paginator]="true" [rows]="10">
                     <ng-template pTemplate="colgroup" let-columns>
                         <colgroup>
                             <col>
