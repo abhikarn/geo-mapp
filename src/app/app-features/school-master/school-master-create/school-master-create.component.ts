@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, School, WebService, Masters } from '@app/app-core';
 
@@ -12,8 +12,9 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     masterConst: any = Masters;
     currentPage = 0;
     editMode = false;
-    constructor(private router: Router, private activatedRoute: ActivatedRoute, private webService: WebService) {
-        super();
+    constructor(public router: Router, private activatedRoute: ActivatedRoute,
+        private webService: WebService, public componentFactoryResolver: ComponentFactoryResolver) {
+        super(componentFactoryResolver);
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
     }
 
@@ -26,8 +27,13 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
 
     saveSchoolMaster() {
         this.webService.saveSchoolMaster(this.school).subscribe(() => {
-            this.router.navigate(['engage/school-master']);
+            this.showModalPopup('success', 'The school saved successfully', 'engage/school-master')
+            // this.router.navigate(['engage/school-master']);
         });
+    }
+
+    goToList() {
+        this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage/school-master')
     }
 }
 

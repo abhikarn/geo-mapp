@@ -29,7 +29,7 @@ export class GeoHeirarchyListComponent extends AppBaseComponent implements OnIni
     { name: 'Sort By Supervisor', value: 'supervisorName' }
   ];
   sortingModel = 'marketingHierarchyUser';
-  constructor(private router: Router, public activeRoute: ActivatedRoute) {
+  constructor(public router: Router, public activeRoute: ActivatedRoute) {
     super();
   }
 

@@ -15,7 +15,7 @@ export class HeaderComponent extends AppBaseComponent implements OnInit {
   activeMenu = true;
   @Input() public isAuth = false;
   userModel: UserMaster = this.getState<UserMaster>('usermodel');
-  constructor(private router: Router) {
+  constructor(public router: Router) {
     super();
   }
 

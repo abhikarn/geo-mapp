@@ -1,8 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component, OnInit, ViewEncapsulation, ComponentFactoryResolver
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, GeoMapping, WebService, UserMaster } from '@app/app-core';
-import { ConfirmationService } from 'primeng/primeng';
-
 @Component({
   selector: 'app-map-geo-heirarchy',
   templateUrl: './geo-heirarchy-mapping.component.html',
@@ -23,10 +23,10 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
     marketingHierarchyUserId: 1, marketingHierarchyUserName: ''
   };
   constructor(private activatedRoute: ActivatedRoute,
-    private confirmationService: ConfirmationService,
-    private router: Router, private webService: WebService
+    public router: Router, private webService: WebService,
+    public componentFactoryResolver: ComponentFactoryResolver
   ) {
-    super();
+    super(componentFactoryResolver, router);
     this.masters = this.activatedRoute.parent.snapshot.data.masters;
     console.log(this.masters);
 
@@ -47,14 +47,37 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
       this.masters.stateMaster = null;
     }
   }
-  confirm() {
-    this.confirmationService.confirm({
-      message: 'The details are not saved . Are you sure you want to exit?',
-      accept: () => {
-        this.router.navigate(['engage']);
-      }
-    });
-  }
+
+  // private showModalPopup(componentD: any, type: string, message: string) {
+  //   let childComponent = this.componentFactoryResolver.resolveComponentFactory(componentD);
+  //   let componentRef = this.parent.createComponent(childComponent);
+  //   (<any>componentRef.instance).modalConfig = { message: message };
+  //   setTimeout(() => {
+  //     (<any>componentRef.instance).showModal();
+  //     if (type === 'confirm') {
+  //       (<any>componentRef.instance).onReject.subscribe(() => {
+  //         // (<SaveDialogComponent>componentRef.instance).onAccept.unsubscribe();
+  //         componentRef.destroy();
+  //         childComponent = null;
+  //       });
+  //     }
+  //     (<any>componentRef.instance).onAccept.subscribe(() => {
+  //       // (<SaveDialogComponent>componentRef.instance).onAccept.unsubscribe();
+  //       componentRef.destroy();
+  //       childComponent = null;
+  //       this.router.navigate(['engage']);
+  //     });
+  //   }, 300);
+  // }
+
+  // private confirm() {
+  //   this.confirmationService.confirm({
+  //     message: 'The details are not saved . Are you sure you want to exit?',
+  //     accept: () => {
+  //       this.router.navigate(['engage']);
+  //     }
+  //   });
+  // }
 
   onOptionsSelected(event: string, source: string) {
     if (source === 'country') {
@@ -106,15 +129,18 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   }
 
   onCancelReset() {
-    this.confirm();
+    this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage');
+
+    // this.confirm();
   }
 
   saveData() {
     console.log(this.geoMapping);
     this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
       console.log(res);
-      this.saveConfirm();
-      this.router.navigate(['engage']);
+      this.showModalPopup('success', 'The mapping saved successfully', 'engage');
+      // this.saveConfirm();
+      // this.router.navigate(['engage']);
     });
   }
 

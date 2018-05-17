@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h5 class="mb-0 mr-3 d-inline">
-                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;"></span>Create School Master</h5>
+                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click) ="goToList()"></span>Create School Master</h5>
                 </div>
                 <div class="col-sm-6 text-right" hidden="!editMode">
                     <label>Last Updated Date :</label>
@@ -266,10 +266,4 @@
     </div>
 
 </section>
-<!-- <div #modal></div> -->
-<!-- <p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
-    <p-footer>
-        <button type="button" pButton icon="fa-close" label="yes" (click)="cd.accept()" class="mr-4"></button>
-        <button type="button" pButton icon="fa-check" label="no" (click)="cd.reject()"></button>
-    </p-footer>
-</p-confirmDialog> -->
+<ng-template #modal></ng-template>

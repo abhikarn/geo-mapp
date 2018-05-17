@@ -1,6 +1,6 @@
 @import 'variables';
 
-p-dialog .ui-dialog, p-confirmdialog {
+p-dialog {
     @include font-style($fontfamily-light, 14px, normal);
     .ui-widget-header{
         @include font-style($fontfamily-regular, 14px, normal);

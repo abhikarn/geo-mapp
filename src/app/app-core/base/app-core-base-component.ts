@@ -1,5 +1,10 @@
 import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { Validation } from '../models/form.control.model';
+import { SaveDialogComponent } from 'app/app-shared/modal-components/save-box-modal-component/save-dialog-box.component';
+import { ConfirmDialogComponent } from 'app/app-shared/modal-components/confirm-box-modal-component/confirm-dialog-box.component';
+
 export enum StateType {
     inMemory,
     session,
@@ -14,7 +19,10 @@ export interface OtherFormConfig {
 
 export abstract class AppBaseComponent {
     protected form: FormGroup;
-    constructor() {
+    @ViewChild('modal', { read: ViewContainerRef })
+    parent: ViewContainerRef;
+    constructor(public componentFactoryResolver?: ComponentFactoryResolver,
+        public router?: Router) {
     }
     protected get isAuthenticated(): boolean { return !!this.getState('authtoken'); }
 
@@ -81,6 +89,27 @@ export abstract class AppBaseComponent {
     }
     clearAllSession(): void {
         sessionStorage.clear();
+    }
+
+    showModalPopup(type: string, message: string, routeName: string) {
+        let componentD: any = type === 'confirm' ? ConfirmDialogComponent : SaveDialogComponent;
+        let childComponent = this.componentFactoryResolver.resolveComponentFactory(componentD);
+        let componentRef = this.parent.createComponent(childComponent);
+        (<any>componentRef.instance).modalConfig = { message: message };
+        setTimeout(() => {
+            (<any>componentRef.instance).showModal();
+            if (type === 'confirm') {
+                (<any>componentRef.instance).onReject.subscribe(() => {
+                    componentRef.destroy();
+                    childComponent = null;
+                });
+            }
+            (<any>componentRef.instance).onAccept.subscribe(() => {
+                componentRef.destroy();
+                childComponent = null;
+                this.router.navigate([routeName]);
+            });
+        }, 300);
     }
 }
 

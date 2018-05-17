@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ComponentFactoryResolver } from '@angular/core';
 import { AppBaseComponent, UserMaster, WebService } from '@app/app-core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/primeng';
@@ -24,9 +24,10 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     currentPage = 0;
     constructor(private activatedRoute: ActivatedRoute, private webService: WebService,
         private confirmationService: ConfirmationService,
-        private router: Router
+        public router: Router,
+        public componentFactoryResolver: ComponentFactoryResolver
     ) {
-        super();
+        super(componentFactoryResolver);
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
     }
 
@@ -45,20 +46,20 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         this.confirmationService.confirm({
             message: 'The details are not saved . Are you sure you want to exit?',
             accept: () => {
-                this.router.navigate(['/user-master']);
+                this.router.navigate(['user-master']);
             }
         });
     }
 
     onCancelReset() {
-        this.confirm();
+        this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage');
     }
 
     saveData() {
         console.log(this.userModel);
         this.webService.saveUserMaster(this.userModel).subscribe(res => {
             this.userModel = res;
-
+            this.showModalPopup('success', 'The user saved successfully.', 'engage');
             // let userMaster: UserMaster = this.userLst.find((user) => user.userMasterId === this.userModel.userMasterId);
             // userMaster = this.userModel;
             console.log(res);

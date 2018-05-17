@@ -29,7 +29,7 @@ export class SchoolMasterListComponent extends AppBaseComponent implements OnIni
     { name: 'Sort By LGA', value: 'lGA' }
   ];
   sortingModel = 'schoolName';
-  constructor(private router: Router, public activeRoute: ActivatedRoute,
+  constructor(public router: Router, public activeRoute: ActivatedRoute,
     public webService: WebService
   ) {
     super();

@@ -1,12 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConfirmationService } from 'primeng/primeng';
-import { ModalConfig } from './confirm-dialog-box.component';
+import { ModalConfig } from '../modal-config';
 @Component({
     selector: 'app-confirm-dialog',
     template: `<p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
     <p-footer>
-      <button type="button" pButton icon="fa-close" label="yes" (click)="cd.accept()" class="mr-4"></button>
-      <button type="button" pButton icon="fa-check" label="no" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="fa-check" label="yes" (click)="cd.accept()" class="mr-4"></button>
+      <button type="button" pButton icon="fa-close" label="no" (click)="cd.reject()"></button>
     </p-footer>
   </p-confirmDialog> `
 })
@@ -32,8 +32,4 @@ export class ConfirmDialogComponent implements OnInit {
             }
         });
     }
-}
-
-export interface ModalConfig {
-    message: string;
 }

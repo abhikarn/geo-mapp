@@ -113,16 +113,4 @@
     </div>
   </div>
 </section>
-<!-- <div #modal></div> -->
-<p-confirmDialog header="Confirm" icon="fa fa-question-circle" width="600" #cd>
-  <p-footer>
-    <button type="button" pButton icon="fa-close" label="yes" (click)="cd.accept()" class="mr-4"></button>
-    <button type="button" pButton icon="fa-check" label="no" (click)="cd.reject()"></button>
-  </p-footer>
-</p-confirmDialog>
-
-<p-confirmDialog header="Success" width="600" #sd>
-  <p-footer>
-    <button type="button" pButton icon="fa-close" label="ok" (click)="sd.accept()" class="mr-4"></button>
-  </p-footer>
-</p-confirmDialog>
+<ng-template #modal></ng-template>

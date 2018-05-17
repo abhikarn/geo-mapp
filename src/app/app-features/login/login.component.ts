@@ -25,7 +25,7 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
     constructor(
         private activeRoute: ActivatedRoute,
         private authService: AuthService,
-        private router: Router
+        public router: Router
     ) {
         super();
         this.componentData = this.activeRoute.snapshot.data['layout'];
