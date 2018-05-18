@@ -91,7 +91,7 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   }
 
   saveData() {
-    this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
+    this.webService.saveGeoHierarchy(this.geoMapping).subscribe(() => {
       this.showModalPopup('success', 'The mapping saved successfully', 'engage');
     });
   }
