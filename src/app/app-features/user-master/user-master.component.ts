@@ -17,7 +17,6 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         branchId: 0, branchName: '',
         cityId: 0, cityName: ''
     };
-    states: any[];
     masters: any;
     userLst: UserMaster[];
     users: UserMaster[];
@@ -35,11 +34,6 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         console.log(this.activatedRoute.snapshot.data.userLst);
         this.userLst = this.activatedRoute.snapshot.data.userLst || [];
         this.users = this.activatedRoute.snapshot.data.userLst;
-        this.webService.getStatesAll()
-            .subscribe(res => {
-                this.masters.stateMaster = res;
-                console.log(res);
-            });
     }
 
     confirm() {
@@ -67,6 +61,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     }
 
     doEdit(user: UserMaster) {
+        console.log(user, 'Sumit');
         this.userModel = user;
     }
 

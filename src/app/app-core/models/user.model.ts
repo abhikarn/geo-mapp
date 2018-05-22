@@ -5,6 +5,7 @@ export interface UserMaster {
     userPassword?: string;
     isActive?: boolean;
     lastLoginDate?: Date;
+    dateOfBirth?: Date;
     firstName?: string;
     lastName?: string;
     Name?: string;
@@ -22,4 +23,6 @@ export interface UserMaster {
     cityId?: number;
     cityName?: string;
     authToken?: string;
+    confirmPassword?: string;
+    notFirstLogin?: boolean
 }

@@ -37,9 +37,14 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_password" class="inputMaterial" type="password" [(ngModel)]='userModel.userPassword' maxlength="100" ng-trim="true"
+                            <input id="txt_dob" class="inputMaterial" type="text" [(ngModel)]='userModel.dateOfBirth' maxlength="100" ng-trim="true"
                                 required>
-                            <label for="txt_password">Password</label>
+                            <!-- <p-calendar [(ngModel)]="userModel.dateOfBirth" [dateFormat]="dd-mm-yy" [dataType]="date" [showIcon]="true" class="inputMaterial"
+                                required></p-calendar>
+                            <span style="margin-left:35px">
+                                {{userModel.dateOfBirth|date}}
+                            </span> -->
+                            <label for="txt_dob">Date of Birth</label>
                         </span>
                     </div>
                 </div>
@@ -82,6 +87,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_state" class='inputMaterial' required [(ngModel)]='userModel.stateId' (ngModelChange)="onOptionsSelected($event)">
+                                <option class='option' [value]="0">Select</option>
                                 <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_state">State</label>

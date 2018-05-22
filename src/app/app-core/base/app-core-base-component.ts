@@ -92,21 +92,21 @@ export abstract class AppBaseComponent {
     }
 
     showModalPopup(type: string, message: string, routeName: string) {
-        let componentD: any = type === 'confirm' ? ConfirmDialogComponent : SaveDialogComponent;
-        let childComponent = this.componentFactoryResolver.resolveComponentFactory(componentD);
-        let componentRef = this.parent.createComponent(childComponent);
+        const componentD: any = type === 'confirm' ? ConfirmDialogComponent : SaveDialogComponent;
+        const childComponent = this.componentFactoryResolver.resolveComponentFactory(componentD);
+        const componentRef = this.parent.createComponent(childComponent);
         (<any>componentRef.instance).modalConfig = { message: message };
         setTimeout(() => {
             (<any>componentRef.instance).showModal();
             if (type === 'confirm') {
                 (<any>componentRef.instance).onReject.subscribe(() => {
                     componentRef.destroy();
-                    childComponent = null;
+                    // childComponent = null;
                 });
             }
             (<any>componentRef.instance).onAccept.subscribe(() => {
                 componentRef.destroy();
-                childComponent = null;
+                // childComponent = null;
                 this.router.navigate([routeName]);
             });
         }, 300);

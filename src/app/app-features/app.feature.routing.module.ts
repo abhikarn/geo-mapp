@@ -6,6 +6,7 @@ import { GeoHeirarchyMapComponent } from './geo-heirarchy/geo-heirarchy-mapping/
 import { SchoolMasterCreateComponent } from './school-master/school-master-create/school-master-create.component';
 import { UserMasterComponent } from './user-master/user-master.component';
 import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 // import { CanLoginRouteGuard } from './login/login.route.guard';
 import {
   AppFeatureResolver, AppFeatureMasterResolver, AppGeoMappResolver,
@@ -72,6 +73,9 @@ const routes: Routes = [
           userLst: AppUserListResolver
         },
         // canActivate: [CanLoginRouteGuard],
+      },
+      {
+        path: 'reset-password', component: ResetPasswordComponent
       },
     ]
   }

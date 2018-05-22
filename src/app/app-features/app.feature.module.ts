@@ -30,6 +30,7 @@ import { SchoolMasterListComponent } from './school-master/school-master-list/sc
 import { UserMasterComponent } from './user-master/user-master.component';
 import { TableModule } from 'primeng/table';
 import { LoginComponent } from './login/login.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 // import { CanLoginRouteGuard } from './login/login.route.guard';
 
 
@@ -71,7 +72,8 @@ import { LoginComponent } from './login/login.component';
     SchoolMasterCreateComponent,
     SchoolMasterListComponent,
     UserMasterComponent,
-    LoginComponent
+    LoginComponent,
+    ResetPasswordComponent
   ],
   exports: [AppFeatureComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

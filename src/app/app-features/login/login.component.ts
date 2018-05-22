@@ -57,7 +57,10 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                             console.log(this.authResponse.access_token, 'authtoken');
                             console.log(this.authResponse.token_type, 'tokentype');
                             this.setState('usermodel', this.model);
-                            this.router.navigate(['engage']);
+                            if (this.model.notFirstLogin)
+                                this.router.navigate(['engage']);
+                            else
+                                this.router.navigate(['engage/reset-password']);
                         },
 
                             error => {

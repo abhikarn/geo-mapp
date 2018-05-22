@@ -27,13 +27,13 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
 
     saveSchoolMaster() {
         this.webService.saveSchoolMaster(this.school).subscribe(() => {
-            this.showModalPopup('success', 'The school saved successfully', 'engage/school-master')
+            this.showModalPopup('success', 'The school saved successfully', 'engage/school-master');
             // this.router.navigate(['engage/school-master']);
         });
     }
 
     goToList() {
-        this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage/school-master')
+        this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage/school-master');
     }
 }
 

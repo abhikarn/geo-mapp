@@ -125,5 +125,10 @@ export class WebService extends AppBaseComponent {
     return this.httpClient.get(`${environment.apiUrl}Users`,
       { headers: this.getHeaders(), params: httpParams }) as Observable<UserMaster[]>;
   }
+
+  ResetPassword(userModel: UserMaster): Observable<any> {
+    const options: RequestOptions = new RequestOptions({ headers: this.postHeaders() });
+    return this.http.post(`${environment.apiUrl}ResetPassword`, userModel, options);
+  }
 }
 
