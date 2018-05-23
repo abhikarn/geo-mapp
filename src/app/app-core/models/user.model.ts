@@ -24,5 +24,5 @@ export interface UserMaster {
     cityName?: string;
     authToken?: string;
     confirmPassword?: string;
-    notFirstLogin?: boolean
+    notFirstLogin?: boolean;
 }

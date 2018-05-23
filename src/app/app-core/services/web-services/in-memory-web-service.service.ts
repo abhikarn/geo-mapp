@@ -31,26 +31,33 @@ export class InMemoryWebServiceService implements InMemoryDbService {
   private getLayout() {
     return {
       component: null,
-      input: [
-        {
-          label: 'Dashboard',
-          icon: 'fa-home',
-          routerLink: ['/dashboard']
-        },
-        {
-          label: 'Product',
-          icon: 'fa-product',
-          items: [
-            { label: 'View All', routerLink: ['/product'] },
-            { label: 'New Product', routerLink: ['/product/create'] }
-          ]
-        },
-        {
-          label: 'Customer',
-          icon: 'fa-customer',
-          routerLink: ['/customer']
-        }
-      ]
+      menuConfig: {
+        menuItems: [
+          {
+            menuId: 1, menuLink: null, isSubMenu: true, menuName: 'Masters',
+            subMenus: [{ subMenuId: 1, subMenuName: 'School Master', subMenuLink: '/engage/school-master' }]
+          },
+          {
+            menuId: 2, menuLink: null, isSubMenu: true, menuName: 'Transactions',
+            subMenus: [{ subMenuId: 1, subMenuName: 'Geo Hierchy', subMenuLink: '/engage' }]
+          },
+          {
+            menuId: 3, menuLink: null, isSubMenu: false, menuName: 'Reports'
+            // subMenus: [{ subMenuId: 1, subMenuName: 'Geo Hierchy', subMenuLink: '/engage' }]
+          },
+          {
+            menuId: 4, menuLink: null, isSubMenu: true, menuName: 'Settings',
+            subMenus: [
+              {
+                subMenuId: 1, subMenuName: 'Add Geo Hierarchy',
+                subMenuLink: '/engage/geo-heirarchy/create'
+              },
+              { subMenuId: 2, subMenuName: 'User Master', subMenuLink: 'user-master' },
+              { subMenuId: 3, subMenuName: 'Change Password', subMenuLink: 'reset-password' },
+            ]
+          }
+        ]
+      }
     };
   }
 

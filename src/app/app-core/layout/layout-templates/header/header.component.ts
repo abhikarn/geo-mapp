@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/primeng';
 import { AppBaseComponent } from 'app/app-core/base/app-core-base-component';
 import { GeoHeirarchyRouteConfig } from 'app/app-features/geo-heirarchy/geo-heirarchy-route-names';
-import { UserMaster } from '@app/app-core';
+import { UserMaster, MenuConfig } from '@app/app-core';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +10,8 @@ import { UserMaster } from '@app/app-core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent extends AppBaseComponent implements OnInit {
-  input: MenuItem;
+  @Input() menuConfig: MenuConfig;
   activeMenu = true;
-  @Input() public isAuth = false;
   userModel: UserMaster = this.getState<UserMaster>('usermodel');
   constructor(public router: Router) {
     super();

@@ -7,7 +7,7 @@
       <span style="font: italic;">En-gage Connect</span>
     </h5>
   </div>
-  <div class="col-sm-4 col-4" *ngIf="isAuth">
+  <div class="col-sm-4 col-4" *ngIf="menuConfig.showMenu">
     <nav>
       <ul class="float-right mb-0 px-0">
         <li class="profile px-3 py-3">
@@ -24,101 +24,29 @@
     </nav>
   </div>
 </header>
-
-<div class="row tile-section" *ngIf="isAuth">
+<!-- Menu Start -->
+<div class="row tile-section" *ngIf="menuConfig.showMenu">
   <ul class="nav nav-tabs col-sm-12 menutest">
-    <li class="dropdown abc">
-      <a class="dropdown-toggle outerlinkcolor" data-toggle="dropdown" href="#">Masters
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu ulb">
-        <li class="nav-item">
-          <a href="#" routerLink="/engage/school-master" class="innerlinkcolor">School Master</a>
-        </li>
-
-      </ul>
-    </li>
-    <li class="dropdown active abc">
-      <a class="dropdown-toggle outerlinkcolor" data-toggle="dropdown" href="#">Transactions
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu ulb">
-        <li class="nav-item">
-          <a href="#" routerLink="/engage" class="innerlinkcolor">Geo Hierchy</a>
-        </li>
-      </ul>
-    </li>
-
-    <li class="abc">
-      <a href="javascript:void(0);" class="outerlinkcolor">Reports</a>
-    </li>
-
-    <li class="dropdown abc">
-      <a class="dropdown-toggle outerlinkcolor" data-toggle="dropdown" href="#">Settings
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu ulb">
-        <li class="nav-item">
-          <a href="javascript:void(0);" (click)="addGeoMapping()" class="innerlinkcolor">Add Geo Hierarchy</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" routerLink="user-master" class="innerlinkcolor">User Master</a>
-        </li>
-        <li class="nav-item">
-          <a href="#" routerLink="reset-password" class="innerlinkcolor">Change Password</a>
+    <li [ngClass]="{abc: true , dropdown: menu.isSubMenu}" *ngFor="let menu of menuConfig.menuItems">
+      <ng-template *ngIf="menu.isSubMenu then link1; else link2">
+      </ng-template>
+      <ng-template #link1>
+        <a [routerLink]="menu.menuLink" [ngClass]="{outerlinkcolor: true , 'dropdown-toggle': menu.isSubMenu}" data-toggle="dropdown">
+          {{menu.menuName}}
+          <span class="caret"></span>
+        </a>
+      </ng-template>
+      <ng-template #link2>
+        <a href="javascript:void(0);" class="outerlinkcolor"> {{menu.menuName}}</a>
+      </ng-template>
+      <ul class="dropdown-menu ulb" *ngIf="menu.isSubMenu">
+        <li class="nav-item" *ngFor="let subMenu of menu.subMenus">
+          <a href="#" [routerLink]="subMenu.subMenuLink" class="innerlinkcolor">
+            {{subMenu.subMenuName}}
+          </a>
         </li>
       </ul>
     </li>
   </ul>
-
-
-  <!-- <ul class="nav nav-tabs col-sm-12 menu">
-    <li class="dropdown-tree">
-      <a href="#">Masters &#9662;</a>
-      <ul class="dropdown-tree">
-        <li  style="display: inline-block !important;">
-          <a href="#" style="display: inline-block !important;">School Master</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">Transactions</a>
-    </li>
-    <li class="dropdown-tree">
-      <a href="#">Reports &#9662;</a>
-      <ul class="dropdown-tree">
-        <li>
-          <a href="#">Laptops</a>
-        </li>
-        <li>
-          <a href="#">Monitors</a>
-        </li>
-        <li>
-          <a href="#">Printers</a>
-        </li>
-      </ul>
-    </li>
-    <li class="dropdown-tree">
-      <a href="#">Settings</a>
-    </li>
-  </ul> -->
+  <!-- Menu End -->
 </div>
-<!-- <div class="col-sm-12" #container>
-
-    <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': !activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('gh')">
-      <span class="notes-icon d-block float-left"></span>Geo Hierchy</h4>
-
-    <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('sm')">
-      <span class="notes-icon d-block float-left"></span>School Master</h4>
-
-
-    <h4 style="cursor: pointer;" [ngClass]="{'in-active-menu': activeMenu}" class="mb-0 tooltip-bottom" (click)="navigateMenu('um')">
-      <span class="notes-icon d-block float-left"></span>User Master</h4>
-  </div> -->
-<!-- <div class="row tile-subsection">
-  <div class="col-sm-12">
-    <h5 class="mb-0 float-left">Transactional LMI
-      <span class="info-icon d-block float-right"></span>
-    </h5>
-  </div>
-</div> -->
