@@ -15,7 +15,7 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
         public componentFactoryResolver: ComponentFactoryResolver,
         public router: Router,
         @Inject(forwardRef(() => AppFeatureComponent)) private appFeatureComponent: AppFeatureComponent) {
-        super(componentFactoryResolver)
+        super(componentFactoryResolver);
 
     }
     userModel: UserMaster = this.getState<UserMaster>('usermodel');

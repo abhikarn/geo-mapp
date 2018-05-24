@@ -37,11 +37,11 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_dob" class="inputMaterial" type="text" [(ngModel)]='userModel.dateOfBirth' maxlength="100" ng-trim="true"
-                                required>
-                            <!-- <p-calendar [(ngModel)]="userModel.dateOfBirth" [dateFormat]="dd-mm-yy" [dataType]="date" [showIcon]="true" class="inputMaterial"
+                            <!-- <input id="txt_dob" class="inputMaterial" type="text" [(ngModel)]='userModel.dateOfBirth' maxlength="100" ng-trim="true"
+                                required> -->
+                            <p-calendar [(ngModel)]="userModel.dateOfBirth" dataType="date" dateFormat="M/dd/yy" [showIcon]="true" class="inputMaterial"
                                 required></p-calendar>
-                            <span style="margin-left:35px">
+                            <!-- <span style="margin-left:35px">
                                 {{userModel.dateOfBirth|date}}
                             </span> -->
                             <label for="txt_dob">Date of Birth</label>
