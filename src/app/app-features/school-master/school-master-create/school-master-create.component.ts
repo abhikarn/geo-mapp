@@ -1,4 +1,4 @@
-import { Component, OnInit, ComponentFactoryResolver } from '@angular/core';
+import { Component, OnInit, ComponentFactoryResolver, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, School, WebService, Masters } from '@app/app-core';
 
@@ -26,15 +26,20 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     }
 
     saveSchoolMaster() {
-        this.webService.saveSchoolMaster(this.school).subscribe(() => {
-            this.showModalPopup('success', 'The school saved successfully', 'engage/school-master');
-            // this.router.navigate(['engage/school-master']);
-        });
+        if (this.doValidation(this.school, ['schoolName', 'schoolType'])) {
+            this.webService.saveSchoolMaster(this.school).subscribe(() => {
+                this.showModalPopup('success', 'The school saved successfully', 'engage/school-master');
+                // this.router.navigate(['engage/school-master']);
+            });
+        } else {
+            this.showModalPopup('Invalid', 'Please enter all mandatory fields', '', false);
+        }
     }
 
     goToList() {
         this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage/school-master');
     }
+
 }
 
 

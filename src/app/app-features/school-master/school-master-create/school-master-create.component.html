@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h5 class="mb-0 mr-3 d-inline">
-                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click) ="goToList()"></span>Create School Master</h5>
+                        <span class="left-arrow-icon d-block float-left mr-2" style="cursor:pointer;" (click)="goToList()"></span>Create School Master</h5>
                 </div>
                 <div class="col-sm-6 text-right" hidden="!editMode">
                     <label>Last Updated Date :</label>
@@ -18,10 +18,12 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_schoolType" class='inputMaterial' required [(ngModel)]='school.schoolType'>
+                            <select id="dd_schoolType" class='inputMaterial mandatory' required [(ngModel)]='school.schoolType'>
                                 <option class='option' *ngFor='let option of masterConst.SchoolType' [value]="option.name">{{option.name}}</option>
                             </select>
-                            <label for="dd_schoolType">Type</label>
+                            <label for="dd_schoolType">Type
+                                <span style="color: red; padding-left: 2px;">*</span>
+                            </label>
                         </span>
                     </div>
                 </div>
@@ -29,9 +31,11 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <span class="ui-float-label">
-                                <input id="txt_schoolName" class="inputMaterial" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
+                                <input id="txt_schoolName" class="inputMaterial mandatory" type="text" [(ngModel)]='school.schoolName' maxlength="50" ng-trim="true"
                                     required>
-                                <label for="txt_schoolName">School Name</label>
+                                <label for="txt_schoolName">School Name
+                                    <span style="color: red; padding-left: 2px;">*</span>
+                                </label>
                             </span>
                         </span>
                     </div>

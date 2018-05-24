@@ -127,9 +127,8 @@ select {
         @include font-style($fontfamily-regular, 18px, normal);
     }
 }
-.ng-invalid.ng-touched{
-    border-color: $danger-color !important;
-
+.mandatory.ng-invalid.ng-touched{
+    border-color: red !important;
 }
 
 .main-content {

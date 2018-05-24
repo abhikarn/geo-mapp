@@ -7,10 +7,10 @@ export interface MenuItem {
     menuName: string;
     menuLink?: string;
     isSubMenu?: boolean;
-    subMenus?: subMenuItem[];
+    subMenus?: SubMenuItem[];
 }
 
-export interface subMenuItem {
+export interface SubMenuItem {
     subMenuId: number;
     subMenuName: string;
     subMenuLink: string;

@@ -3,7 +3,7 @@ import { ConfirmationService } from 'primeng/primeng';
 import { ModalConfig } from '../modal-config';
 @Component({
     selector: 'app-save-dialog',
-    template: `<p-confirmDialog header="success" [closable]="true" #sd>
+    template: `<p-confirmDialog header="{{modalConfig.title}}" [closable]="true" #sd>
     <p-footer>
       <button type="button" pButton label="OK" (click)="sd.accept()" class="mr-4"></button>
     </p-footer>

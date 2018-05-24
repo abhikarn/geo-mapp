@@ -1,4 +1,3 @@
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ViewChild, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
 import { Validation } from '../models/form.control.model';
@@ -18,7 +17,6 @@ export interface OtherFormConfig {
 }
 
 export abstract class AppBaseComponent {
-    protected form: FormGroup;
     @ViewChild('modal', { read: ViewContainerRef })
     parent: ViewContainerRef;
     constructor(public componentFactoryResolver?: ComponentFactoryResolver,
@@ -91,11 +89,11 @@ export abstract class AppBaseComponent {
         sessionStorage.clear();
     }
 
-    showModalPopup(type: string, message: string, routeName: string) {
+    showModalPopup(type: string, message: string, routeName: string, doNavigate = true) {
         const componentD: any = type === 'confirm' ? ConfirmDialogComponent : SaveDialogComponent;
         const childComponent = this.componentFactoryResolver.resolveComponentFactory(componentD);
         const componentRef = this.parent.createComponent(childComponent);
-        (<any>componentRef.instance).modalConfig = { message: message };
+        (<any>componentRef.instance).modalConfig = { message: message, title: type };
         setTimeout(() => {
             (<any>componentRef.instance).showModal();
             if (type === 'confirm') {
@@ -107,9 +105,27 @@ export abstract class AppBaseComponent {
             (<any>componentRef.instance).onAccept.subscribe(() => {
                 componentRef.destroy();
                 // childComponent = null;
-                this.router.navigate([routeName]);
+                if (doNavigate) {
+                    this.router.navigate([routeName]);
+                }
             });
         }, 300);
+    }
+
+    protected doValidation(object: any, fields: string[]): boolean {
+        const model = Object.keys(object);
+        let valid = true;
+        for (const key in model) {
+            if (model.hasOwnProperty(key)) {
+                fields.forEach((f) => {
+                    const modelValue = object[f];
+                    if (!modelValue) {
+                        valid = false;
+                    }
+                });
+            }
+        }
+        return valid;
     }
 }
 
