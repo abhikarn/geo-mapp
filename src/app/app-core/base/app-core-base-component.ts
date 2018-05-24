@@ -113,18 +113,13 @@ export abstract class AppBaseComponent {
     }
 
     protected doValidation(object: any, fields: string[]): boolean {
-        const model = Object.keys(object);
         let valid = true;
-        for (const key in model) {
-            if (model.hasOwnProperty(key)) {
-                fields.forEach((f) => {
-                    const modelValue = object[f];
-                    if (!modelValue) {
-                        valid = false;
-                    }
-                });
+        fields.forEach((f) => {
+            const modelValue = object[f];
+            if (!modelValue) {
+                valid = false;
             }
-        }
+        });
         return valid;
     }
 }
