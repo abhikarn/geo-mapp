@@ -32,6 +32,7 @@ export class InMemoryWebServiceService implements InMemoryDbService {
     return {
       component: null,
       menuConfig: {
+        showProfile: true,
         menuItems: [
           {
             menuId: 1, menuLink: null, isSubMenu: true, menuName: 'Masters',

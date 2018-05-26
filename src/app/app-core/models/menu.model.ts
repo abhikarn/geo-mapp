@@ -1,6 +1,7 @@
 export interface MenuConfig {
     menuItems: MenuItem[];
     showMenu: boolean;
+    showProfile: boolean;
 }
 export interface MenuItem {
     menuId: number;

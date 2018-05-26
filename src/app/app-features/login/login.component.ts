@@ -30,7 +30,8 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
         super();
         this.componentData = this.activeRoute.snapshot.data['layout'];
         this.componentData.component = HeaderComponent;
-        this.componentData.isAuth = false;
+        this.componentData.menuConfig.showMenu = false;
+        this.componentData.menuConfig.showProfile = false;
     }
 
     ngOnInit() {
@@ -50,12 +51,9 @@ export class LoginComponent extends AppBaseComponent implements OnInit {
                     this.authModel.grant_type = 'password';
                     this.authService.getToken(this.authModel)
                         .subscribe(aData => {
-                            console.log(aData);
                             this.authResponse = aData;
                             this.setState('authtoken', this.authResponse.access_token);
                             this.setState('tokentype', this.authResponse.token_type);
-                            console.log(this.authResponse.access_token, 'authtoken');
-                            console.log(this.authResponse.token_type, 'tokentype');
                             this.setState('usermodel', this.model);
                             if (this.model.notFirstLogin) {
                                 this.router.navigate(['engage']);

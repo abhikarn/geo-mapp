@@ -24,14 +24,14 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
     }
 
     ResetPassword() {
-        this.userModel.notFirstLogin = true;
         this.webService.saveUserMaster(this.userModel).subscribe(
             res => {
                 this.userModel = res;
+                this.userModel.notFirstLogin = true;
+                this.setState('usermodel', this.userModel);
                 this.showModalPopup('success', 'Password changed successfully.', 'engage');
                 this.appFeatureComponent.updateLayout(true);
                 this.router.navigate(['engage']);
-                console.log(res);
             }
         );
     }

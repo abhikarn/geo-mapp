@@ -39,7 +39,6 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     goToList() {
         this.showModalPopup('confirm', 'Are you sure you want to leave this page ?', 'engage/school-master');
     }
-
 }
 
 

@@ -15,7 +15,7 @@ import {
   AppSupervisorListResolver,
   AppHierarchyUserListResolver
 } from './app.feature.resolver';
-import { CanActivateRouteGuard } from './app.feature.route.guard';
+import { CanActivateHomeGuard } from './app.feature.route.guard';
 import { SchoolMasterListComponent } from '@app/app-features/school-master/school-master-list/school-master-list.component';
 
 const routes: Routes = [
@@ -25,8 +25,7 @@ const routes: Routes = [
   {
     path: 'login', component: LoginComponent, resolve: {
       layout: AppFeatureResolver
-    },
-    // canActivate: [CanLoginRouteGuard],
+    }
   },
   {
     path: 'engage',
@@ -35,48 +34,51 @@ const routes: Routes = [
       layout: AppFeatureResolver,
       masters: AppFeatureMasterResolver
     },
-    canActivate: [CanActivateRouteGuard],
+    canActivate: [CanActivateHomeGuard],
     children: [
       {
         path: '', component: GeoHeirarchyListComponent, resolve: {
           geoMapp: AppGeoMappResolver
-        }
+        },
+        canActivate: [CanActivateHomeGuard]
       },
 
-      { path: 'geo-heirarchy/create', component: GeoHeirarchyMapComponent },
+      {
+        path: 'geo-heirarchy/create', component: GeoHeirarchyMapComponent,
+        canActivate: [CanActivateHomeGuard]
+      },
       {
         path: 'geo-heirarchy/:id/edit', component: GeoHeirarchyMapComponent, resolve: {
           geoMap: AppSchoolGeoMappingDetail,
           SupervisorLst: AppSupervisorListResolver,
           HierarchyLst: AppHierarchyUserListResolver
         },
+        canActivate: [CanActivateHomeGuard]
       },
       {
         path: 'school-master', component: SchoolMasterListComponent, resolve: {
           schoolLst: AppSchoolListResolver
-        }
+        },
+        canActivate: [CanActivateHomeGuard]
       },
 
-      { path: 'school-master/create', component: SchoolMasterCreateComponent },
+      { path: 'school-master/create', component: SchoolMasterCreateComponent, canActivate: [CanActivateHomeGuard] },
       {
         path: 'school-master/:id/edit', component: SchoolMasterCreateComponent, resolve: {
           school: AppSchoolResolver
         },
+        canActivate: [CanActivateHomeGuard]
       },
-      // {
-      //   path: 'school-master', component: SchoolMasterCreateComponent, resolve: {
-      //     schoolLst: AppSchoolListResolver
-      //   },
-      // },
       {
         path: 'user-master', component: UserMasterComponent, resolve: {
           userLst: AppUserListResolver
         },
-        // canActivate: [CanLoginRouteGuard],
+        canActivate: [CanActivateHomeGuard]
       },
       {
-        path: 'reset-password', component: ResetPasswordComponent
-      },
+        path: 'reset-password', component: ResetPasswordComponent,
+        canActivate: [CanActivateHomeGuard]
+      }
     ]
   }
 ];
@@ -84,6 +86,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [AppFeatureResolver, AppFeatureMasterResolver]
+  providers: [AppFeatureResolver, AppFeatureMasterResolver, CanActivateHomeGuard]
 })
 export class AppFetaureRoutingModule { }
