@@ -39,8 +39,8 @@
                         <span class="ui-float-label">
                             <!-- <input id="txt_dob" class="inputMaterial" type="text" [(ngModel)]='userModel.dateOfBirth' maxlength="100" ng-trim="true"
                                 required> -->
-                            <p-calendar [(ngModel)]="userModel.dateOfBirth" dataType="date" dateFormat="M/dd/yy" [showIcon]="true" class="inputMaterial"
-                                required></p-calendar>
+                            <p-calendar [(ngModel)]="userModel.dateOfBirth" dataType="date" dateFormat="M/dd/yy" [showIcon]="true" [monthNavigator]="true"
+                                [yearNavigator]="true" yearRange="1970:2005" class="inputMaterial" required></p-calendar>
                             <!-- <span style="margin-left:35px">
                                 {{userModel.dateOfBirth|date}}
                             </span> -->

@@ -1,6 +1,7 @@
 import { Component, OnInit, ComponentFactoryResolver, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppBaseComponent, School, WebService, Masters } from '@app/app-core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-school-master-create',
@@ -12,8 +13,12 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     masterConst: any = Masters;
     currentPage = 0;
     editMode = false;
+    imageData: any;
+    sanitizedImageData: SafeResourceUrl;
     constructor(public router: Router, private activatedRoute: ActivatedRoute,
-        private webService: WebService, public componentFactoryResolver: ComponentFactoryResolver) {
+        private webService: WebService, public componentFactoryResolver: ComponentFactoryResolver,
+        private sanitizer: DomSanitizer
+    ) {
         super(componentFactoryResolver);
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
     }
@@ -22,6 +27,8 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
         this.editMode = !!this.activatedRoute.snapshot.params.id;
         if (this.editMode) {
             this.school = this.activatedRoute.snapshot.data.school;
+            this.imageData = 'data:image/png;base64,' + this.activatedRoute.snapshot.data.schoolImage;
+            this.sanitizedImageData = this.sanitizer.bypassSecurityTrustUrl(this.imageData);
         }
     }
 

@@ -28,4 +28,5 @@ export interface School {
     source?: 'web' | 'mobile';
     approved?: boolean;
     status?: 'Active' | 'Inactive';
+    schoolImage?: string;
 }

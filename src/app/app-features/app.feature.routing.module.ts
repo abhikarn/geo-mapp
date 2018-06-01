@@ -13,7 +13,8 @@ import {
   AppSchoolListResolver, AppUserListResolver,
   AppSchoolResolver, AppSchoolGeoMappingDetail,
   AppSupervisorListResolver,
-  AppHierarchyUserListResolver
+  AppHierarchyUserListResolver,
+  AppSchoolImageResolver
 } from './app.feature.resolver';
 import { CanActivateHomeGuard } from './app.feature.route.guard';
 import { SchoolMasterListComponent } from '@app/app-features/school-master/school-master-list/school-master-list.component';
@@ -65,7 +66,8 @@ const routes: Routes = [
       { path: 'school-master/create', component: SchoolMasterCreateComponent, canActivate: [CanActivateHomeGuard] },
       {
         path: 'school-master/:id/edit', component: SchoolMasterCreateComponent, resolve: {
-          school: AppSchoolResolver
+          school: AppSchoolResolver,
+          schoolImage: AppSchoolImageResolver
         },
         canActivate: [CanActivateHomeGuard]
       },

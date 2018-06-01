@@ -130,5 +130,10 @@ export class WebService extends AppBaseComponent {
     const options: RequestOptions = new RequestOptions({ headers: this.postHeaders() });
     return this.http.post(`${environment.apiUrl}ResetPassword`, userModel, options);
   }
+
+  getSchoolImage(id) {
+    const params = new HttpParams().set('schoolId', id);
+    return this.httpClient.get(`${environment.apiUrl}SchoolImage`, { headers: this.getHeaders(), params: params });
+  }
 }
 

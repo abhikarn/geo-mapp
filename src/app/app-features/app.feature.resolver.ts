@@ -99,3 +99,13 @@ export class AppHierarchyUserListResolver implements Resolve<UserMaster[]> {
         return this.webService.getRoleBasedUser('Marketing User');
     }
 }
+
+@Injectable()
+export class AppSchoolImageResolver implements Resolve<any> {
+    constructor(private webService: WebService) {
+    }
+    resolve(route: ActivatedRouteSnapshot): Observable<any> {
+        const id = <string>route.params['id'];
+        return this.webService.getSchoolImage(id);
+    }
+}
