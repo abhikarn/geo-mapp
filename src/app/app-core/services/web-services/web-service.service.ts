@@ -126,9 +126,15 @@ export class WebService extends AppBaseComponent {
       { headers: this.getHeaders(), params: httpParams }) as Observable<UserMaster[]>;
   }
 
-  ResetPassword(userModel: UserMaster): Observable<any> {
+  ResetPassword(password: string, oldPassword: string): Observable<any> {
+    const userModel = this.getState<UserMaster>('usermodel');
+    const params = {
+      'password': password,
+      'oldPassword': oldPassword,
+      'userId': userModel.id.toString()
+    };
     const options: RequestOptions = new RequestOptions({ headers: this.postHeaders() });
-    return this.http.post(`${environment.apiUrl}ResetPassword`, userModel, options);
+    return this.http.patch(`${environment.apiUrl}ResetPassword`, params, options);
   }
 
   getSchoolImage(id) {

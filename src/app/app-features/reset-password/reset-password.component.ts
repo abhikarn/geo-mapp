@@ -1,10 +1,7 @@
-import { OnInit, Component, ComponentFactoryResolver, Inject, forwardRef } from '@angular/core';
-import { WebService, AppBaseComponent } from '@app/app-core';
+import { Component, ComponentFactoryResolver, Inject, forwardRef, OnInit } from '@angular/core';
+import { WebService, AppBaseComponent, UserMaster } from '@app/app-core';
 import { AppFeatureComponent } from '@app/app-features/app.feature.component';
 import { Router } from '@angular/router';
-import {
-    UserMaster
-} from '@app/app-core';
 
 @Component({
     templateUrl: 'reset-password.component.html',
@@ -18,22 +15,34 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
         super(componentFactoryResolver);
 
     }
-    userModel: UserMaster = this.getState<UserMaster>('usermodel');
-    ngOnInit() {
-        this.userModel.userPassword = '';
+    oldPassword: string;
+    userPassword: string;
+    conPassword: string;
+    isFirstLogin: boolean;
+    ngOnInit(): void {
+        this.isFirstLogin = this.getState<UserMaster>('usermodel').notFirstLogin;
+        this.oldPassword = '';
+        this.userPassword = '';
+        this.conPassword = '';
     }
 
     ResetPassword() {
-        this.webService.saveUserMaster(this.userModel).subscribe(
-            res => {
-                this.userModel = res;
-                this.userModel.notFirstLogin = true;
-                this.setState('usermodel', this.userModel);
-                this.showModalPopup('success', 'Password changed successfully.', 'engage');
-                this.appFeatureComponent.updateLayout(true);
-                this.router.navigate(['engage']);
+        if ((!this.oldPassword || !this.userPassword || !this.conPassword) && this.isFirstLogin) {
+            if (this.comparePassword(this.userPassword, this.conPassword)) {
+                this.webService.ResetPassword(this.userPassword, this.oldPassword).subscribe(
+                    res => {
+                        this.appFeatureComponent.updateLayout(true);
+                        console.log(res);
+                        this.setState('usermodel', JSON.parse(res.text()));
+                        this.showModalPopup('success', 'Password changed successfully.', 'engage');
+                    }
+                );
+            } else {
+                this.showModalPopup('Invalid', 'Passwords should match', '', false);
             }
-        );
+        } else {
+            this.showModalPopup('Invalid', 'All fields are mandatory', '', false);
+        }
     }
 
     Cancel() {

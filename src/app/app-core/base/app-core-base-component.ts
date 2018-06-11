@@ -122,5 +122,13 @@ export abstract class AppBaseComponent {
         });
         return valid;
     }
+
+    protected comparePassword(password: string, confirmPassword: string): boolean {
+        if (password === confirmPassword) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 

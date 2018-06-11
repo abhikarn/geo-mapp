@@ -50,14 +50,18 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     }
 
     saveData() {
-        console.log(this.userModel);
-        this.webService.saveUserMaster(this.userModel).subscribe(res => {
-            this.userModel = res;
-            this.showModalPopup('success', 'The user saved successfully.', 'engage');
-            // let userMaster: UserMaster = this.userLst.find((user) => user.userMasterId === this.userModel.userMasterId);
-            // userMaster = this.userModel;
-            console.log(res);
-        });
+        if (this.doValidation(this.userModel, ['schoolName', 'schoolType'])) {
+            console.log(this.userModel);
+            this.webService.saveUserMaster(this.userModel).subscribe(res => {
+                this.userModel = res;
+                this.showModalPopup('success', 'The user saved successfully.', 'engage');
+                // let userMaster: UserMaster = this.userLst.find((user) => user.userMasterId === this.userModel.userMasterId);
+                // userMaster = this.userModel;
+                console.log(res);
+            });
+        } else {
+            this.showModalPopup('Invalid', 'Please enter all mandatory fields', '', false);
+        }
     }
 
     doEdit(user: UserMaster) {
