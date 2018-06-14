@@ -18,22 +18,23 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
     oldPassword: string;
     userPassword: string;
     conPassword: string;
-    isFirstLogin: boolean;
+    notFirstLogin: boolean;
     ngOnInit(): void {
-        this.isFirstLogin = this.getState<UserMaster>('usermodel').notFirstLogin;
+        this.notFirstLogin = this.getState<UserMaster>('usermodel').notFirstLogin;
         this.oldPassword = '';
         this.userPassword = '';
         this.conPassword = '';
     }
 
     ResetPassword() {
-        if ((!this.oldPassword || !this.userPassword || !this.conPassword) && this.isFirstLogin) {
+        if (this.ValidateFields()) {
             if (this.comparePassword(this.userPassword, this.conPassword)) {
                 this.webService.ResetPassword(this.userPassword, this.oldPassword).subscribe(
                     res => {
                         this.appFeatureComponent.updateLayout(true);
                         console.log(res);
                         this.setState('usermodel', JSON.parse(res.text()));
+                        this.notFirstLogin = this.getState<UserMaster>('usermodel').notFirstLogin;
                         this.showModalPopup('success', 'Password changed successfully.', 'engage');
                     }
                 );
@@ -46,8 +47,33 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
     }
 
     Cancel() {
-        this.clearAllStorage();
-        this.router.navigate(['login']);
+        if (!this.notFirstLogin) {
+            this.clearAllStorage();
+            this.router.navigate(['login']);
+        }
+        else {
+            this.router.navigate(['engage']);
+        }
     }
+
+    ValidateFields(): boolean {
+        if (this.notFirstLogin) {
+            if (!this.oldPassword || !this.userPassword || !this.conPassword) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+        else {
+            if (!this.userPassword || !this.conPassword) {
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+
 
 }

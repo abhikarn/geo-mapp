@@ -27,7 +27,8 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
         this.editMode = !!this.activatedRoute.snapshot.params.id;
         if (this.editMode) {
             this.school = this.activatedRoute.snapshot.data.school;
-            this.imageData = 'data:image/png;base64,' + this.activatedRoute.snapshot.data.schoolImage;
+            this.imageData = !this.activatedRoute.snapshot.data.schoolImage ?
+                null : 'data:image/png;base64,' + this.activatedRoute.snapshot.data.schoolImage;
             this.sanitizedImageData = this.sanitizer.bypassSecurityTrustUrl(this.imageData);
         }
     }
