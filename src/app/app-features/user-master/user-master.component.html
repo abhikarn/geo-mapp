@@ -19,7 +19,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_userName" class="inputMaterial" type="text" [(ngModel)]='userModel.userName' maxlength="50" ng-trim="true"
+                            <input id="txt_userName" class="inputMaterial mandatory" type="text" [(ngModel)]='userModel.userName' maxlength="50" ng-trim="true"
                                 required>
                             <label for="txt_userName">UserName
                                 <span style="color: red; padding-left: 2px;">*</span>
@@ -30,7 +30,7 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <input id="txt_emailId" class="inputMaterial" type="email" [(ngModel)]='userModel.emailId' maxlength="100" ng-trim="true"
+                            <input id="txt_emailId" class="inputMaterial mandatory" type="email" [(ngModel)]='userModel.emailId' maxlength="100" ng-trim="true"
                                 required>
                             <label for="txt_emailId">Email Id</label>
                         </span>
@@ -90,11 +90,13 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='userModel.stateId' (ngModelChange)="onOptionsSelected($event)">
+                            <select id="dd_state" class='inputMaterial mandatory' required [(ngModel)]='userModel.stateId' (ngModelChange)="onOptionsSelected($event)">
                                 <option class='option' [value]="0">Select</option>
                                 <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
-                            <label for="dd_state">State</label>
+                            <label for="dd_state">State
+                                <span style="color: red; padding-left: 2px;">*</span>
+                            </label>
                         </span>
                     </div>
                 </div>
@@ -111,10 +113,12 @@
                 <div class="col-sm-4">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_role" class='inputMaterial' required [(ngModel)]='userModel.roleId'>
+                            <select id="dd_role" class='inputMaterial mandatory' required [(ngModel)]='userModel.roleId'>
                                 <option class='option' *ngFor='let option of masters.roleMaster' [value]="option.id">{{option.name}}</option>
                             </select>
-                            <label for="dd_role">Role</label>
+                            <label for="dd_role">Role
+                                <span style="color: red; padding-left: 2px;">*</span>
+                            </label>
                         </span>
                     </div>
                 </div>
