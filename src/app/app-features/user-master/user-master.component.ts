@@ -5,7 +5,8 @@ import { ConfirmationService } from 'primeng/primeng';
 @Component({
     selector: 'app-user-master',
     templateUrl: './user-master.component.html',
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
+    styles: [ '.group p-calendar {position: relative}']
 })
 export class UserMasterComponent extends AppBaseComponent implements OnInit {
     userModel: UserMaster = {
@@ -15,7 +16,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         roleName: '', status: '', countryId: 0, countryName: '',
         stateId: 0, stateName: '', zoneId: 0, zoneName: '',
         branchId: 0, branchName: '',
-        cityId: 0, cityName: ''
+        cityId: 0, cityName: '', dateOfBirth: null
     };
     masters: any;
     userLst: UserMaster[];

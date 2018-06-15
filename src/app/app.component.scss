@@ -277,31 +277,31 @@ select {
                     @include border-radius(5px);
                 }
             }
-            .ui-widget-header{
-                background: $white-color;
-                border:none;
-                > a {
-                    &.ui-datepicker-next{
-                        @include width-height(15px, 20px);
-                        right: 15px;
-                        span.fa-angle-right {
-                            background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -475px -15px;
-                            @include width-height(15px, 20px);
-                        }
-                    }
-                    &.ui-datepicker-prev{
-                        @include width-height(15px, 20px);
-                        left: 8px;
-                        span.fa-angle-left {
-                            background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -450px -15px;
-                            @include width-height(15px, 20px);
-                        }
-                    }
-                    &:hover{
-                        background: transparent;
-                    }
-                }       
-            }
+            // .ui-widget-header{
+            //     background: $white-color;
+            //     border:none;
+            //     > a {
+            //         &.ui-datepicker-next{
+            //             @include width-height(15px, 20px);
+            //             right: 15px;
+            //             span.fa-angle-right {
+            //                 background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -475px -15px;
+            //                 @include width-height(15px, 20px);
+            //             }
+            //         }
+            //         &.ui-datepicker-prev{
+            //             @include width-height(15px, 20px);
+            //             left: 8px;
+            //             span.fa-angle-left {
+            //                 background: transparent url('#{$assetImgPath}/sprite-icons.png') no-repeat -450px -15px;
+            //                 @include width-height(15px, 20px);
+            //             }
+            //         }
+            //         &:hover{
+            //             background: transparent;
+            //         }
+            //     }       
+            // }
         }
     }
     p-multiselect{
