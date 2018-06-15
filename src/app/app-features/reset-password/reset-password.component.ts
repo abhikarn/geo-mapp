@@ -13,7 +13,6 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
         public router: Router,
         @Inject(forwardRef(() => AppFeatureComponent)) private appFeatureComponent: AppFeatureComponent) {
         super(componentFactoryResolver);
-
     }
     oldPassword: string;
     userPassword: string;
@@ -50,8 +49,7 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
         if (!this.notFirstLogin) {
             this.clearAllStorage();
             this.router.navigate(['login']);
-        }
-        else {
+        } else {
             this.router.navigate(['engage']);
         }
     }
@@ -60,20 +58,15 @@ export class ResetPasswordComponent extends AppBaseComponent implements OnInit {
         if (this.notFirstLogin) {
             if (!this.oldPassword || !this.userPassword || !this.conPassword) {
                 return false;
-            }
-            else {
+            } else {
                 return true;
             }
-        }
-        else {
+        } else {
             if (!this.userPassword || !this.conPassword) {
                 return false;
-            }
-            else {
+            } else {
                 return true;
             }
         }
     }
-
-
 }
