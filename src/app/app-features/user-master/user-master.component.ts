@@ -6,12 +6,12 @@ import { ConfirmationService } from 'primeng/primeng';
     selector: 'app-user-master',
     templateUrl: './user-master.component.html',
     encapsulation: ViewEncapsulation.None,
-    styles: [ '.group p-calendar {position: relative}']
+    styles: ['.group p-calendar {position: relative}']
 })
 export class UserMasterComponent extends AppBaseComponent implements OnInit {
     userModel: UserMaster = {
         id: 0,
-        userName: '', emailId: '', userPassword: '', isActive: true,
+        userName: '', emailId: '', userPassword: '', isActive: false,
         lastLoginDate: new Date(), firstName: '', lastName: '', roleId: 0,
         roleName: '', status: '', countryId: 0, countryName: '',
         stateId: 0, stateName: '', zoneId: 0, zoneName: '',
@@ -51,7 +51,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     }
 
     saveData() {
-        if (this.doValidation(this.userModel, ['schoolName', 'schoolType'])) {
+        if (this.doValidation(this.userModel, ['userName', 'emailId', 'firstName', 'stateId', 'roleId'])) {
             console.log(this.userModel);
             this.webService.saveUserMaster(this.userModel).subscribe(res => {
                 this.userModel = res;
