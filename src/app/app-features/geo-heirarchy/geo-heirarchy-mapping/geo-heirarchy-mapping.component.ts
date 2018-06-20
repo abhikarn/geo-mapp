@@ -17,10 +17,10 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   supervisorModels: UserMaster[];
   hierarchyUserModels: UserMaster[];
   geoMapping: GeoMapping = {
-    countryId: 1, countryName: '', zoneId: 1, zoneName: '',
-    branchId: 1, branchName: '', stateId: 1, stateName: '',
-    supervisorId: 1, supervisorName: '',
-    marketingHierarchyUserId: 1, marketingHierarchyUserName: ''
+    countryId: 0, countryName: '', zoneId: 0, zoneName: '',
+    branchId: 0, branchName: '', stateId: 0, stateName: '',
+    supervisorId: 0, supervisorName: '',
+    marketingHierarchyUserId: 0, marketingHierarchyUserName: ''
   };
   constructor(private activatedRoute: ActivatedRoute,
     public router: Router, private webService: WebService,
@@ -33,7 +33,6 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   ngOnInit() {
     this.editMode = !!this.activatedRoute.snapshot.params.id;
     if (this.editMode) {
-      console.log(this.activatedRoute.snapshot.data.geoMap, 'Amit');
       this.geoMapping = this.activatedRoute.snapshot.data.geoMap;
       this.supervisorModels = this.activatedRoute.snapshot.data.SupervisorLst;
       this.hierarchyUserModels = this.activatedRoute.snapshot.data.HierarchyLst;
@@ -91,10 +90,19 @@ export class GeoHeirarchyMapComponent extends AppBaseComponent implements OnInit
   }
 
   saveData() {
-    this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
-      console.log(res);
-      this.showModalPopup('success', 'The mapping saved successfully', 'engage');
-    });
+    console.log(this.geoMapping.schoolGeoHierarchyMappingViewModels);
+    if (this.doValidation(this.geoMapping, ['countryId', 'zoneId', 'branchId', 'stateId', 'supervisorId', 'marketingHierarchyUserId'])) {
+      if (this.geoMapping.schoolGeoHierarchyMappingViewModels) {
+        this.webService.saveGeoHierarchy(this.geoMapping).subscribe((res) => {
+          console.log(res);
+          this.showModalPopup('success', 'The mapping saved successfully', 'engage');
+        });
+      } else {
+        this.showModalPopup('Invalid', 'Minimum one school is required', '', false);
+      }
+    } else {
+      this.showModalPopup('Invalid', 'Please enter all mandatory fields', '', false);
+    }
   }
 
   saveConfirm() {
