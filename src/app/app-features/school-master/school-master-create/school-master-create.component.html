@@ -99,10 +99,12 @@
                 <div class="col-sm-6">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_state" class='inputMaterial' required [(ngModel)]='school.stateId'>
+                            <select id="dd_state" class='inputMaterial mandatory' required [(ngModel)]='school.stateId'>
                                 <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
-                            <label for="dd_state">State</label>
+                            <label for="dd_state">State
+                                <span style="color: red; padding-left: 2px;">*</span>
+                            </label>
                         </span>
                     </div>
                 </div>

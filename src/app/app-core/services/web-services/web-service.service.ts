@@ -36,13 +36,13 @@ export class WebService extends AppBaseComponent {
   }
 
   getMasters() {
-    const userModel = this.getState<UserMaster>('usermodel');
-    const httpParams = new HttpParams()
-      .set('stateId', userModel.stateId.toString());
+    // const userModel = this.getState<UserMaster>('usermodel');
+    // const httpParams = new HttpParams()
+    //   .set('stateId', userModel.stateId.toString());
     return this.httpClient.get(`${environment.apiUrl}Masters`,
       {
-        headers: this.getHeaders(),
-        params: httpParams
+        headers: this.getHeaders()
+        // params: httpParams
       });
   }
   getProducts() {
@@ -140,6 +140,11 @@ export class WebService extends AppBaseComponent {
   getSchoolImage(id) {
     const params = new HttpParams().set('schoolId', id);
     return this.httpClient.get(`${environment.apiUrl}SchoolImage`, { headers: this.getHeaders(), params: params });
+  }
+
+  getRoleBasedMasters(id) {
+    const params = new HttpParams().set('roleId', id);
+    return this.httpClient.get(`${environment.apiUrl}Masters`, { headers: this.getHeaders(), params: params });
   }
 }
 

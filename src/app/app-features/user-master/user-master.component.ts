@@ -19,6 +19,11 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         cityId: 0, cityName: '', dateOfBirth: null
     };
     masters: any;
+    showCountry: boolean;
+    showZone: boolean;
+    showBranch: boolean;
+    showState: boolean;
+    isEdit: boolean;
     userLst: UserMaster[];
     users: UserMaster[];
     currentPage = 0;
@@ -29,6 +34,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     ) {
         super(componentFactoryResolver);
         this.masters = this.activatedRoute.parent.snapshot.data.masters;
+        this.isEdit = false;
     }
 
     ngOnInit() {
@@ -51,7 +57,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     }
 
     saveData() {
-        if (this.doValidation(this.userModel, ['userName', 'emailId', 'firstName', 'stateId', 'roleId'])) {
+        if (this.doValidation(this.userModel, ['userName', 'emailId', 'firstName', 'roleId'])) {
             console.log(this.userModel);
             this.webService.saveUserMaster(this.userModel).subscribe(res => {
                 this.userModel = res;
@@ -67,7 +73,9 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
 
     doEdit(user: UserMaster) {
         console.log(user, 'Sumit');
+        this.isEdit = true;
         this.userModel = user;
+        this.toggleMasterDisplay(this.userModel.roleId);
     }
 
     updatePage(event) {
@@ -75,8 +83,96 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
         this.userLst = this.users.slice(event.first, +event.first + +event.rows);
     }
 
-    onOptionsSelected(event) {
-        console.log(event);
+
+    onOptionsSelected(event: string, source: string): void {
+        this.isEdit = false;
+        if (source === 'role') {
+            this.toggleMasterDisplay(parseInt(event, 10));
+        }
+        if (source === 'country') {
+            this.webService.getZones(parseInt(event, 10)).subscribe((res) => {
+                this.masters.zoneMaster = res;
+                this.masters.branchMaster = null;
+                this.masters.stateMaster = null;
+                this.masters.supervisorMaster = null;
+            });
+        }
+        if (source === 'zone') {
+            this.webService.getBranches(parseInt(event, 10)).subscribe((res) => {
+                this.masters.branchMaster = res;
+                this.masters.stateMaster = null;
+                this.masters.supervisorMaster = null;
+            });
+        }
+        if (source === 'branch') {
+            this.webService.getStates(parseInt(event, 10)).subscribe((res) => {
+                this.masters.stateMaster = res;
+            });
+        }
+        if (source === 'state') {
+            // this.webService.getRoleBasedUser('Supervisor', this.geoMapping.countryId, parseInt(event, 10))
+            //   .subscribe((res) => {
+            //     this.supervisorModels = res;
+            //   });
+        }
+    }
+
+    toggleMasterDisplay(event: number): void {
+        switch (event) {
+            case 1:
+                this.showCountry = false;
+                this.showZone = false;
+                this.showBranch = false;
+                this.showState = false;
+                break;
+            case 2:
+                this.showCountry = true;
+                this.showZone = true;
+                this.showBranch = true;
+                this.showState = true;
+                this.webService.getStates(this.userModel.branchId).subscribe((res) => {
+                    this.masters.stateMaster = res;
+                });
+                break;
+            case 3:
+                this.showCountry = true;
+                this.showZone = true;
+                this.showBranch = true;
+                this.showState = true;
+                this.webService.getStates(this.userModel.branchId).subscribe((res) => {
+                    this.masters.stateMaster = res;
+                });
+                break;
+            case 4:
+                this.showCountry = true;
+                this.showZone = false;
+                this.showBranch = false;
+                this.showState = false;
+                break;
+            case 5:
+                this.showCountry = true;
+                this.showZone = true;
+                this.showBranch = false;
+                this.showState = false;
+                this.webService.getBranches(this.userModel.zoneId).subscribe((res) => {
+                    this.masters.branchMaster = res;
+                    this.masters.stateMaster = null;
+                });
+                break;
+            case 6:
+                this.showCountry = true;
+                this.showZone = true;
+                this.showBranch = true;
+                this.showState = false;
+                this.webService.getZones(this.userModel.countryId).subscribe((res) => {
+                    this.masters.zoneMaster = res;
+                    this.masters.branchMaster = null;
+                    this.masters.stateMaster = null;
+                });
+                break;
+            default:
+                break;
+        }
     }
 
 }

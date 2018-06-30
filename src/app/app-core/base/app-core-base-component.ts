@@ -116,7 +116,7 @@ export abstract class AppBaseComponent {
         let valid = true;
         fields.forEach((f) => {
             const modelValue = object[f];
-            if (!modelValue || modelValue == 0) {
+            if (!modelValue || modelValue === 0) {
                 valid = false;
             }
         });

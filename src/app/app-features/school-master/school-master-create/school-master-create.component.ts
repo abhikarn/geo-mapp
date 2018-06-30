@@ -34,7 +34,7 @@ export class SchoolMasterCreateComponent extends AppBaseComponent implements OnI
     }
 
     saveSchoolMaster() {
-        if (this.doValidation(this.school, ['schoolName', 'schoolType'])) {
+        if (this.doValidation(this.school, ['schoolName', 'schoolType', 'stateId'])) {
             this.webService.saveSchoolMaster(this.school).subscribe(() => {
                 this.showModalPopup('success', 'The school saved successfully', 'engage/school-master');
                 // this.router.navigate(['engage/school-master']);

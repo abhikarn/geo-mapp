@@ -109,3 +109,12 @@ export class AppSchoolImageResolver implements Resolve<any> {
         return this.webService.getSchoolImage(id);
     }
 }
+
+@Injectable()
+export class AppFeatureRoleBasedMasterResolver implements Resolve<any> {
+    constructor(private webService: WebService) { }
+    resolve(route: ActivatedRouteSnapshot): Observable<any> {
+        const id = <string>route.params['id'];
+        return this.webService.getRoleBasedMasters(id);
+    }
+}
