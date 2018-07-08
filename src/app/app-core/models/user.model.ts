@@ -25,4 +25,5 @@ export interface UserMaster {
     authToken?: string;
     confirmPassword?: string;
     notFirstLogin?: boolean;
+    ParentId?: number;
 }

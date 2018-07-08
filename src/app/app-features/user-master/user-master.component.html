@@ -42,7 +42,7 @@
                     <div class="group">
                         <span class="ui-float-label">
                             <input id="txt_userPassword" class="inputMaterial mandatory" type="password" [(ngModel)]='userModel.userPassword' maxlength="50"
-                                ng-trim="true" required>
+                                minlength="6" ng-trim="true" required>
                             <label for="txt_userPassword">Password
                                 <span style="color: red; padding-left: 2px;">*</span>
                             </label>
@@ -80,7 +80,9 @@
                                     required> -->
                             <p-calendar [(ngModel)]="userModel.dateOfBirth" dataType="string" dateFormat="mm/dd/yy" [showIcon]="true" [monthNavigator]="true"
                                 [yearNavigator]="true" yearRange="1970:2005" class="inputMaterial mandatory" required></p-calendar>
-                            <label for="txt_dob">Date of Birth</label>
+                            <label for="txt_dob">Date of Birth
+                                <span style="color: red; padding-left: 2px;">*</span>
+                            </label>
                         </span>
                     </div>
                 </div>
@@ -114,8 +116,8 @@
                 </div>
             </div>
 
-            <div class="row" *ngIf="isEdit? (userModel.roleId === 5 || userModel.roleId === 6 || userModel.roleId === 3 || userModel.roleId === 2) : showZone">
-                <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-4" *ngIf="isEdit? (userModel.roleId === 5 || userModel.roleId === 6 || userModel.roleId === 2 || userModel.roleId === 3) : showZone">
                     <div class="group">
                         <span class="ui-float-label">
                             <select id="dd_zone" class='inputMaterial mandatory' required [(ngModel)]='userModel.zoneId' (ngModelChange)="onOptionsSelected($event, 'zone')">
@@ -141,15 +143,30 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-sm-4" *ngIf="isEdit? (userModel.roleId === 3 || userModel.roleId === 2) : showState">
+                <div class="col-sm-4" *ngIf="isEdit? (userModel.roleId === 2 || userModel.roleId === 3) : showState">
                     <div class="group">
                         <span class="ui-float-label">
-                            <select id="dd_state" class='inputMaterial mandatory' required [(ngModel)]='userModel.stateId' required>
+                            <select id="dd_state" class='inputMaterial mandatory' required [(ngModel)]='userModel.stateId' required (ngModelChange)="onOptionsSelected($event, 'state')">
                                 <option class='option' [value]="0">Select</option>
                                 <option class='option' *ngFor='let option of masters.stateMaster' [value]="option.id">{{option.name}}</option>
                             </select>
                             <label for="dd_state">State
                                 <span style="color: red; padding-left: 2px;">*</span>
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4" *ngIf="isEdit? (userModel.roleId === 3) : showSupervisor">
+                    <div class="group">
+                        <span class="ui-float-label">
+                            <select id="dd_supervisor" class='inputMaterial' required [(ngModel)]='userModel.id'>
+                                <option class='option' [value]="0">Select</option>
+                                <option class='highlight' *ngFor='let option of supervisorModels' [value]="option.id">{{option.name}}</option>
+                            </select>
+                            <label for="dd_supervisor">Superviser
                             </label>
                         </span>
                     </div>

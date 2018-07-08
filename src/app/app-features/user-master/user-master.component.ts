@@ -23,9 +23,11 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     showZone: boolean;
     showBranch: boolean;
     showState: boolean;
+    showSupervisor: boolean;
     isEdit: boolean;
     userLst: UserMaster[];
     users: UserMaster[];
+    supervisorModels: UserMaster[];
     currentPage = 0;
     constructor(private activatedRoute: ActivatedRoute, private webService: WebService,
         private confirmationService: ConfirmationService,
@@ -57,7 +59,7 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     }
 
     saveData() {
-        if (this.doValidation(this.userModel, ['userName', 'emailId', 'firstName', 'roleId'])) {
+        if (this.doValidation(this.userModel, ['userName', 'emailId', 'firstName', 'roleId', 'dateOfBirth']) && this.validateUserOnRole(this.userModel.roleId)) {
             console.log(this.userModel);
             this.webService.saveUserMaster(this.userModel).subscribe(res => {
                 this.userModel = res;
@@ -72,9 +74,9 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
     }
 
     doEdit(user: UserMaster) {
-        console.log(user, 'Sumit');
         this.isEdit = true;
         this.userModel = user;
+        console.log(this.userModel);
         this.toggleMasterDisplay(this.userModel.roleId);
     }
 
@@ -110,10 +112,11 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
             });
         }
         if (source === 'state') {
-            // this.webService.getRoleBasedUser('Supervisor', this.geoMapping.countryId, parseInt(event, 10))
-            //   .subscribe((res) => {
-            //     this.supervisorModels = res;
-            //   });
+            this.webService.getRoleBasedUser('Supervisor', this.userModel.countryId, this.userModel.stateId)
+                .subscribe((res) => {
+                    this.supervisorModels = res;
+
+                });
         }
     }
 
@@ -124,12 +127,14 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
                 this.showZone = false;
                 this.showBranch = false;
                 this.showState = false;
+                this.showSupervisor = false;
                 break;
             case 2:
                 this.showCountry = true;
                 this.showZone = true;
                 this.showBranch = true;
                 this.showState = true;
+                this.showSupervisor = false;
                 this.webService.getStates(this.userModel.branchId).subscribe((res) => {
                     this.masters.stateMaster = res;
                 });
@@ -139,23 +144,32 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
                 this.showZone = true;
                 this.showBranch = true;
                 this.showState = true;
+                this.showSupervisor = true;
                 this.webService.getStates(this.userModel.branchId).subscribe((res) => {
                     this.masters.stateMaster = res;
                 });
+                this.webService.getRoleBasedUser('Supervisor', this.userModel.countryId, this.userModel.stateId)
+                    .subscribe((res) => {
+                        this.supervisorModels = res;
+                        console.log(res, 'Sumit');
+                    });
                 break;
             case 4:
                 this.showCountry = true;
                 this.showZone = false;
                 this.showBranch = false;
                 this.showState = false;
+                this.showSupervisor = false;
                 break;
             case 5:
                 this.showCountry = true;
                 this.showZone = true;
                 this.showBranch = false;
                 this.showState = false;
-                this.webService.getBranches(this.userModel.zoneId).subscribe((res) => {
-                    this.masters.branchMaster = res;
+                this.showSupervisor = false;
+                this.webService.getZones(this.userModel.countryId).subscribe((res) => {
+                    this.masters.zoneMaster = res;
+                    this.masters.branchMaster = null;
                     this.masters.stateMaster = null;
                 });
                 break;
@@ -164,15 +178,60 @@ export class UserMasterComponent extends AppBaseComponent implements OnInit {
                 this.showZone = true;
                 this.showBranch = true;
                 this.showState = false;
-                this.webService.getZones(this.userModel.countryId).subscribe((res) => {
-                    this.masters.zoneMaster = res;
-                    this.masters.branchMaster = null;
+                this.showSupervisor = false;
+                this.webService.getBranches(this.userModel.zoneId).subscribe((res) => {
+                    this.masters.branchMaster = res;
                     this.masters.stateMaster = null;
                 });
                 break;
             default:
                 break;
         }
+    }
+
+    validateUserOnRole(role: number): boolean {
+        let valid = true;
+        switch (role) {
+            case 1:
+                break;
+            case 2:
+                if ((!this.userModel.countryId || this.userModel.countryId === 0) ||
+                    (!this.userModel.zoneId || this.userModel.zoneId === 0) ||
+                    (!this.userModel.branchId || this.userModel.branchId === 0) ||
+                    (!this.userModel.stateId || this.userModel.stateId === 0)) {
+                    valid = false;
+                }
+                break;
+            case 3:
+                if ((!this.userModel.countryId || this.userModel.countryId === 0) ||
+                    (!this.userModel.zoneId || this.userModel.zoneId === 0) ||
+                    (!this.userModel.branchId || this.userModel.branchId === 0) ||
+                    (!this.userModel.stateId || this.userModel.stateId === 0)) {
+                    valid = false;
+                }
+                break;
+            case 4:
+                if ((!this.userModel.countryId || this.userModel.countryId === 0)) {
+                    valid = false;
+                }
+                break;
+            case 5:
+                if ((!this.userModel.countryId || this.userModel.countryId === 0) ||
+                    (!this.userModel.zoneId || this.userModel.zoneId === 0)) {
+                    valid = false;
+                }
+                break;
+            case 6:
+                if ((!this.userModel.countryId || this.userModel.countryId === 0) ||
+                    (!this.userModel.zoneId || this.userModel.zoneId === 0) ||
+                    (!this.userModel.branchId || this.userModel.branchId === 0)) {
+                    valid = false;
+                }
+                break;
+            default:
+                break;
+        }
+        return valid;
     }
 
 }
